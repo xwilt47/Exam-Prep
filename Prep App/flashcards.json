@@ -1,0 +1,44 @@
+{
+  "flashcards": [
+    {
+      "question": "What does HTML stand for?",
+      "answer": "HyperText Markup Language."
+    },
+    {
+      "question": "What is CSS mainly used for?",
+      "answer": "Styling the layout and appearance of web pages."
+    },
+    {
+      "question": "What language makes a web page interactive?",
+      "answer": "JavaScript."
+    },
+    {
+      "question": "Which HTML tag is commonly used for the largest heading?",
+      "answer": "The <h1> tag."
+    },
+    {
+      "question": "What CSS property changes text color?",
+      "answer": "The color property."
+    },
+    {
+      "question": "What does JSON stand for?",
+      "answer": "JavaScript Object Notation."
+    },
+    {
+      "question": "What method is used in JavaScript to select an element by ID?",
+      "answer": "document.getElementById()."
+    },
+    {
+      "question": "What does the fetch API do?",
+      "answer": "It requests resources such as JSON files from a server."
+    },
+    {
+      "question": "Why is the viewport meta tag used?",
+      "answer": "It helps pages scale correctly on mobile devices."
+    },
+    {
+      "question": "What happens when the flashcard is clicked in this app?",
+      "answer": "The card flips and shows the answer on the back."
+    }
+  ]
+}

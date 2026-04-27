@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcard Study App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-panel" id="introScreen">
+      <p class="eyebrow">Study mode</p>
+      <h1>Flashcards built from your JSON set.</h1>
+      <p class="hero-copy">
+        Pick Flashcards to begin. Tap each card to flip it, reveal the answer, and move through the set one prompt at a time.
+      </p>
+
+      <div class="status-box" id="introStatus" aria-live="polite">
+        Loading flashcards...
+      </div>
+
+      <div class="hero-actions">
+        <button class="mode-button" id="startButton" type="button" disabled>Flashcards</button>
+        <button class="mode-button" id="quizButton" type="button" disabled>Multiple Choice</button>
+        <span class="card-count" id="cardCount">0 flashcards ready</span>
+        <span class="card-count" id="quizCount">0 quiz questions ready</span>
+      </div>
+    </section>
+
+    <section class="study-panel hidden" id="studyScreen" aria-live="polite">
+      <div class="study-toolbar">
+        <button class="ghost-button" id="backButton" type="button">Back</button>
+        <div class="progress-text" id="progressText">Card 1 of 1</div>
+      </div>
+
+      <div class="flashcard-wrap">
+        <button class="flashcard" id="flashcard" type="button" aria-label="Flip flashcard">
+          <span class="flashcard-face flashcard-front">
+            <span class="face-label">Question</span>
+            <span class="face-content" id="questionText"></span>
+          </span>
+          <span class="flashcard-face flashcard-back">
+            <span class="face-label">Answer</span>
+            <span class="face-content" id="answerText"></span>
+          </span>
+        </button>
+      </div>
+
+      <section class="quiz-wrap hidden" id="quizWrap" aria-live="polite">
+        <div class="quiz-card">
+          <div class="quiz-result hidden" id="quizResultBadge" aria-hidden="true"></div>
+          <span class="face-label">Question</span>
+          <h2 class="quiz-question" id="quizQuestionText"></h2>
+          <div class="quiz-options" id="quizOptions"></div>
+        </div>
+      </section>
+
+      <p class="helper-text" id="helperText">Click the card to reveal the answer.</p>
+
+      <div class="study-actions">
+        <button class="secondary-button" id="prevButton" type="button">Previous</button>
+        <button class="primary-button" id="nextButton" type="button">Next</button>
+      </div>
+
+      <div class="status-box hidden" id="studyStatus" aria-live="polite"></div>
+      <div class="status-box hidden" id="quizExplanation" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
