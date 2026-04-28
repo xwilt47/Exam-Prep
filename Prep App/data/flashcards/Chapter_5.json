@@ -1,0 +1,197 @@
+{
+  "label": "Chapter 5 - Orchestrating Containers with Kubernetes",
+  "flashcards": [
+    {
+      "question": "What is a Kubernetes cluster?",
+      "answer": "A group of servers (nodes) that run containerized applications orchestrated by Kubernetes."
+    },
+    {
+      "question": "What are the two types of Kubernetes nodes?",
+      "answer": "Control plane nodes and worker nodes."
+    },
+    {
+      "question": "Where do containerized applications run in Kubernetes?",
+      "answer": "On worker nodes."
+    },
+    {
+      "question": "Where do Kubernetes cluster management components run?",
+      "answer": "On control plane nodes."
+    },
+    {
+      "question": "What is the Kubernetes API server?",
+      "answer": "The core service that exposes the Kubernetes HTTP API. \"All operations within the cluster are performed through an API server.\""
+    },
+    {
+      "question": "What is etcd?",
+      "answer": "A distributed key-value store used as Kubernetes’ cluster data store."
+    },
+    {
+      "question": "What does the Kubernetes scheduler do?",
+      "answer": "Decides which worker node will run each pod."
+    },
+    {
+      "question": "What does the controller manager do?",
+      "answer": "Runs controllers that reconcile the current state with the desired state."
+    },
+    {
+      "question": "What is the cloud controller manager?",
+      "answer": "An optional component that integrates Kubernetes with cloud provider APIs."
+    },
+    {
+      "question": "What is kubelet?",
+      "answer": "An agent on each node ensuring containers are running and reporting status to the API server."
+    },
+    {
+      "question": "What is kube-proxy?",
+      "answer": "A network proxy that implements Kubernetes Service networking."
+    },
+    {
+      "question": "What is the smallest deployable unit in Kubernetes?",
+      "answer": "A pod."
+    },
+    {
+      "question": "Can a pod contain multiple containers?",
+      "answer": "Yes, pods can contain one or more containers."
+    },
+    {
+      "question": "What is a sidecar container?",
+      "answer": "A helper container that runs alongside the main container in a pod."
+    },
+    {
+      "question": "What is an initContainer?",
+      "answer": "A container that runs before the main containers start. \"InitContainers... run every time a pod starts.\""
+    },
+    {
+      "question": "Do containers in a pod share the same IP address?",
+      "answer": "Yes, they share the pod’s network namespace."
+    },
+    {
+      "question": "Can two containers in the same pod listen on the same port?",
+      "answer": "No, because they share the same network namespace."
+    },
+    {
+      "question": "What is shared storage in a pod?",
+      "answer": "Volumes accessible by all containers in the pod."
+    },
+    {
+      "question": "Why should production clusters have multiple control plane nodes?",
+      "answer": "To avoid downtime and prevent losing etcd data."
+    },
+    {
+      "question": "Why is an odd number of control plane nodes recommended?",
+      "answer": "To avoid split-brain scenarios during network failures."
+    },
+    {
+      "question": "What is kubectl?",
+      "answer": "A command-line tool used to interact with the Kubernetes API."
+    },
+    {
+      "question": "What is the Kubernetes dashboard?",
+      "answer": "A web-based UI for viewing and managing cluster resources."
+    },
+    {
+      "question": "What does declarative API mean?",
+      "answer": "You define the desired state, and Kubernetes ensures the current state matches it."
+    },
+    {
+      "question": "What is a reconciliation loop?",
+      "answer": "A continuous control loop that ensures desired and current states match."
+    },
+    {
+      "question": "What are Kubernetes API versions used for?",
+      "answer": "Managing evolving features and maintaining backward compatibility."
+    },
+    {
+      "question": "What are the three stages of Kubernetes feature maturity?",
+      "answer": "Alpha, beta, and stable (GA)."
+    },
+    {
+      "question": "What is a Kubernetes Enhancement Proposal (KEP)?",
+      "answer": "A document describing major changes or new features in Kubernetes."
+    },
+    {
+      "question": "What are Kubernetes SIGs?",
+      "answer": "Special Interest Groups focusing on specific Kubernetes areas."
+    },
+    {
+      "question": "What is a Custom Resource Definition (CRD)?",
+      "answer": "A way to extend the Kubernetes API without writing code."
+    },
+    {
+      "question": "What is the aggregation layer?",
+      "answer": "A method to extend the API using custom API servers."
+    },
+    {
+      "question": "What is automated rollout in Kubernetes?",
+      "answer": "Deploying new versions of applications in a controlled manner."
+    },
+    {
+      "question": "What is a rollback?",
+      "answer": "Reverting to a previous version of an application or configuration."
+    },
+    {
+      "question": "What is service discovery in Kubernetes?",
+      "answer": "Mechanisms that allow microservices to find each other using DNS names."
+    },
+    {
+      "question": "What is horizontal scaling?",
+      "answer": "Increasing or decreasing the number of pod replicas."
+    },
+    {
+      "question": "What is self-healing in Kubernetes?",
+      "answer": "Automatically restarting failed containers or rescheduling pods."
+    },
+    {
+      "question": "What is automatic bin packing?",
+      "answer": "Kubernetes placing pods on nodes based on resource requirements."
+    },
+    {
+      "question": "What is storage orchestration?",
+      "answer": "Automatic provisioning and mounting of storage volumes."
+    },
+    {
+      "question": "What is KubeVirt?",
+      "answer": "A project enabling Kubernetes to manage virtual machines."
+    },
+    {
+      "question": "What is Knative?",
+      "answer": "A serverless framework running on Kubernetes."
+    },
+    {
+      "question": "What is OpenFaaS?",
+      "answer": "A serverless framework that can run on Kubernetes or standalone."
+    },
+    {
+      "question": "What is a Kubernetes manifest?",
+      "answer": "A YAML or JSON file defining a Kubernetes object."
+    },
+    {
+      "question": "What is minikube?",
+      "answer": "A tool for running a local single-node Kubernetes cluster."
+    },
+    {
+      "question": "What are the minimum system requirements for minikube?",
+      "answer": "2+ CPUs, 2+ GB RAM, 20+ GB disk, internet, and admin privileges."
+    },
+    {
+      "question": "What does `minikube start` do?",
+      "answer": "Bootstraps a local Kubernetes cluster."
+    },
+    {
+      "question": "How does minikube install kubectl?",
+      "answer": "Automatically downloads the correct version when first used."
+    },
+    {
+      "question": "What does `kubectl get nodes` show?",
+      "answer": "A list of nodes in the Kubernetes cluster."
+    },
+    {
+      "question": "What is a Kubernetes object?",
+      "answer": "A persistent record of intent representing cluster state."
+    },
+    {
+      "question": "What happens when a Kubernetes object is created?",
+      "answer": "Kubernetes works to make the current state match the desired state."
+    }
+  ]
+}

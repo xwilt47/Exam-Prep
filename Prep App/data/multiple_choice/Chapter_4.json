@@ -1,0 +1,355 @@
+{
+  "label": "Chapter 4 - Container Runtimes, Interfaces, and Service Meshes",
+  "multipleChoice": [
+     {
+      "question": "Which Kubernetes component communicates with the container runtime through the CRI?",
+      "answer": "kubelet",
+      "options": ["kube-proxy", "kubelet", "scheduler", "controller-manager"],
+      "correctIndex": 1,
+      "explanation": "The CRI defines communication between Kubernetes (specifically kubelet) and the runtime."
+    },
+    {
+      "question": "Which container type is considered the least secure?",
+      "answer": "Namespaced containers",
+      "options": ["Virtualized containers", "Sandboxed containers", "Namespaced containers", "Rootless containers"],
+      "correctIndex": 2,
+      "explanation": "Namespaced containers share the host kernel, making them less secure."
+    },
+    {
+      "question": "Which container type starts inside lightweight VMs?",
+      "answer": "Virtualized containers",
+      "options": ["Namespaced", "Sandboxed", "Virtualized", "Rootless"],
+      "correctIndex": 2,
+      "explanation": "Virtualized containers run inside lightweight VMs with their own kernel."
+    },
+    {
+      "question": "Which tool allows direct interaction with containerd?",
+      "answer": "ctr",
+      "options": ["kubectl", "ctr", "helm", "docker-compose"],
+      "correctIndex": 1,
+      "explanation": "The chapter mentions using the ctr CLI with containerd."
+    },
+    {
+      "question": "What is the purpose of the Docker bridge network?",
+      "answer": "To allow containers on the same host to communicate with NAT to the outside world.",
+      "options": ["To disable networking", "To expose host ports", "To allow same-host container communication with NAT", "To encrypt traffic"],
+      "correctIndex": 2,
+      "explanation": "Bridge networks allow container-to-container communication with NAT."
+    },
+    {
+      "question": "Which Docker network mode removes all network isolation?",
+      "answer": "host",
+      "options": ["bridge", "none", "host", "overlay"],
+      "correctIndex": 2,
+      "explanation": "Host mode removes isolation and shares the host network."
+    },
+    {
+      "question": "Which Kubernetes interface allows pluggable storage systems?",
+      "answer": "CSI",
+      "options": ["CRI", "CNI", "CSI", "API Server"],
+      "correctIndex": 2,
+      "explanation": "CSI enables pluggable storage layers."
+    },
+    {
+      "question": "What happens to data written inside a container without a volume?",
+      "answer": "It is lost when the container is removed.",
+      "options": ["It persists forever", "It is backed up automatically", "It is lost when the container is removed", "It moves to the host filesystem"],
+      "correctIndex": 2,
+      "explanation": "Container filesystems are ephemeral."
+    },
+    {
+      "question": "Which command creates a container with a mounted volume?",
+      "answer": "`docker run --mount source=myvolume,target=/app`",
+      "options": ["docker start myvolume", "docker mount myvolume", "docker run --mount source=myvolume,target=/app", "docker attach myvolume"],
+      "correctIndex": 2,
+      "explanation": "The chapter demonstrates using --mount to attach volumes."
+    },
+    {
+      "question": "Which security tool is commonly used on Ubuntu for container hardening?",
+      "answer": "AppArmor",
+      "options": ["SELinux", "AppArmor", "iptables", "auditd"],
+      "correctIndex": 1,
+      "explanation": "AppArmor is used on Ubuntu for access control."
+    },
+    {
+      "question": "What is a key benefit of a service mesh regarding encryption?",
+      "answer": "It encrypts traffic automatically without code changes.",
+      "options": ["It requires code changes", "It encrypts only external traffic", "It encrypts traffic automatically", "It disables encryption"],
+      "correctIndex": 2,
+      "explanation": "Service meshes encrypt traffic at the platform layer."
+    },
+    {
+      "question": "Which service mesh is a CNCF project?",
+      "answer": "Linkerd",
+      "options": ["Docker Swarm", "Linkerd", "Terraform", "Grafana"],
+      "correctIndex": 1,
+      "explanation": "Linkerd is a CNCF service mesh project."
+    },
+    {
+      "question": "What is a container runtime responsible for?",
+      "answer": "Downloading images and creating, starting, stopping, and deleting containers.",
+      "options": ["Managing Kubernetes nodes", "Downloading images and managing containers", "Building Dockerfiles", "Running VMs"],
+      "correctIndex": 1,
+      "explanation": "\"Software responsible for basic operations such as downloading images... and creating, starting, stopping, or deleting containers.\""
+    },
+    {
+      "question": "Which of the following is a container runtime?",
+      "answer": "containerd",
+      "options": ["Helm", "containerd", "Terraform", "Prometheus"],
+      "correctIndex": 1,
+      "explanation": "containerd is listed as a runtime."
+    },
+    {
+      "question": "What does CRI stand for?",
+      "answer": "Container Runtime Interface",
+      "options": ["Container Registry Integration", "Container Runtime Interface", "Cluster Runtime Integration", "Container Resource Interface"],
+      "correctIndex": 1,
+      "explanation": "\"The CRI is a plugin interface that allows Kubernetes to use different container runtimes.\""
+    },
+    {
+      "question": "Why was the CRI introduced?",
+      "answer": "To allow Kubernetes to support multiple runtimes.",
+      "options": ["To replace Docker", "To improve networking", "To allow Kubernetes to support multiple runtimes", "To manage storage"],
+      "correctIndex": 2,
+      "explanation": "CRI made it possible to use multiple runtimes in Kubernetes."
+    },
+    {
+      "question": "Which protocol does CRI use?",
+      "answer": "gRPC",
+      "options": ["HTTP", "SSH", "gRPC", "WebSockets"],
+      "correctIndex": 2,
+      "explanation": "\"CRI defines the protocol... using gRPC.\""
+    },
+    {
+      "question": "Which runtime is most commonly used with Kubernetes today?",
+      "answer": "containerd",
+      "options": ["Docker Engine", "containerd", "gVisor", "Kata"],
+      "correctIndex": 1,
+      "explanation": "containerd is the most used runtime with newer Kubernetes versions."
+    },
+    {
+      "question": "What type of containers share the host kernel?",
+      "answer": "Namespaced containers",
+      "options": ["Virtualized", "Sandboxed", "Namespaced", "Bare-metal"],
+      "correctIndex": 2,
+      "explanation": "\"Namespaced... share the same kernel to run multiple containers.\""
+    },
+    {
+      "question": "Which container type provides the strongest isolation?",
+      "answer": "Virtualized containers",
+      "options": ["Namespaced", "Sandboxed", "Virtualized", "Rootless"],
+      "correctIndex": 2,
+      "explanation": "Virtualized containers run inside lightweight VMs with their own kernel."
+    },
+    {
+      "question": "Which runtime provides sandboxed containers?",
+      "answer": "gVisor",
+      "options": ["containerd", "CRI-O", "gVisor", "Docker Engine"],
+      "correctIndex": 2,
+      "explanation": "gVisor provides sandboxed containers."
+    },
+    {
+      "question": "Which runtime provides virtualized containers?",
+      "answer": "Kata",
+      "options": ["Kata", "gVisor", "containerd", "Docker"],
+      "correctIndex": 0,
+      "explanation": "Kata Containers run inside lightweight VMs."
+    },
+    {
+      "question": "Which statement correctly distinguishes CRI from OCI?",
+      "answer": "CRI is a Kubernetes interface; OCI defines container standards.",
+      "options": ["CRI defines image formats", "OCI is part of Kubernetes", "CRI is a Kubernetes interface; OCI defines container standards", "Both are Kubernetes components"],
+      "correctIndex": 2,
+      "explanation": "\"OCI provides industry specifications... CRI is a part of Kubernetes.\""
+    },
+    {
+      "question": "What does the `ifconfig` command show inside a container?",
+      "answer": "Network interfaces and IP addresses",
+      "options": ["Running processes", "Mounted volumes", "Network interfaces", "Kernel logs"],
+      "correctIndex": 2,
+      "explanation": "ifconfig displays container network interfaces."
+    },
+    {
+      "question": "What is the default Docker network driver?",
+      "answer": "bridge",
+      "options": ["host", "overlay", "bridge", "none"],
+      "correctIndex": 2,
+      "explanation": "\"bridge - This is the default type and driver for Docker containers.\""
+    },
+    {
+      "question": "What does the Docker host network do?",
+      "answer": "Removes network isolation between container and host.",
+      "options": ["Blocks all traffic", "Creates a private network", "Removes network isolation", "Encrypts traffic"],
+      "correctIndex": 2,
+      "explanation": "Host network mode removes isolation."
+    },
+    {
+      "question": "What does the Docker none network do?",
+      "answer": "Disables all networking for the container.",
+      "options": ["Enables NAT", "Disables networking", "Creates an overlay", "Enables encryption"],
+      "correctIndex": 1,
+      "explanation": "\"none - all networking will be disabled.\""
+    },
+    {
+      "question": "What is an overlay network?",
+      "answer": "A virtual network running on top of another network using packet encapsulation.",
+      "options": ["A physical network", "A VLAN", "A virtual network using encapsulation", "A firewall"],
+      "correctIndex": 2,
+      "explanation": "\"Overlay network... using packet encapsulation.\""
+    },
+    {
+      "question": "Why are overlay networks needed?",
+      "answer": "To allow containers on different hosts to communicate.",
+      "options": ["To speed up DNS", "To reduce CPU usage", "To allow cross-host container communication", "To store logs"],
+      "correctIndex": 2,
+      "explanation": "Overlay networks connect containers across hosts."
+    },
+    {
+      "question": "What is the Container Network Interface (CNI)?",
+      "answer": "A Kubernetes interface for pluggable networking plugins.",
+      "options": ["A Docker plugin", "A VM interface", "A Kubernetes networking interface", "A storage driver"],
+      "correctIndex": 2,
+      "explanation": "\"A CNI is an interface that allows Kubernetes to use different overlay networking plugins.\""
+    },
+    {
+      "question": "Which of the following is a CNI plugin?",
+      "answer": "Calico",
+      "options": ["Helm", "Calico", "Prometheus", "Terraform"],
+      "correctIndex": 1,
+      "explanation": "Calico is a CNI plugin."
+    },
+    {
+      "question": "What does container storage allow?",
+      "answer": "Persisting data beyond the container lifecycle.",
+      "options": ["Faster networking", "Persisting data", "Running multiple kernels", "Encrypting traffic"],
+      "correctIndex": 1,
+      "explanation": "Volumes persist data outside the container lifecycle."
+    },
+    {
+      "question": "Are container filesystems persistent by default?",
+      "answer": "No, they are ephemeral.",
+      "options": ["Yes", "No", "Only on Linux", "Only on Windows"],
+      "correctIndex": 1,
+      "explanation": "\"Containers... are stateless and the on-disk files... ephemeral.\""
+    },
+    {
+      "question": "What is a Docker volume?",
+      "answer": "External storage attached to a container.",
+      "options": ["A network driver", "A kernel module", "External storage", "A runtime plugin"],
+      "correctIndex": 2,
+      "explanation": "Volumes store persistent data."
+    },
+    {
+      "question": "What does `docker volume inspect` show?",
+      "answer": "Details about a volume including mountpoint.",
+      "options": ["Container logs", "Image layers", "Volume details", "Network routes"],
+      "correctIndex": 2,
+      "explanation": "Inspect shows volume metadata."
+    },
+    {
+      "question": "What is the Container Storage Interface (CSI)?",
+      "answer": "A Kubernetes interface for pluggable storage systems.",
+      "options": ["A Docker plugin", "A VM driver", "A Kubernetes storage interface", "A monitoring tool"],
+      "correctIndex": 2,
+      "explanation": "\"The CSI allows using pluggable storage layers.\""
+    },
+    {
+      "question": "Which of the following is a CSI driver?",
+      "answer": "AWS EBS CSI driver",
+      "options": ["Helm", "AWS EBS CSI driver", "Prometheus", "Terraform"],
+      "correctIndex": 1,
+      "explanation": "AWS EBS CSI driver integrates EBS with Kubernetes."
+    },
+    {
+      "question": "Why is running containers as root discouraged?",
+      "answer": "Root inside a container may map to root on the host.",
+      "options": ["It slows performance", "It breaks networking", "It may map to host root", "It prevents logging"],
+      "correctIndex": 2,
+      "explanation": "Root inside container can be dangerous."
+    },
+    {
+      "question": "Which Linux security tools help protect containers?",
+      "answer": "AppArmor and SELinux",
+      "options": ["iptables and nftables", "AppArmor and SELinux", "systemd and journald", "LVM and RAID"],
+      "correctIndex": 1,
+      "explanation": "AppArmor and SELinux enforce access control."
+    },
+    {
+      "question": "How can you specify a non-root user in a Dockerfile?",
+      "answer": "Using the USER instruction.",
+      "options": ["RUN", "ENTRYPOINT", "USER", "EXPOSE"],
+      "correctIndex": 2,
+      "explanation": "\"Add the USER instruction to a Dockerfile.\""
+    },
+    {
+      "question": "Why should you avoid untrusted public images?",
+      "answer": "They may contain malicious code.",
+      "options": ["They are too large", "They run slowly", "They may contain malicious code", "They cannot run on Linux"],
+      "correctIndex": 2,
+      "explanation": "Public images may be modified or unsafe."
+    },
+    {
+      "question": "What is container image scanning?",
+      "answer": "Checking images for known vulnerabilities.",
+      "options": ["Compressing images", "Encrypting images", "Checking for vulnerabilities", "Backing up images"],
+      "correctIndex": 2,
+      "explanation": "Tools like Clair scan for vulnerabilities."
+    },
+    {
+      "question": "What is a service mesh?",
+      "answer": "A dedicated layer for secure, observable, reliable service-to-service communication.",
+      "options": ["A storage system", "A monitoring tool", "A networking layer", "A dedicated communication layer"],
+      "correctIndex": 3,
+      "explanation": "\"A service mesh is a dedicated infrastructure layer...\""
+    },
+    {
+      "question": "Which of the following is a service mesh?",
+      "answer": "Istio",
+      "options": ["Helm", "Istio", "Prometheus", "Terraform"],
+      "correctIndex": 1,
+      "explanation": "Istio is a CNCF service mesh project."
+    },
+    {
+      "question": "What security model does a service mesh help implement?",
+      "answer": "Zero Trust",
+      "options": ["Open Access", "Zero Trust", "Perimeter Trust", "Role Trust"],
+      "correctIndex": 1,
+      "explanation": "\"Zero Trust... no one is trusted by default.\""
+    },
+    {
+      "question": "What is a key benefit of a service mesh?",
+      "answer": "Automatic encryption of service-to-service traffic.",
+      "options": ["Faster builds", "Automatic encryption", "Lower CPU usage", "Simpler Dockerfiles"],
+      "correctIndex": 1,
+      "explanation": "Service meshes encrypt traffic without code changes."
+    },
+    {
+      "question": "Do applications need code changes to use a service mesh?",
+      "answer": "No, service meshes operate at the platform layer.",
+      "options": ["Yes", "No", "Only on Linux", "Only on Windows"],
+      "correctIndex": 1,
+      "explanation": "\"You do not need any changes in the application code...\""
+    },
+    {
+      "question": "What does a service mesh improve in microservice environments?",
+      "answer": "Security, observability, and reliability.",
+      "options": ["Storage speed", "CPU performance", "Security, observability, reliability", "Container size"],
+      "correctIndex": 2,
+      "explanation": "Service meshes enhance communication reliability and security."
+    },
+    {
+      "question": "What component typically handles traffic in a service mesh?",
+      "answer": "Sidecar proxies",
+      "options": ["Ingress controllers", "Sidecar proxies", "Docker daemon", "Kubelet"],
+      "correctIndex": 1,
+      "explanation": "Sidecars intercept service traffic."
+    },
+    {
+      "question": "Why are service meshes useful in large microservice architectures?",
+      "answer": "They simplify managing communication across many dynamic services.",
+      "options": ["They reduce storage needs", "They eliminate networking", "They simplify communication management", "They replace Kubernetes"],
+      "correctIndex": 2,
+      "explanation": "Service meshes help manage complex service interactions."
+    }
+  ]
+}

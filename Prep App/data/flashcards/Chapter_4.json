@@ -1,0 +1,201 @@
+{
+  "label": "Chapter 4 - Container Runtimes, Interfaces, and Service Meshes",
+  "flashcards": [
+    {
+      "question": "What is a container runtime?",
+      "answer": "Software responsible for downloading images and creating, starting, stopping, and deleting containers."
+    },
+    {
+      "question": "Name three common container runtimes.",
+      "answer": "containerd, CRI-O, gVisor."
+    },
+    {
+      "question": "What is the Container Runtime Interface (CRI)?",
+      "answer": "A plugin interface that allows Kubernetes to use different container runtimes. \"The CRI is a plugin interface that allows Kubernetes to use different container runtimes.\""
+    },
+    {
+      "question": "Why was the CRI introduced?",
+      "answer": "To allow Kubernetes to support multiple runtimes instead of only Docker."
+    },
+    {
+      "question": "Which protocol does CRI use for communication?",
+      "answer": "gRPC."
+    },
+    {
+      "question": "Which runtime is most commonly used with modern Kubernetes?",
+      "answer": "containerd."
+    },
+    {
+      "question": "What are namespaced containers?",
+      "answer": "Containers using Linux namespaces and cgroups, sharing the host kernel."
+    },
+    {
+      "question": "What is a key advantage of namespaced containers?",
+      "answer": "They are the fastest and most commonly used container type."
+    },
+    {
+      "question": "What is a key disadvantage of namespaced containers?",
+      "answer": "They share the host kernel, making them less secure."
+    },
+    {
+      "question": "What are virtualized containers?",
+      "answer": "Containers running inside lightweight VMs with their own kernel."
+    },
+    {
+      "question": "What is an example of a virtualized container runtime?",
+      "answer": "Kata Containers."
+    },
+    {
+      "question": "What is the main benefit of virtualized containers?",
+      "answer": "Maximum isolation and security."
+    },
+    {
+      "question": "What are sandboxed containers?",
+      "answer": "Containers with an extra isolation layer intercepting system calls."
+    },
+    {
+      "question": "What is an example of a sandboxed runtime?",
+      "answer": "gVisor."
+    },
+    {
+      "question": "What is the difference between CRI and OCI?",
+      "answer": "CRI is a Kubernetes interface; OCI defines industry standards for container images and runtimes."
+    },
+    {
+      "question": "What is container networking?",
+      "answer": "The system that enables containers to communicate with each other and external networks."
+    },
+    {
+      "question": "What command shows a container’s network interfaces?",
+      "answer": "`ifconfig` (after installing net-tools)."
+    },
+    {
+      "question": "What is the default Docker network driver?",
+      "answer": "bridge."
+    },
+    {
+      "question": "What does the Docker bridge network provide?",
+      "answer": "Container-to-container communication on the same host with NAT for external access."
+    },
+    {
+      "question": "What is the Docker host network?",
+      "answer": "A mode where containers share the host’s network stack."
+    },
+    {
+      "question": "What is the Docker none network?",
+      "answer": "A mode where all networking is disabled for the container."
+    },
+    {
+      "question": "What is an overlay network?",
+      "answer": "A virtual network running on top of another network using packet encapsulation."
+    },
+    {
+      "question": "Why are overlay networks needed?",
+      "answer": "To allow containers on different hosts to communicate."
+    },
+    {
+      "question": "What is the Container Network Interface (CNI)?",
+      "answer": "A Kubernetes interface allowing pluggable networking solutions."
+    },
+    {
+      "question": "Name three CNI plugins.",
+      "answer": "Flannel, Calico, Cilium."
+    },
+    {
+      "question": "What is Multus?",
+      "answer": "A Kubernetes plugin allowing multiple CNIs to be used simultaneously."
+    },
+    {
+      "question": "What is container storage?",
+      "answer": "Storage used by containers to persist data beyond the container lifecycle."
+    },
+    {
+      "question": "Are containers stateful by default?",
+      "answer": "No, container filesystems are ephemeral."
+    },
+    {
+      "question": "What is a container volume?",
+      "answer": "External storage attached to a container that persists independently of the container lifecycle."
+    },
+    {
+      "question": "What command lists Docker volumes?",
+      "answer": "`docker volume ls`"
+    },
+    {
+      "question": "What command inspects a Docker volume?",
+      "answer": "`docker volume inspect <name>`"
+    },
+    {
+      "question": "What is the Container Storage Interface (CSI)?",
+      "answer": "A Kubernetes interface allowing pluggable storage systems."
+    },
+    {
+      "question": "Name two CSI storage providers.",
+      "answer": "AWS EBS CSI driver, NetApp Trident."
+    },
+    {
+      "question": "What is a key security risk of namespaced containers?",
+      "answer": "They share the host kernel, so a compromised container may affect the host."
+    },
+    {
+      "question": "What Linux tools help secure containers?",
+      "answer": "AppArmor and SELinux."
+    },
+    {
+      "question": "Why is running containers as root discouraged?",
+      "answer": "Root inside a container may map to root on the host."
+    },
+    {
+      "question": "How can you specify a non-root user in a Dockerfile?",
+      "answer": "Using the USER instruction."
+    },
+    {
+      "question": "Why should you avoid untrusted public images?",
+      "answer": "They may contain malicious code or be modified unexpectedly."
+    },
+    {
+      "question": "What is container image scanning?",
+      "answer": "Checking images for known vulnerabilities using tools like Clair or Anchore."
+    },
+    {
+      "question": "What is a service mesh?",
+      "answer": "A dedicated infrastructure layer for secure, observable, and reliable service-to-service communication."
+    },
+    {
+      "question": "Name three service mesh implementations.",
+      "answer": "Istio, Linkerd, Open Service Mesh (OSM)."
+    },
+    {
+      "question": "What is Zero Trust?",
+      "answer": "A security model where no entity is trusted by default, even inside the network."
+    },
+    {
+      "question": "How does a service mesh support Zero Trust?",
+      "answer": "By encrypting traffic and enforcing authentication between services."
+    },
+    {
+      "question": "Do applications need code changes to use a service mesh?",
+      "answer": "No, service meshes operate at the platform layer."
+    },
+    {
+      "question": "What benefit does a service mesh provide for observability?",
+      "answer": "It collects metrics, logs, and traces for service-to-service communication."
+    },
+    {
+      "question": "What benefit does a service mesh provide for reliability?",
+      "answer": "It enables retries, timeouts, and traffic shaping."
+    },
+    {
+      "question": "What is the role of sidecar proxies in a service mesh?",
+      "answer": "They intercept and manage all service-to-service traffic."
+    },
+    {
+      "question": "Why are service meshes useful in microservice architectures?",
+      "answer": "They simplify managing communication across many dynamic, distributed services."
+    },
+    {
+      "question": "Can service meshes be used without Kubernetes?",
+      "answer": "Yes, but they are most commonly used with Kubernetes."
+    }
+  ]
+}

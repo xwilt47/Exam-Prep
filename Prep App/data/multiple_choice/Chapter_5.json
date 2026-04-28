@@ -1,0 +1,355 @@
+{
+  "label": "Chapter 5 - Orchestrating Containers with Kubernetes",
+  "multipleChoice": [
+    {
+      "question": "What are the two types of nodes in a Kubernetes cluster?",
+      "answer": "Control plane nodes and worker nodes",
+      "options": ["Master nodes and pod nodes", "Control plane nodes and worker nodes", "API nodes and compute nodes", "Scheduler nodes and runtime nodes"],
+      "correctIndex": 1,
+      "explanation": "\"There are two distinguished node types... Control plane nodes and Worker nodes.\""
+    },
+    {
+      "question": "Where do containerized applications run in Kubernetes?",
+      "answer": "On worker nodes",
+      "options": ["On control plane nodes", "On worker nodes", "On etcd nodes", "On scheduler nodes"],
+      "correctIndex": 1,
+      "explanation": "Worker nodes run containerized applications."
+    },
+    {
+      "question": "Which Kubernetes component runs on every node and ensures containers are running?",
+      "answer": "kubelet",
+      "options": ["kube-proxy", "kubelet", "scheduler", "controller manager"],
+      "correctIndex": 1,
+      "explanation": "\"Kubelet... ensures that containers assigned to the node are running and healthy.\""
+    },
+    {
+      "question": "Which Kubernetes component maintains network rules for Services?",
+      "answer": "kube-proxy",
+      "options": ["kubelet", "kube-proxy", "scheduler", "etcd"],
+      "correctIndex": 1,
+      "explanation": "\"kube-proxy... maintains network rules on nodes to allow container communication.\""
+    },
+    {
+      "question": "What is the purpose of a pod in Kubernetes?",
+      "answer": "It is the smallest deployable unit that can run containers.",
+      "options": ["It stores logs", "It manages nodes", "It is the smallest deployable unit", "It replaces containers"],
+      "correctIndex": 2,
+      "explanation": "\"A pod is the smallest deployable unit...\""
+    },
+    {
+      "question": "What do containers inside the same pod share?",
+      "answer": "A network namespace and IP address",
+      "options": ["Different IPs", "Different kernels", "A network namespace and IP address", "Different storage volumes"],
+      "correctIndex": 2,
+      "explanation": "Containers in a pod share networking and storage."
+    },
+    {
+      "question": "What is a key characteristic of initContainers?",
+      "answer": "They run before all other containers in the pod.",
+      "options": ["They run after main containers", "They run only on failures", "They run before all other containers", "They run only on control plane nodes"],
+      "correctIndex": 2,
+      "explanation": "\"InitContainers... executed in order before the other containers in the pod are started.\""
+    },
+    {
+      "question": "Which Kubernetes component is the only stateful control plane service?",
+      "answer": "etcd",
+      "options": ["kubelet", "scheduler", "etcd", "kube-proxy"],
+      "correctIndex": 2,
+      "explanation": "\"etcd... is the only stateful component.\""
+    },
+    {
+      "question": "Which Kubernetes tool provides a web-based UI for cluster management?",
+      "answer": "Kubernetes dashboard",
+      "options": ["kubectl", "Lens", "Kubernetes dashboard", "Octant"],
+      "correctIndex": 2,
+      "explanation": "\"dashboard... a popular web-based graphical user interface.\""
+    },
+    {
+      "question": "What is the purpose of Kubernetes API groups and versions?",
+      "answer": "To allow evolution of APIs while maintaining compatibility",
+      "options": ["To speed up deployments", "To reduce storage usage", "To allow API evolution with compatibility", "To manage node labels"],
+      "correctIndex": 2,
+      "explanation": "API groups and versions help manage evolving features."
+    },
+    {
+      "question": "What is a Kubernetes manifest?",
+      "answer": "A YAML or JSON file defining a Kubernetes object",
+      "options": ["A Dockerfile", "A log file", "A YAML/JSON spec", "A binary package"],
+      "correctIndex": 2,
+      "explanation": "\"Kubernetes spec definition files... are known as Kubernetes manifests.\""
+    },
+    {
+      "question": "Which Kubernetes feature allows automatic replacement of failed containers?",
+      "answer": "Self-healing",
+      "options": ["Service discovery", "Self-healing", "Horizontal scaling", "Batch execution"],
+      "correctIndex": 1,
+      "explanation": "Self-healing restarts failed containers or reschedules pods."
+    },
+    {
+      "question": "Which Kubernetes feature allows distributing traffic across multiple pod replicas?",
+      "answer": "Load balancing",
+      "options": ["Batch execution", "Load balancing", "Bin packing", "Init containers"],
+      "correctIndex": 1,
+      "explanation": "Kubernetes Services provide load balancing across pods."
+    },
+    {
+      "question": "Which tool is recommended for running Kubernetes locally for learning?",
+      "answer": "minikube",
+      "options": ["Terraform", "Docker Swarm", "minikube", "Prometheus"],
+      "correctIndex": 2,
+      "explanation": "\"We will be using minikube... to support us along the way.\""
+    },
+    {
+      "question": "What is Linkerd?",
+      "answer": "A CNCF service mesh project",
+      "options": ["Docker Swarm", "Linkerd", "Terraform", "Grafana"],
+      "correctIndex": 1,
+      "explanation": "Linkerd is a CNCF service mesh project."
+    },
+    {
+      "question": "Which Kubernetes component exposes the cluster’s HTTP API?",
+      "answer": "kube-apiserver",
+      "options": ["kubelet", "kube-apiserver", "kube-proxy", "scheduler"],
+      "correctIndex": 1,
+      "explanation": "\"API server... exposes the Kubernetes HTTP API.\""
+    },
+    {
+      "question": "Which component stores all cluster state and configuration?",
+      "answer": "etcd",
+      "options": ["kubelet", "scheduler", "etcd", "controller manager"],
+      "correctIndex": 2,
+      "explanation": "\"Cluster data store (etcd)... keeps all information about the Kubernetes cluster state.\""
+    },
+    {
+      "question": "Which component decides where pods should run?",
+      "answer": "kube-scheduler",
+      "options": ["kubelet", "kube-proxy", "kube-scheduler", "controller manager"],
+      "correctIndex": 2,
+      "explanation": "\"Scheduler... picks where... the application containers will run.\""
+    },
+    {
+      "question": "What is the purpose of the cloud-controller-manager?",
+      "answer": "Integrates Kubernetes with cloud provider APIs",
+      "options": ["Manages pods", "Integrates Kubernetes with cloud providers", "Runs containers", "Stores cluster data"],
+      "correctIndex": 1,
+      "explanation": "It integrates Kubernetes with cloud provider functionality."
+    },
+    {
+      "question": "What does kubelet do?",
+      "answer": "Ensures containers assigned to the node are running and healthy",
+      "options": ["Schedules pods", "Stores cluster data", "Ensures containers are running", "Manages DNS"],
+      "correctIndex": 2,
+      "explanation": "\"Kubelet... ensures that containers assigned to the node are running and healthy.\""
+    },
+    {
+      "question": "What does kube-proxy manage?",
+      "answer": "Network rules for Kubernetes Services",
+      "options": ["Pod scheduling", "Container runtime", "Network rules for Services", "Cluster storage"],
+      "correctIndex": 2,
+      "explanation": "\"kube-proxy... maintains network rules...\""
+    },
+    {
+      "question": "What is the smallest deployable unit in Kubernetes?",
+      "answer": "Pod",
+      "options": ["Container", "Node", "Pod", "Deployment"],
+      "correctIndex": 2,
+      "explanation": "\"A pod is the smallest deployable unit...\""
+    },
+    {
+      "question": "What do containers in the same pod share?",
+      "answer": "Network namespace and storage volumes",
+      "options": ["Separate IPs", "Different kernels", "Network namespace and storage", "Different runtimes"],
+      "correctIndex": 2,
+      "explanation": "Containers share storage and networking."
+    },
+    {
+      "question": "What is a sidecar container?",
+      "answer": "A helper container that runs alongside the main container",
+      "options": ["A backup container", "A helper container", "A debugging container", "A storage container"],
+      "correctIndex": 1,
+      "explanation": "Sidecars assist the main container."
+    },
+    {
+      "question": "What are initContainers used for?",
+      "answer": "Running setup tasks before main containers start",
+      "options": ["Running background tasks", "Running setup tasks", "Handling logs", "Scaling pods"],
+      "correctIndex": 1,
+      "explanation": "\"InitContainers... executed in order before other containers...\""
+    },
+    {
+      "question": "Do containers in a pod have individual IP addresses?",
+      "answer": "No, they share the pod’s IP",
+      "options": ["Yes", "No", "Only on Linux", "Only on Windows"],
+      "correctIndex": 1,
+      "explanation": "Containers share the pod’s network namespace."
+    },
+    {
+      "question": "Why should production clusters use multiple control plane nodes?",
+      "answer": "To avoid downtime and ensure etcd availability",
+      "options": ["To reduce CPU usage", "To avoid downtime", "To speed up deployments", "To reduce storage needs"],
+      "correctIndex": 1,
+      "explanation": "Multiple control plane nodes prevent outages."
+    },
+    {
+      "question": "Why is an odd number of control plane nodes recommended?",
+      "answer": "To avoid split-brain scenarios",
+      "options": ["To reduce cost", "To avoid split-brain", "To improve logging", "To simplify networking"],
+      "correctIndex": 1,
+      "explanation": "Odd numbers prevent quorum issues."
+    },
+    {
+      "question": "What is kubectl?",
+      "answer": "A CLI tool for interacting with the Kubernetes API",
+      "options": ["A scheduler", "A runtime", "A CLI tool", "A storage driver"],
+      "correctIndex": 2,
+      "explanation": "kubectl interacts with the API server."
+    },
+    {
+      "question": "What does declarative API mean?",
+      "answer": "You define desired state and Kubernetes maintains it",
+      "options": ["You run commands manually", "You define desired state", "You write scripts", "You configure nodes directly"],
+      "correctIndex": 1,
+      "explanation": "Kubernetes reconciles desired and current state."
+    },
+    {
+      "question": "What is a reconciliation loop?",
+      "answer": "A loop that ensures current state matches desired state",
+      "options": ["A logging loop", "A networking loop", "A reconciliation loop", "A storage loop"],
+      "correctIndex": 2,
+      "explanation": "\"Control loops... check the resource state...\""
+    },
+    {
+      "question": "What are Kubernetes API versions used for?",
+      "answer": "Managing feature evolution and compatibility",
+      "options": ["Managing storage", "Managing networking", "Managing feature evolution", "Managing logs"],
+      "correctIndex": 2,
+      "explanation": "API versions help manage changes."
+    },
+    {
+      "question": "What are the three Kubernetes feature maturity stages?",
+      "answer": "Alpha, beta, stable",
+      "options": ["Preview, beta, stable", "Alpha, beta, stable", "Alpha, preview, GA", "Beta, stable, LTS"],
+      "correctIndex": 1,
+      "explanation": "\"Alpha → Beta → Stable (GA).\""
+    },
+    {
+      "question": "What is a Kubernetes Enhancement Proposal (KEP)?",
+      "answer": "A document describing major changes or new features",
+      "options": ["A pod spec", "A YAML file", "A proposal for major changes", "A storage driver"],
+      "correctIndex": 2,
+      "explanation": "KEPs outline design and motivation."
+    },
+    {
+      "question": "What are Kubernetes SIGs?",
+      "answer": "Groups focusing on specific Kubernetes areas",
+      "options": ["Security groups", "Storage groups", "Special Interest Groups", "Scaling groups"],
+      "correctIndex": 2,
+      "explanation": "SIGs focus on specific areas like networking or storage."
+    },
+    {
+      "question": "What is a CRD?",
+      "answer": "A way to extend the Kubernetes API without programming",
+      "options": ["A runtime", "A scheduler", "A custom resource definition", "A storage driver"],
+      "correctIndex": 2,
+      "explanation": "CRDs extend the API."
+    },
+    {
+      "question": "What is the aggregation layer?",
+      "answer": "A method to extend the API using custom API servers",
+      "options": ["A storage layer", "A networking layer", "An API extension method", "A logging layer"],
+      "correctIndex": 2,
+      "explanation": "Aggregation layer extends the API with custom servers."
+    },
+    {
+      "question": "What is automated rollout?",
+      "answer": "Deploying new versions in a controlled manner",
+      "options": ["Scaling pods", "Deploying new versions", "Restarting nodes", "Updating kubelet"],
+      "correctIndex": 1,
+      "explanation": "Kubernetes supports automated rollouts."
+    },
+    {
+      "question": "What is a rollback?",
+      "answer": "Reverting to a previous version",
+      "options": ["Scaling down", "Reverting to a previous version", "Restarting pods", "Deleting a deployment"],
+      "correctIndex": 1,
+      "explanation": "Rollbacks revert changes."
+    },
+    {
+      "question": "What is service discovery?",
+      "answer": "Mechanisms allowing microservices to find each other",
+      "options": ["Finding nodes", "Finding pods", "Finding microservices", "Finding volumes"],
+      "correctIndex": 2,
+      "explanation": "Service discovery uses DNS names."
+    },
+    {
+      "question": "What is horizontal scaling?",
+      "answer": "Increasing or decreasing the number of pod replicas",
+      "options": ["Increasing CPU", "Increasing memory", "Changing replicas", "Changing node count"],
+      "correctIndex": 2,
+      "explanation": "Horizontal scaling adjusts replicas."
+    },
+    {
+      "question": "What is self-healing?",
+      "answer": "Automatically restarting or rescheduling failed containers",
+      "options": ["Restarting nodes", "Restarting containers", "Updating images", "Scaling pods"],
+      "correctIndex": 1,
+      "explanation": "Kubernetes restarts failed containers."
+    },
+    {
+      "question": "What is automatic bin packing?",
+      "answer": "Placing pods on nodes based on resource needs",
+      "options": ["Packing images", "Packing logs", "Placing pods efficiently", "Packing volumes"],
+      "correctIndex": 2,
+      "explanation": "Kubernetes schedules pods based on resources."
+    },
+    {
+      "question": "What is KubeVirt used for?",
+      "answer": "Managing virtual machines with Kubernetes",
+      "options": ["Managing storage", "Managing VMs", "Managing logs", "Managing networks"],
+      "correctIndex": 1,
+      "explanation": "KubeVirt orchestrates VMs."
+    },
+    {
+      "question": "What is Knative?",
+      "answer": "A serverless framework for Kubernetes",
+      "options": ["A runtime", "A scheduler", "A serverless framework", "A storage driver"],
+      "correctIndex": 2,
+      "explanation": "Knative adds FaaS capabilities."
+    },
+    {
+      "question": "What is a Kubernetes manifest?",
+      "answer": "A YAML or JSON file defining a Kubernetes object",
+      "options": ["A log file", "A binary file", "A YAML/JSON spec", "A Dockerfile"],
+      "correctIndex": 2,
+      "explanation": "Manifests define Kubernetes objects."
+    },
+    {
+      "question": "What is minikube?",
+      "answer": "A tool for running a local Kubernetes cluster",
+      "options": ["A cloud provider", "A runtime", "A local Kubernetes tool", "A scheduler"],
+      "correctIndex": 2,
+      "explanation": "minikube runs Kubernetes locally."
+    },
+    {
+      "question": "What command starts a minikube cluster?",
+      "answer": "`minikube start`",
+      "options": ["minikube init", "minikube up", "minikube start", "minikube run"],
+      "correctIndex": 2,
+      "explanation": "minikube start bootstraps Kubernetes."
+    },
+    {
+      "question": "What does `kubectl get nodes` display?",
+      "answer": "A list of nodes in the cluster",
+      "options": ["Pods", "Deployments", "Nodes", "Services"],
+      "correctIndex": 2,
+      "explanation": "It lists cluster nodes."
+    },
+    {
+      "question": "What is a Kubernetes object?",
+      "answer": "A persistent record of intent representing cluster state",
+      "options": ["A log entry", "A container", "A persistent record of intent", "A node"],
+      "correctIndex": 2,
+      "explanation": "\"Kubernetes objects are persistent entries...\""
+    }
+  ]
+}

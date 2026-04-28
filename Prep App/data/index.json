@@ -1,4 +1,4 @@
 {
-  "flashcards": ["Chapter_1.json", "Chapter_2.json", "Chapter_3.json"],
-  "multipleChoice": ["Chapter_1.json", "Chapter_2.json", "Chapter_3.json"]
+  "flashcards": ["Chapter_1.json", "Chapter_2.json", "Chapter_3.json", "Chapter_4.json", "Chapter_5.json"],
+  "multipleChoice": ["Chapter_1.json", "Chapter_2.json", "Chapter_3.json", "Chapter_4.json", "Chapter_5.json"]
 }
