@@ -26,6 +26,10 @@ const quizSelect = document.getElementById("quizSelect");
 const quizCountSelect = document.getElementById("quizCountSelect");
 const flashcardShuffle = document.getElementById("flashcardShuffle");
 const quizShuffle = document.getElementById("quizShuffle");
+const testModeToggle = document.getElementById("testModeToggle");
+const testCounters = document.getElementById("testCounters");
+const correctCountSpan = document.getElementById("correctCount");
+const wrongCountSpan = document.getElementById("wrongCount");
 
 let flashcards = [];
 let multipleChoiceQuestions = [];
@@ -33,6 +37,8 @@ let currentIndex = 0;
 let activeMode = "flashcards";
 let flashcardsReady = false;
 let multipleChoiceReady = false;
+let correctCount = 0;
+let wrongCount = 0;
 
 let datasets = { flashcards: [], multipleChoice: [] };
 
@@ -224,7 +230,7 @@ function renderFlashcard() {
   flashcard.disabled = false;
   studyStatus.classList.add("hidden");
   quizExplanation.classList.add("hidden");
-  prevButton.disabled = currentIndex === 0;
+  prevButton.disabled = (testModeToggle && testModeToggle.checked) || currentIndex === 0;
   nextButton.textContent = currentIndex === items.length - 1 ? "Restart" : "Next";
 }
 
@@ -252,7 +258,7 @@ function renderMultipleChoice() {
   quizExplanation.textContent = "";
   quizResultBadge.className = "quiz-result hidden";
   quizResultBadge.textContent = "";
-  prevButton.disabled = currentIndex === 0;
+  prevButton.disabled = (testModeToggle && testModeToggle.checked) || currentIndex === 0;
   nextButton.textContent = currentIndex === items.length - 1 ? "Restart" : "Next";
   nextButton.disabled = false;
 
@@ -267,6 +273,21 @@ function renderMultipleChoice() {
     optionButton.addEventListener("click", () => handleQuizAnswer(optionButton));
     quizOptions.appendChild(optionButton);
   });
+}
+
+function updateCounterDOM() {
+  if (correctCountSpan) correctCountSpan.textContent = String(correctCount);
+  if (wrongCountSpan) wrongCountSpan.textContent = String(wrongCount);
+}
+
+function updateTestModeUI() {
+  const active = testModeToggle && testModeToggle.checked;
+  if (testCounters) {
+    testCounters.classList.toggle("hidden", !active || studyScreen.classList.contains("hidden"));
+  }
+  if (prevButton) {
+    prevButton.disabled = Boolean(active && !studyScreen.classList.contains("hidden"));
+  }
 }
 
 function renderStudyView() {
@@ -306,12 +327,20 @@ function handleQuizAnswer(selectedButton) {
     quizResultBadge.className = "quiz-result is-correct";
     helperText.textContent = "Correct. Use Next to continue.";
     quizExplanation.textContent = currentQuestion.explanation;
+    if (testModeToggle && testModeToggle.checked) {
+      correctCount += 1;
+      updateCounterDOM();
+    }
   } else {
     selectedButton.classList.add("is-wrong");
     quizResultBadge.textContent = "X";
     quizResultBadge.className = "quiz-result is-wrong";
     helperText.textContent = "Incorrect. Review the explanation, then continue.";
     quizExplanation.textContent = `Correct answer: ${currentQuestion.options[currentQuestion.correctIndex]}. ${currentQuestion.explanation}`;
+    if (testModeToggle && testModeToggle.checked) {
+      wrongCount += 1;
+      updateCounterDOM();
+    }
   }
 
   quizExplanation.classList.remove("hidden");
@@ -340,6 +369,15 @@ function goToStudyMode(mode) {
   introScreen.classList.add("hidden");
   studyScreen.classList.remove("hidden");
 
+  // reset counters when entering study mode in test mode
+  if (testModeToggle && testModeToggle.checked) {
+    correctCount = 0;
+    wrongCount = 0;
+    updateCounterDOM();
+  }
+
+  updateTestModeUI();
+
   if (mode === "flashcards" && flashcardsReady) {
     if (flashcardShuffle.checked) flashcards = shuffleArray(flashcards);
     nextButton.disabled = false;
@@ -358,6 +396,7 @@ function goToStudyMode(mode) {
 function goToIntroMode() {
   studyScreen.classList.add("hidden");
   introScreen.classList.remove("hidden");
+  updateTestModeUI();
 }
 
 function showNextCard() {
@@ -405,6 +444,18 @@ quizSelect.addEventListener("change", () => {
   applySelectedDataset("multiple-choice");
   updateIntroStatus();
 });
+
+if (testModeToggle) {
+  testModeToggle.addEventListener("change", () => {
+    // reset counts when toggling test mode on
+    if (testModeToggle.checked) {
+      correctCount = 0;
+      wrongCount = 0;
+      updateCounterDOM();
+    }
+    updateTestModeUI();
+  });
+}
 
 startButton.addEventListener("click", () => goToStudyMode("flashcards"));
 quizButton.addEventListener("click", () => goToStudyMode("multiple-choice"));

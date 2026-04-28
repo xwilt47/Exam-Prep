@@ -1,5 +1,5 @@
 {
-  "label": "Chapter 1 - Cloud to Cloud Native and Kubernetes (100 MCQs)",
+  "label": "Chapter 1 - Cloud to Cloud Native and Kubernetes",
   "multipleChoice": [
     {
       "question": "Why are containers considered more lightweight than virtual machines?",
