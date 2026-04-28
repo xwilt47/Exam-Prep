@@ -19,6 +19,13 @@ const quizButton = document.getElementById("quizButton");
 const backButton = document.getElementById("backButton");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
+const flashcardSelectWrap = document.getElementById("flashcardSelectWrap");
+const flashcardSelect = document.getElementById("flashcardSelect");
+const quizSelectWrap = document.getElementById("quizSelectWrap");
+const quizSelect = document.getElementById("quizSelect");
+const quizCountSelect = document.getElementById("quizCountSelect");
+const flashcardShuffle = document.getElementById("flashcardShuffle");
+const quizShuffle = document.getElementById("quizShuffle");
 
 let flashcards = [];
 let multipleChoiceQuestions = [];
@@ -26,6 +33,8 @@ let currentIndex = 0;
 let activeMode = "flashcards";
 let flashcardsReady = false;
 let multipleChoiceReady = false;
+
+let datasets = { flashcards: [], multipleChoice: [] };
 
 function getMissingDatasetMessage(mode) {
   return mode === "multiple-choice"
@@ -52,7 +61,19 @@ function updateModeButtonState(button, isReady) {
   button.classList.toggle("is-ready", isReady);
 }
 
-async function loadDataset(path, key) {
+function populateSelect(select, entries) {
+  select.innerHTML = "";
+  entries.forEach((entry, index) => {
+    const option = document.createElement("option");
+    option.value = String(index);
+    option.textContent = entry.label;
+    select.appendChild(option);
+  });
+}
+
+async function loadDatasetFile(filename, key) {
+  const path = `./data/${filename}`;
+
   try {
     const response = await fetch(path, { cache: "no-store" });
 
@@ -62,33 +83,40 @@ async function loadDataset(path, key) {
 
     const data = await response.json();
 
-    if (!Array.isArray(data[key]) || data[key].length === 0) {
-      throw new Error(`No ${key} found in JSON.`);
+    // flexible parsing: accept several common shapes
+    let items = [];
+
+    if (Array.isArray(data[key])) {
+      items = data[key];
+    } else if (key === "flashcards") {
+      if (Array.isArray(data.flashcard)) items = data.flashcard;
+      else if (Array.isArray(data.cards)) items = data.cards;
+    } else if (key === "multipleChoice") {
+      if (Array.isArray(data.multiple_choice)) items = data.multiple_choice;
+      else if (Array.isArray(data.questions)) items = data.questions;
     }
 
-    return data[key];
+    // if the file itself is just an array, accept that too
+    if (!items.length && Array.isArray(data)) {
+      items = data;
+    }
+
+    const label = typeof data.label === "string" && data.label.trim()
+      ? data.label.trim()
+      : filename.replace(".json", "");
+
+    if (!items.length) {
+      console.warn(`No items found for ${filename} using key '${key}'; parsed keys: ${Object.keys(data).join(", ")}`);
+    }
+
+    return { label, file: filename, items };
   } catch (error) {
-    console.error(`Unable to load ${key}:`, error);
-    return [];
+    console.error(`Unable to load ${path}:`, error);
+    return { label: filename.replace(".json", ""), file: filename, items: [] };
   }
 }
 
-async function loadStudyData() {
-  const [loadedFlashcards, loadedQuestions] = await Promise.all([
-    loadDataset("./flashcards.json", "flashcards"),
-    loadDataset("./multiple-choice.json", "multipleChoice")
-  ]);
-
-  flashcards = loadedFlashcards;
-  multipleChoiceQuestions = loadedQuestions;
-  flashcardsReady = flashcards.length > 0;
-  multipleChoiceReady = multipleChoiceQuestions.length > 0;
-
-  updateModeButtonState(startButton, flashcardsReady);
-  updateModeButtonState(quizButton, multipleChoiceReady);
-  cardCount.textContent = `${flashcards.length} flashcards ready`;
-  quizCount.textContent = `${multipleChoiceQuestions.length} quiz questions ready`;
-
+function updateIntroStatus() {
   if (flashcardsReady && multipleChoiceReady) {
     introStatus.textContent = "Flashcards and multiple choice are ready.";
   } else if (flashcardsReady) {
@@ -98,6 +126,71 @@ async function loadStudyData() {
   } else {
     introStatus.textContent = "Oops, no study JSON was detected. Add flashcards.json or multiple-choice.json and reload the page.";
   }
+}
+
+function applySelectedDataset(mode) {
+  const isFlashcard = mode === "flashcards";
+  const entries = isFlashcard ? datasets.flashcards : datasets.multipleChoice;
+  const select = isFlashcard ? flashcardSelect : quizSelect;
+  const selectedIndex = Number(select.value) || 0;
+  const entry = entries[selectedIndex] || { items: [] };
+
+  if (isFlashcard) {
+    flashcards = entry.items;
+    flashcardsReady = flashcards.length > 0;
+    updateModeButtonState(startButton, flashcardsReady);
+    cardCount.textContent = `${flashcards.length} flashcards ready`;
+  } else {
+    multipleChoiceQuestions = entry.items;
+    multipleChoiceReady = multipleChoiceQuestions.length > 0;
+    updateModeButtonState(quizButton, multipleChoiceReady);
+    quizCount.textContent = `${multipleChoiceQuestions.length} quiz questions ready`;
+  }
+}
+
+async function loadStudyData() {
+  let index;
+
+  try {
+    const resp = await fetch("./data/index.json", { cache: "no-store" });
+
+    if (!resp.ok) {
+      throw new Error(`HTTP ${resp.status}`);
+    }
+
+    index = await resp.json();
+
+    if (!Array.isArray(index.flashcards) || !Array.isArray(index.multipleChoice)) {
+      throw new Error("Invalid index.json structure.");
+    }
+    console.debug("loadStudyData: loaded index.json", index);
+  } catch {
+    index = { flashcards: ["flashcards.json"], multipleChoice: ["multiple-choice.json"] };
+    console.warn("loadStudyData: failed to load data/index.json, using fallback index", index);
+  }
+
+  const [fcSets, mcSets] = await Promise.all([
+    Promise.all(index.flashcards.map((f) => loadDatasetFile(`flashcards/${f}`, "flashcards"))),
+    Promise.all(index.multipleChoice.map((f) => loadDatasetFile(`multiple_choice/${f}`, "multipleChoice")))
+  ]);
+
+  console.debug("loadStudyData: loaded dataset descriptors", {
+    flashcards: fcSets.map(s => ({ file: s.file, label: s.label, count: s.items.length })),
+    multipleChoice: mcSets.map(s => ({ file: s.file, label: s.label, count: s.items.length }))
+  });
+  datasets.flashcards = fcSets;
+  datasets.multipleChoice = mcSets;
+
+  populateSelect(flashcardSelect, datasets.flashcards);
+  populateSelect(quizSelect, datasets.multipleChoice);
+
+  flashcardSelectWrap.classList.toggle("hidden", datasets.flashcards.length <= 1);
+  quizSelectWrap.classList.toggle("hidden", datasets.multipleChoice.length <= 1);
+
+  applySelectedDataset("flashcards");
+  applySelectedDataset("multiple-choice");
+
+  updateIntroStatus();
 
   if (flashcardsReady) {
     activeMode = "flashcards";
@@ -248,9 +341,13 @@ function goToStudyMode(mode) {
   studyScreen.classList.remove("hidden");
 
   if (mode === "flashcards" && flashcardsReady) {
+    if (flashcardShuffle.checked) flashcards = shuffleArray(flashcards);
     nextButton.disabled = false;
     renderStudyView();
   } else if (mode === "multiple-choice" && multipleChoiceReady) {
+    const pool = quizShuffle.checked ? shuffleArray(multipleChoiceQuestions) : [...multipleChoiceQuestions];
+    const countValue = quizCountSelect.value;
+    multipleChoiceQuestions = countValue === "all" ? pool : pool.slice(0, Number(countValue));
     nextButton.disabled = false;
     renderStudyView();
   } else {
@@ -299,10 +396,23 @@ flashcard.addEventListener("click", () => {
   helperText.textContent = isFlipped ? "Answer revealed. Use Next to continue." : "Click the card to reveal the answer.";
 });
 
+flashcardSelect.addEventListener("change", () => {
+  applySelectedDataset("flashcards");
+  updateIntroStatus();
+});
+
+quizSelect.addEventListener("change", () => {
+  applySelectedDataset("multiple-choice");
+  updateIntroStatus();
+});
+
 startButton.addEventListener("click", () => goToStudyMode("flashcards"));
 quizButton.addEventListener("click", () => goToStudyMode("multiple-choice"));
 backButton.addEventListener("click", goToIntroMode);
 nextButton.addEventListener("click", showNextCard);
 prevButton.addEventListener("click", showPreviousCard);
+
+// Initialize: load datasets and prepare the intro screen
+loadStudyData();
 
 loadStudyData();

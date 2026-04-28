@@ -1,0 +1,205 @@
+{
+  "label": "Chapter 1 - Cloud to Cloud Native and Kubernetes",
+  "flashcards": [
+    {
+      "question": "What was a major limitation of traditional deployments on physical servers?",
+      "answer": "Each physical server could run only one OS and typically one application, leading to wasted resources. \"One physical server would only be able to run a single operating system (OS) at a time.\""
+    },
+    {
+      "question": "What happened when an application needed more capacity in pre-cloud environments?",
+      "answer": "It could take days or weeks to procure and install new hardware. \"It would take days or even weeks to get new hardware procured, delivered, cabled, and installed.\""
+    },
+    {
+      "question": "What is virtualization?",
+      "answer": "A technology that allows multiple VMs to run on a single physical server using a hypervisor."
+    },
+    {
+      "question": "What is a hypervisor?",
+      "answer": "Software that emulates hardware resources such as CPU and RAM to run multiple VMs. \"A hypervisor is a software that acts as an emulator of the hardware resources.\""
+    },
+    {
+      "question": "Name one benefit of virtualization.",
+      "answer": "Less physical hardware required."
+    },
+    {
+      "question": "What is the cloud at a basic level?",
+      "answer": "Virtualization on demand. \"At a very basic level, the cloud is virtualization on demand.\""
+    },
+    {
+      "question": "Who owns and manages the hardware in cloud computing?",
+      "answer": "The cloud provider."
+    },
+    {
+      "question": "What is a public cloud?",
+      "answer": "A cloud operated by a third-party company and available to any paying customer."
+    },
+    {
+      "question": "What is a private cloud?",
+      "answer": "A cloud used by one organization, often managed internally or by a private provider."
+    },
+    {
+      "question": "What is a hybrid cloud?",
+      "answer": "A combination of public and private cloud usage."
+    },
+    {
+      "question": "What does IaaS provide?",
+      "answer": "VMs, virtual routers, block devices, and load balancers."
+    },
+    {
+      "question": "What is the main responsibility of customers using IaaS?",
+      "answer": "Managing the OS, updates, and application lifecycle."
+    },
+    {
+      "question": "What does PaaS remove from customer responsibility?",
+      "answer": "OS upgrades and lower-level maintenance."
+    },
+    {
+      "question": "What is SaaS?",
+      "answer": "Fully managed applications that just work, such as Gmail or Slack."
+    },
+    {
+      "question": "What is FaaS also known as?",
+      "answer": "Serverless."
+    },
+    {
+      "question": "What does the shared responsibility model define?",
+      "answer": "Which responsibilities belong to the cloud provider vs. the customer."
+    },
+    {
+      "question": "What is cloud-native?",
+      "answer": "An approach emphasizing resiliency, scalability, automation, and observability. \"It is emphasizing application workloads with high resiliency, scalability...\""
+    },
+    {
+      "question": "Does cloud-native require running in the cloud?",
+      "answer": "No, it can run on-premises, such as with Kubernetes."
+    },
+    {
+      "question": "What is a container?",
+      "answer": "A portable unit of software including code, dependencies, and system libraries."
+    },
+    {
+      "question": "What do containers share?",
+      "answer": "A single OS kernel."
+    },
+    {
+      "question": "Why are containers portable?",
+      "answer": "They include their own isolated environment. \"The container includes its own isolated environment.\""
+    },
+    {
+      "question": "Why do containers start faster than VMs?",
+      "answer": "They do not need to boot a full OS with a kernel."
+    },
+    {
+      "question": "What is a container image?",
+      "answer": "A template used to create containers with identical environments."
+    },
+    {
+      "question": "How large is an Ubuntu container image compared to a VM image?",
+      "answer": "Ubuntu container image ~70 MB; VM image ~500 MB."
+    },
+    {
+      "question": "What is a container runtime?",
+      "answer": "Software that creates, starts, stops, and deletes containers."
+    },
+    {
+      "question": "Name two container runtimes.",
+      "answer": "containerd and Docker Engine."
+    },
+    {
+      "question": "Why might VMs be preferred over containers?",
+      "answer": "They provide stronger isolation and better security."
+    },
+    {
+      "question": "What is a monolithic application?",
+      "answer": "A single, tightly coupled application containing all business logic."
+    },
+    {
+      "question": "What is a disadvantage of monolithic applications?",
+      "answer": "A small change requires redeploying the entire application."
+    },
+    {
+      "question": "What is a microservice?",
+      "answer": "A small, independent application responsible for a single task."
+    },
+    {
+      "question": "How do microservices communicate?",
+      "answer": "Over the network."
+    },
+    {
+      "question": "Name one advantage of microservices.",
+      "answer": "They can be deployed independently."
+    },
+    {
+      "question": "Why do containers need orchestration?",
+      "answer": "Large numbers of containers become difficult to manage manually."
+    },
+    {
+      "question": "What is container orchestration?",
+      "answer": "Automated management of container lifecycle, scaling, and scheduling."
+    },
+    {
+      "question": "Name three container orchestrators.",
+      "answer": "Kubernetes, Docker Swarm, Nomad."
+    },
+    {
+      "question": "What does Kubernetes mean in Greek?",
+      "answer": "Pilot or helmsman."
+    },
+    {
+      "question": "Who originally developed Kubernetes?",
+      "answer": "Google."
+    },
+    {
+      "question": "When was Kubernetes released as open source?",
+      "answer": "2014."
+    },
+    {
+      "question": "What internal Google system inspired Kubernetes?",
+      "answer": "Borg."
+    },
+    {
+      "question": "What is the Kubernetes desired state?",
+      "answer": "The state of resources that Kubernetes continuously ensures is met."
+    },
+    {
+      "question": "What is Kubernetes self-healing?",
+      "answer": "Automatically restarting or rescheduling containers when failures occur."
+    },
+    {
+      "question": "What is Kubernetes autoscaling?",
+      "answer": "Automatically adjusting the number of container replicas based on demand."
+    },
+    {
+      "question": "Does Kubernetes include its own container runtime?",
+      "answer": "No, it integrates with runtimes like containerd."
+    },
+    {
+      "question": "What is a Kubernetes cluster?",
+      "answer": "A group of hosts running containers managed by Kubernetes."
+    },
+    {
+      "question": "Why are single-host Kubernetes setups not used in production?",
+      "answer": "They cannot manage large-scale, multi-host workloads."
+    },
+    {
+      "question": "What organization hosts Kubernetes as a graduated project?",
+      "answer": "The Cloud Native Computing Foundation (CNCF)."
+    },
+    {
+      "question": "What is one major benefit of cloud-native architectures?",
+      "answer": "High scalability."
+    },
+    {
+      "question": "What is one major benefit of containers for microservices?",
+      "answer": "They allow consistent environments across hosts."
+    },
+    {
+      "question": "What problem did Kubernetes solve for the industry?",
+      "answer": "Simplifying container orchestration at scale."
+    },
+    {
+      "question": "What does Kubernetes automate?",
+      "answer": "Scheduling, scaling, rolling updates, and self-healing of containers."
+    }
+  ]
+}

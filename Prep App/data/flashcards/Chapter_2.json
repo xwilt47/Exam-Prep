@@ -1,0 +1,213 @@
+{
+  "label": "Chapter 2 - CNCF and Kubernetes Certifications",
+  "flashcards": [
+    {
+      "question": "What is Open Source Software (OSS)?",
+      "answer": "Software whose source code is publicly accessible and can be studied, modified, and distributed. \"OSS is when the source code of the software is publicly accessible...\""
+    },
+    {
+      "question": "What makes software truly open source?",
+      "answer": "It must be released under an open source license such as Apache 2.0 or GPLv3."
+    },
+    {
+      "question": "Who created the Linux kernel and when?",
+      "answer": "Linus Torvalds in 1991."
+    },
+    {
+      "question": "What percentage of the world's servers run Linux?",
+      "answer": "About 95%."
+    },
+    {
+      "question": "What is the Open Container Initiative (OCI)?",
+      "answer": "An open governance structure defining industry standards for container formats and runtimes."
+    },
+    {
+      "question": "Why are OCI standards important?",
+      "answer": "They ensure compatibility, portability, and prevent vendor lock‑in."
+    },
+    {
+      "question": "What does the OCI image specification define?",
+      "answer": "How to build and package an application into an OCI-compliant container image."
+    },
+    {
+      "question": "What does the OCI runtime specification define?",
+      "answer": "The container lifecycle and execution environment."
+    },
+    {
+      "question": "What does the OCI distribution specification define?",
+      "answer": "The protocol for distributing container images via registries."
+    },
+    {
+      "question": "What organization helped establish OCI?",
+      "answer": "The Linux Foundation."
+    },
+    {
+      "question": "When was the Linux Foundation created?",
+      "answer": "In 2000, through a merger of Open-Source Development Labs and the Free Standards Group."
+    },
+    {
+      "question": "What was the original purpose of the Linux Foundation?",
+      "answer": "To standardize, promote, and support Linux adoption."
+    },
+    {
+      "question": "Name three major companies supporting the Linux Foundation.",
+      "answer": "Google, IBM, Samsung."
+    },
+    {
+      "question": "When was CNCF founded?",
+      "answer": "2015, alongside the release of Kubernetes 1.0."
+    },
+    {
+      "question": "Which project became the first CNCF incubating project?",
+      "answer": "Kubernetes."
+    },
+    {
+      "question": "What is CNCF’s mission?",
+      "answer": "To make cloud-native computing ubiquitous by fostering open source, vendor-neutral projects."
+    },
+    {
+      "question": "What are examples of cloud-native technologies mentioned in the CNCF mission?",
+      "answer": "Containers, service meshes, microservices, immutable infrastructure, declarative APIs."
+    },
+    {
+      "question": "How many members support CNCF today?",
+      "answer": "More than 450."
+    },
+    {
+      "question": "What is the CNCF Sandbox stage?",
+      "answer": "The entry point for early-stage projects aligned with CNCF’s mission."
+    },
+    {
+      "question": "What is the CNCF Incubating stage?",
+      "answer": "A stage for projects used in production with active contributions and documentation."
+    },
+    {
+      "question": "What is the CNCF Graduated stage?",
+      "answer": "For mature projects with multi-organization contributors and security audits."
+    },
+    {
+      "question": "What two policies must all CNCF projects follow?",
+      "answer": "The CNCF Code of Conduct and the CNCF IP Policy."
+    },
+    {
+      "question": "What does the CNCF Code of Conduct define?",
+      "answer": "Acceptable behavior to ensure a positive, collaborative environment."
+    },
+    {
+      "question": "What does the CNCF IP Policy define?",
+      "answer": "Which open source licenses apply to code and documentation."
+    },
+    {
+      "question": "What governance principle does CNCF follow?",
+      "answer": "Minimal Viable Governance."
+    },
+    {
+      "question": "What is the role of the CNCF Governing Board (GB)?",
+      "answer": "Handles marketing, budget, and business decisions."
+    },
+    {
+      "question": "What is the role of the Technical Oversight Committee (TOC)?",
+      "answer": "Defines technical vision, approves projects, and evaluates maturity."
+    },
+    {
+      "question": "What is the role of the End User Community (EUC)?",
+      "answer": "Provides feedback from real users to improve cloud-native projects."
+    },
+    {
+      "question": "How long can a project remain in the Incubating stage?",
+      "answer": "Indefinitely, though graduation is typically expected within 2 years."
+    },
+    {
+      "question": "When did Kubernetes reach Graduated status?",
+      "answer": "2018."
+    },
+    {
+      "question": "What is a Cloud Architect responsible for?",
+      "answer": "Designing cloud infrastructure and selecting cloud providers and services."
+    },
+    {
+      "question": "What financial concepts must Cloud Architects understand?",
+      "answer": "CAPEX (upfront costs) and OPEX (operational costs)."
+    },
+    {
+      "question": "What does a DevOps Engineer do?",
+      "answer": "Bridges development and operations, automates infrastructure, and manages CI/CD."
+    },
+    {
+      "question": "What programming languages might a DevOps Engineer know?",
+      "answer": "Python, Ruby, Golang."
+    },
+    {
+      "question": "What tools might a DevOps Engineer use?",
+      "answer": "Terraform, Ansible, Puppet, CI/CD systems."
+    },
+    {
+      "question": "What distinguishes DevSecOps from DevOps?",
+      "answer": "DevSecOps adds a strong focus on security early in the lifecycle."
+    },
+    {
+      "question": "What does a FinOps Engineer focus on?",
+      "answer": "Cloud cost optimization, budgeting, and financial transparency."
+    },
+    {
+      "question": "What does an SRE focus on?",
+      "answer": "Reliability, availability, and meeting SLAs/SLOs."
+    },
+    {
+      "question": "What is an SLA?",
+      "answer": "A service-level agreement defining commitments between provider and client."
+    },
+    {
+      "question": "What is an SLO?",
+      "answer": "A measurable characteristic of an SLA, such as availability or response time."
+    },
+    {
+      "question": "What does a Cloud Engineer specialize in?",
+      "answer": "Deep knowledge of specific cloud provider services."
+    },
+    {
+      "question": "What does a Data Engineer handle?",
+      "answer": "Data storage, protection, performance, and analysis tools."
+    },
+    {
+      "question": "What does a Full Stack Developer do?",
+      "answer": "Works on both frontend and backend components of applications."
+    },
+    {
+      "question": "What is the easiest CNCF Kubernetes exam?",
+      "answer": "KCNA (Kubernetes and Cloud Native Associate)."
+    },
+    {
+      "question": "Which Kubernetes exam must be passed before taking CKS?",
+      "answer": "CKA (Certified Kubernetes Administrator)."
+    },
+    {
+      "question": "How long is the CKA certification valid?",
+      "answer": "3 years."
+    },
+    {
+      "question": "How long is the CKS certification valid?",
+      "answer": "2 years."
+    },
+    {
+      "question": "How many questions are on the KCNA exam?",
+      "answer": "60 multiple-choice questions."
+    },
+    {
+      "question": "What score is required to pass KCNA?",
+      "answer": "75%."
+    },
+    {
+      "question": "How long is the KCNA exam?",
+      "answer": "90 minutes."
+    },
+    {
+      "question": "What percentage of KCNA covers Kubernetes Fundamentals?",
+      "answer": "46%."
+    },
+    {
+      "question": "What type of exam is KCNA?",
+      "answer": "Hands-off, multiple-choice only."
+    }
+  ]
+}

@@ -1,0 +1,364 @@
+{
+  "label": "Chapter 1 - Cloud to Cloud Native and Kubernetes (100 MCQs)",
+  "multipleChoice": [
+    {
+      "question": "Why are containers considered more lightweight than virtual machines?",
+      "answer": "They share the host OS kernel instead of running a full OS per instance.",
+      "options": ["They use less disk caching", "They share the host OS kernel instead of running a full OS per instance", "They require no CPU resources", "They run only on cloud providers"],
+      "correctIndex": 1,
+      "explanation": "\"Containers share one OS kernel...\" which makes them more lightweight than VMs."
+    },
+    {
+      "question": "Which of the following is a key advantage of microservices over monolithic architectures?",
+      "answer": "Each microservice can be deployed and scaled independently.",
+      "options": ["They require fewer developers", "Each microservice can be deployed and scaled independently", "They eliminate the need for networking", "They do not require containers"],
+      "correctIndex": 1,
+      "explanation": "\"Each microservice can be deployed and scaled independently of others.\""
+    },
+    {
+      "question": "What does Kubernetes use to ensure applications reach their desired state?",
+      "answer": "A declarative API that continuously reconciles actual state with desired state.",
+      "options": ["Manual scripts", "A declarative API that continuously reconciles actual state with desired state", "A hypervisor", "A single-host scheduler"],
+      "correctIndex": 1,
+      "explanation": "\"Kubernetes features an extensible and declarative API that allows you to automatically reach the desired state of resources.\""
+    },
+    {
+      "question": "Before cloud computing, how many operating systems could typically run on a single physical server?",
+      "answer": "One operating system",
+      "options": ["One operating system", "Two operating systems", "Unlimited operating systems", "Depends on the hardware"],
+      "correctIndex": 0,
+      "explanation": "The chapter states: \"One physical server would only be able to run a single operating system (OS) at a time.\""
+    },
+    {
+      "question": "What was a major drawback of traditional pre-cloud deployments?",
+      "answer": "Hardware procurement took days or weeks",
+      "options": ["Instant scaling", "Hardware procurement took days or weeks", "Automatic failover", "Built-in virtualization"],
+      "correctIndex": 1,
+      "explanation": "\"It would take days or even weeks to get new hardware procured, delivered, cabled, and installed.\""
+    },
+    {
+      "question": "What technology allows multiple VMs to run on a single physical server?",
+      "answer": "Virtualization",
+      "options": ["Containerization", "Virtualization", "Bare-metal provisioning", "Serverless"],
+      "correctIndex": 1,
+      "explanation": "Virtualization \"would allow us to run multiple VMs on a single physical server using hypervisors.\""
+    },
+    {
+      "question": "What is a hypervisor?",
+      "answer": "Software that emulates hardware resources for VMs",
+      "options": ["A cloud provider", "A network switch", "Software that emulates hardware resources for VMs", "A type of container runtime"],
+      "correctIndex": 2,
+      "explanation": "\"A hypervisor is a software that acts as an emulator of the hardware resources.\""
+    },
+    {
+      "question": "Which of the following is NOT a benefit of virtualization?",
+      "answer": "Increased power consumption",
+      "options": ["Lower power consumption", "Less physical hardware required", "Fewer data center personnel", "Increased power consumption"],
+      "correctIndex": 3,
+      "explanation": "The text lists lower power consumption as a benefit, not higher."
+    },
+
+    {
+      "question": "What is the cloud described as at a basic level?",
+      "answer": "Virtualization on demand",
+      "options": ["A type of VM", "Virtualization on demand", "A physical data center", "A programming model"],
+      "correctIndex": 1,
+      "explanation": "\"At a very basic level, the cloud is virtualization on demand.\""
+    },
+    {
+      "question": "Who owns and manages the hardware in cloud computing?",
+      "answer": "The cloud provider",
+      "options": ["The customer", "The cloud provider", "The network team", "The OS vendor"],
+      "correctIndex": 1,
+      "explanation": "\"The actual hardware is owned and managed by the cloud provider.\""
+    },
+    {
+      "question": "Which cloud type is operated by a third-party company and available to any paying customer?",
+      "answer": "Public cloud",
+      "options": ["Private cloud", "Hybrid cloud", "Public cloud", "Community cloud"],
+      "correctIndex": 2,
+      "explanation": "\"A public cloud is operated by a third-party company and available for use by any paying customer.\""
+    },
+    {
+      "question": "Which cloud model combines public and private cloud usage?",
+      "answer": "Hybrid cloud",
+      "options": ["Public cloud", "Hybrid cloud", "Private cloud", "Distributed cloud"],
+      "correctIndex": 1,
+      "explanation": "Hybrid cloud is \"the combination of a public and private cloud.\""
+    },
+    {
+      "question": "Which cloud service model provides the most flexibility but also the most customer responsibility?",
+      "answer": "IaaS",
+      "options": ["SaaS", "PaaS", "IaaS", "FaaS"],
+      "correctIndex": 2,
+      "explanation": "\"IaaS... assumes the most customer responsibility.\""
+    },
+
+    {
+      "question": "Which service model removes the need for OS upgrades?",
+      "answer": "PaaS",
+      "options": ["IaaS", "PaaS", "SaaS", "FaaS"],
+      "correctIndex": 1,
+      "explanation": "\"PaaS... taking away the need to install OS upgrades.\""
+    },
+    {
+      "question": "Which service model provides fully managed applications?",
+      "answer": "SaaS",
+      "options": ["IaaS", "PaaS", "SaaS", "FaaS"],
+      "correctIndex": 2,
+      "explanation": "\"SaaS... fully managed applications that just work, such as Slack or Gmail.\""
+    },
+    {
+      "question": "Which model is also known as Serverless?",
+      "answer": "FaaS",
+      "options": ["IaaS", "PaaS", "SaaS", "FaaS"],
+      "correctIndex": 3,
+      "explanation": "\"FaaS... also known as Serverless today.\""
+    },
+    {
+      "question": "What does the shared responsibility model define?",
+      "answer": "Obligations of cloud provider and customer",
+      "options": ["Billing structure", "Network topology", "Obligations of cloud provider and customer", "Application architecture"],
+      "correctIndex": 2,
+      "explanation": "\"Defines the obligations of the cloud provider and the cloud customer.\""
+    },
+    {
+      "question": "Which of the following is always the cloud provider’s responsibility?",
+      "answer": "Preventing unauthorized access to data centers",
+      "options": ["Application updates", "Preventing unauthorized access to data centers", "Identity management", "Database schema design"],
+      "correctIndex": 1,
+      "explanation": "\"The cloud provider is always responsible for preventing unauthorized access to data center facilities.\""
+    },
+
+    {
+      "question": "What is cloud-native primarily?",
+      "answer": "An approach to building and running applications",
+      "options": ["A cloud provider", "A programming language", "An approach to building and running applications", "A VM type"],
+      "correctIndex": 2,
+      "explanation": "\"Cloud-native is an approach to building and running applications...\""
+    },
+    {
+      "question": "Which characteristic is emphasized by cloud-native applications?",
+      "answer": "High resiliency and scalability",
+      "options": ["Manual scaling", "High resiliency and scalability", "Single-host deployment", "Monolithic design"],
+      "correctIndex": 1,
+      "explanation": "\"Emphasizing application workloads with high resiliency, scalability...\""
+    },
+    {
+      "question": "Do cloud-native applications have to run in the cloud?",
+      "answer": "No",
+      "options": ["Yes", "No", "Only on public cloud", "Only on private cloud"],
+      "correctIndex": 1,
+      "explanation": "\"It does not mean that a cloud-native application must run strictly in a public, private, or hybrid cloud.\""
+    },
+    {
+      "question": "What is a container?",
+      "answer": "A portable unit of software including code and dependencies",
+      "options": ["A VM", "A physical server", "A portable unit of software including code and dependencies", "A hypervisor"],
+      "correctIndex": 2,
+      "explanation": "\"Containers are portable units of software that include application code with runtimes, dependencies...\""
+    },
+    {
+      "question": "What do containers share?",
+      "answer": "A single OS kernel",
+      "options": ["No resources", "A single OS kernel", "A hypervisor", "A VM image"],
+      "correctIndex": 1,
+      "explanation": "\"Containers share one OS kernel.\""
+    },
+
+    {
+      "question": "Why are containers portable?",
+      "answer": "They include their own isolated environment",
+      "options": ["They include a full OS", "They use hypervisors", "They include their own isolated environment", "They run only on cloud"],
+      "correctIndex": 2,
+      "explanation": "\"The container includes its own isolated environment.\""
+    },
+    {
+      "question": "Why do containers start faster than VMs?",
+      "answer": "They do not need to boot a full OS",
+      "options": ["They use GPUs", "They run on bare metal", "They do not need to boot a full OS", "They are precompiled"],
+      "correctIndex": 2,
+      "explanation": "\"They don't need to bootstrap a complete OS with a kernel.\""
+    },
+    {
+      "question": "What is a container image?",
+      "answer": "A template used to create containers",
+      "options": ["A VM snapshot", "A hypervisor", "A template used to create containers", "A network driver"],
+      "correctIndex": 2,
+      "explanation": "\"Container images are essentially templates...\""
+    },
+    {
+      "question": "How large is an Ubuntu container image compared to a VM image?",
+      "answer": "70 MB vs 500 MB",
+      "options": ["5 MB vs 50 MB", "70 MB vs 500 MB", "200 MB vs 1 GB", "1 GB vs 10 GB"],
+      "correctIndex": 1,
+      "explanation": "\"Ubuntu Server 20.04 weighs about 70 MB... VM image... roughly 500 MB.\""
+    },
+    {
+      "question": "What is a container runtime?",
+      "answer": "Software that manages container lifecycle",
+      "options": ["A VM manager", "Software that manages container lifecycle", "A cloud provider", "A network orchestrator"],
+      "correctIndex": 1,
+      "explanation": "\"A container runtime is a special software needed to run containers...\""
+    },
+
+    {
+      "question": "Which is NOT a container runtime?",
+      "answer": "KVM",
+      "options": ["containerd", "CRI-O", "Docker Engine", "KVM"],
+      "correctIndex": 3,
+      "explanation": "KVM is a virtualization technology, not a container runtime."
+    },
+    {
+      "question": "Why might VMs be preferred over containers?",
+      "answer": "Stronger isolation and security",
+      "options": ["Faster startup", "Smaller size", "Stronger isolation and security", "Lower overhead"],
+      "correctIndex": 2,
+      "explanation": "\"VMs provide better security due to stronger isolation.\""
+    },
+    {
+      "question": "What is a monolithic application?",
+      "answer": "A single, tightly coupled application",
+      "options": ["A distributed system", "A single, tightly coupled application", "A microservice", "A container image"],
+      "correctIndex": 1,
+      "explanation": "\"A monolithic application will be tightly coupled...\""
+    },
+    {
+      "question": "What is a disadvantage of monolithic architecture?",
+      "answer": "Small changes require redeploying the entire application",
+      "options": ["Easy scaling", "Independent updates", "Small changes require redeploying the entire application", "Low complexity"],
+      "correctIndex": 2,
+      "explanation": "\"Each change could potentially break the whole application.\""
+    },
+    {
+      "question": "What is a microservice?",
+      "answer": "A small application responsible for a single task",
+      "options": ["A VM", "A small application responsible for a single task", "A monolith", "A hypervisor"],
+      "correctIndex": 1,
+      "explanation": "\"Microservices are a group of small applications where each is responsible for its own small task.\""
+    },
+
+    {
+      "question": "How do microservices communicate?",
+      "answer": "Over the network",
+      "options": ["Shared memory", "Over the network", "Direct kernel calls", "Through hypervisors"],
+      "correctIndex": 1,
+      "explanation": "\"These small applications communicate with each other over the network.\""
+    },
+    {
+      "question": "Which is an advantage of microservices?",
+      "answer": "Independent deployment",
+      "options": ["Single deployment unit", "Independent deployment", "Shared memory model", "Single database only"],
+      "correctIndex": 1,
+      "explanation": "\"Each microservice can be released and updated separately.\""
+    },
+    {
+      "question": "Why do containers need orchestration?",
+      "answer": "Managing large numbers of containers becomes difficult",
+      "options": ["Containers cannot run alone", "Managing large numbers of containers becomes difficult", "Containers require hypervisors", "Containers cannot scale"],
+      "correctIndex": 1,
+      "explanation": "\"Managing containers on a large scale can be quite a challenge.\""
+    },
+    {
+      "question": "What is container orchestration?",
+      "answer": "Automated management of container lifecycle and scaling",
+      "options": ["Manual deployment", "Automated management of container lifecycle and scaling", "VM provisioning", "Network routing"],
+      "correctIndex": 1,
+      "explanation": "Orchestration \"automates operations such as scaling, releasing updates, scheduling...\""
+    },
+    {
+      "question": "Which of the following is a container orchestrator?",
+      "answer": "Kubernetes",
+      "options": ["VMware ESXi", "Kubernetes", "Hyper-V", "Xen"],
+      "correctIndex": 1,
+      "explanation": "Kubernetes is listed as a container orchestrator."
+    },
+
+    {
+      "question": "What does the name Kubernetes mean?",
+      "answer": "Pilot or helmsman",
+      "options": ["Captain", "Pilot or helmsman", "Navigator", "Engineer"],
+      "correctIndex": 1,
+      "explanation": "\"The name Kubernetes originates from Greek and means pilot or helmsman.\""
+    },
+    {
+      "question": "Who originally developed Kubernetes?",
+      "answer": "Google",
+      "options": ["Microsoft", "Amazon", "Google", "IBM"],
+      "correctIndex": 2,
+      "explanation": "\"Kubernetes was initially developed by Google.\""
+    },
+    {
+      "question": "When was Kubernetes released as open source?",
+      "answer": "2014",
+      "options": ["2005", "2010", "2014", "2018"],
+      "correctIndex": 2,
+      "explanation": "\"Released as an open source project in 2014.\""
+    },
+    {
+      "question": "Which internal Google system inspired Kubernetes?",
+      "answer": "Borg",
+      "options": ["Docker", "Mesos", "Borg", "Nomad"],
+      "correctIndex": 2,
+      "explanation": "\"Kubernetes has inherited many of its features... from Borg.\""
+    },
+    {
+      "question": "What is the Kubernetes desired state?",
+      "answer": "The state Kubernetes ensures is always met",
+      "options": ["The state of the OS", "The state Kubernetes ensures is always met", "The state of the VM", "The state of the network"],
+      "correctIndex": 1,
+      "explanation": "\"We define the state... and Kubernetes will automatically ensure the state is reached.\""
+    },
+
+    {
+      "question": "What is Kubernetes self-healing?",
+      "answer": "Restarting or rescheduling failed containers",
+      "options": ["Manual debugging", "Restarting or rescheduling failed containers", "Rebuilding the cluster", "Reinstalling the OS"],
+      "correctIndex": 1,
+      "explanation": "\"Kubernetes automatically starts... containers... This process is known as self-healing.\""
+    },
+    {
+      "question": "What is Kubernetes autoscaling?",
+      "answer": "Automatically adjusting container replicas based on demand",
+      "options": ["Manual scaling", "Automatically adjusting container replicas based on demand", "Scaling VMs only", "Scaling storage only"],
+      "correctIndex": 1,
+      "explanation": "\"We can specify that... we want to run more replicas... This process is known as autoscaling.\""
+    },
+    {
+      "question": "Does Kubernetes include its own container runtime?",
+      "answer": "No",
+      "options": ["Yes", "No", "Only on Linux", "Only on cloud"],
+      "correctIndex": 1,
+      "explanation": "\"Kubernetes does not have its own container runtime.\""
+    },
+    {
+      "question": "What does Kubernetes integrate with for running containers?",
+      "answer": "containerd and other runtimes",
+      "options": ["Hyper-V", "VMware", "containerd and other runtimes", "Bare metal only"],
+      "correctIndex": 2,
+      "explanation": "\"It has integration with popular container runtimes such as containerd.\""
+    },
+    {
+      "question": "What is a Kubernetes cluster?",
+      "answer": "A group of hosts running containers managed by Kubernetes",
+      "options": ["A single VM", "A database", "A group of hosts running containers managed by Kubernetes", "A monolithic application"],
+      "correctIndex": 2,
+      "explanation": "Clusters manage \"hundreds of containers spread across multiple hosts.\""
+    },
+
+    {
+      "question": "Why are single-host Kubernetes setups not used in production?",
+      "answer": "They cannot manage large-scale workloads",
+      "options": ["They are too expensive", "They cannot manage large-scale workloads", "They require GPUs", "They lack YAML support"],
+      "correctIndex": 1,
+      "explanation": "\"Single-host Kubernetes installations are only suitable for learning... not for production usage.\""
+    },
+    {
+      "question": "Which organization hosts Kubernetes as a graduated project?",
+      "answer": "CNCF",
+      "options": ["IETF", "CNCF", "W3C", "ISO"],
+      "correctIndex": 1,
+      "explanation": "\"Kubernetes... was the first project to graduate from the Cloud Native Computing Foundation (CNCF).\""
+    }
+    ]
+}

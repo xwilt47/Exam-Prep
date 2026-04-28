@@ -1,0 +1,355 @@
+{
+  "label": "Chapter 3 - Getting Started with Containers (40 MCQs)",
+  "multipleChoice": [
+    {
+      "question": "What is containerization?",
+      "answer": "Packaging application code with dependencies into a container.",
+      "options": ["Running apps on VMs", "Packaging application code with dependencies into a container", "Installing apps directly on the host OS", "Using multiple physical servers"],
+      "correctIndex": 1,
+      "explanation": "\"Containerization is the process of packaging software application code with dependencies...\""
+    },
+    {
+      "question": "Which company popularized container tooling?",
+      "answer": "Docker Inc.",
+      "options": ["Google", "Microsoft", "Docker Inc.", "IBM"],
+      "correctIndex": 2,
+      "explanation": "Docker Inc. created easy-to-use tools that accelerated container adoption."
+    },
+    {
+      "question": "What is Docker Engine?",
+      "answer": "A client-server software bundle for building and running containers.",
+      "options": ["A VM hypervisor", "A cloud service", "A client-server software bundle for containers", "A programming language"],
+      "correctIndex": 2,
+      "explanation": "\"Docker Engine is an open source software bundle for building and containerizing applications.\""
+    },
+    {
+      "question": "What is dockerd?",
+      "answer": "The Docker daemon that manages container operations.",
+      "options": ["A CLI tool", "A registry", "The Docker daemon", "A Kubernetes component"],
+      "correctIndex": 2,
+      "explanation": "\"dockerd (Docker daemon) provides a REST API...\""
+    },
+    {
+      "question": "What is the Docker CLI used for?",
+      "answer": "Issuing commands to the Docker daemon.",
+      "options": ["Managing Kubernetes clusters", "Issuing commands to the Docker daemon", "Building VMs", "Managing cloud storage"],
+      "correctIndex": 1,
+      "explanation": "The CLI communicates with dockerd to perform container operations."
+    },
+    {
+      "question": "What is Docker Hub?",
+      "answer": "A public container image registry.",
+      "options": ["A VM marketplace", "A CI/CD tool", "A public container image registry", "A monitoring tool"],
+      "correctIndex": 2,
+      "explanation": "\"Docker Hub... a public container image registry.\""
+    },
+    {
+      "question": "What is the main difference between Docker Hub and Docker Registry?",
+      "answer": "Docker Registry can be self-hosted; Docker Hub is a hosted service.",
+      "options": ["Hub is faster", "Registry is cloud-only", "Registry can be self-hosted", "Hub supports only private images"],
+      "correctIndex": 2,
+      "explanation": "Docker Registry is open source and can be installed locally."
+    },
+    {
+      "question": "What is Docker Swarm?",
+      "answer": "Docker’s native container orchestration tool.",
+      "options": ["A logging tool", "A monitoring tool", "A container orchestrator", "A VM scheduler"],
+      "correctIndex": 2,
+      "explanation": "\"Docker Swarm... purpose is cluster management and container orchestration.\""
+    },
+    {
+      "question": "What does Docker Compose do?",
+      "answer": "Defines multi-container applications using YAML.",
+      "options": ["Builds images", "Runs Kubernetes clusters", "Defines multi-container apps", "Manages cloud networks"],
+      "correctIndex": 2,
+      "explanation": "Compose defines multi-container applications in a YAML file."
+    },
+    {
+      "question": "What is Docker Desktop?",
+      "answer": "A GUI-based Docker bundle for Windows/macOS including Kubernetes.",
+      "options": ["A Linux-only tool", "A cloud service", "A GUI Docker bundle", "A VM hypervisor"],
+      "correctIndex": 2,
+      "explanation": "\"Docker Desktop... comes with its own graphical user interface (GUI).\""
+    },
+    {
+      "question": "Why was Dockershim created?",
+      "answer": "To allow Kubernetes to communicate with dockerd.",
+      "options": ["To replace Docker", "To run Windows containers", "To allow Kubernetes to communicate with dockerd", "To build images"],
+      "correctIndex": 2,
+      "explanation": "\"Dockershim... allowed Kubernetes... to communicate with dockerd.\""
+    },
+    {
+      "question": "Why was Dockershim removed from Kubernetes?",
+      "answer": "Kubernetes moved to OCI-compliant runtimes.",
+      "options": ["Security issues", "Performance issues", "Kubernetes moved to OCI-compliant runtimes", "Docker became obsolete"],
+      "correctIndex": 2,
+      "explanation": "Dockershim was deprecated in 1.20 and removed in 1.24."
+    },
+    {
+      "question": "Which two Linux kernel features form the basis of containers?",
+      "answer": "cgroups and namespaces",
+      "options": ["SELinux and AppArmor", "cgroups and namespaces", "systemd and journald", "LVM and RAID"],
+      "correctIndex": 1,
+      "explanation": "\"Based on two fundamental kernel features: cgroups and namespaces.\""
+    },
+    {
+      "question": "What do cgroups control?",
+      "answer": "Resource usage of process groups.",
+      "options": ["Networking", "Filesystem mounts", "Resource usage", "User permissions"],
+      "correctIndex": 2,
+      "explanation": "\"cgroups... limit, monitor, and control resources.\""
+    },
+    {
+      "question": "What do namespaces provide?",
+      "answer": "Process isolation at different system levels.",
+      "options": ["Faster networking", "Process isolation", "Better logging", "Improved storage"],
+      "correctIndex": 1,
+      "explanation": "\"Namespaces isolate processes from each other.\""
+    },
+    {
+      "question": "Which namespace isolates hostnames?",
+      "answer": "UTS namespace",
+      "options": ["PID", "Network", "UTS", "IPC"],
+      "correctIndex": 2,
+      "explanation": "\"UTS... allows different hostnames and domain names.\""
+    },
+    {
+      "question": "Which namespace isolates process IDs?",
+      "answer": "PID namespace",
+      "options": ["UTS", "PID", "Network", "Mount"],
+      "correctIndex": 1,
+      "explanation": "\"PID namespace... independent process IDs.\""
+    },
+    {
+      "question": "Which namespace isolates network stacks?",
+      "answer": "Network namespace",
+      "options": ["PID", "Network", "IPC", "UTS"],
+      "correctIndex": 1,
+      "explanation": "\"Network namespace... independent network stack.\""
+    },
+    {
+      "question": "Which command starts an interactive Ubuntu container?",
+      "answer": "`docker run -it ubuntu:22.04 bash`",
+      "options": ["docker start ubuntu", "docker exec ubuntu", "docker run -it ubuntu:22.04 bash", "docker create ubuntu"],
+      "correctIndex": 2,
+      "explanation": "This command starts an interactive bash session."
+    },
+    {
+      "question": "What does the `-i` flag do in `docker run`?",
+      "answer": "Enables interactive mode.",
+      "options": ["Allocates TTY", "Runs in background", "Enables interactive mode", "Mounts a volume"],
+      "correctIndex": 2,
+      "explanation": "\"-i... interactive mode.\""
+    },
+    {
+      "question": "What does the `-t` flag do in `docker run`?",
+      "answer": "Allocates a pseudo‑TTY.",
+      "options": ["Runs detached", "Allocates a pseudo‑TTY", "Mounts a directory", "Sets environment variables"],
+      "correctIndex": 1,
+      "explanation": "\"-t... allocate a pseudo-TTY.\""
+    },
+    {
+      "question": "What happens if Docker cannot find an image locally?",
+      "answer": "It pulls the image from a registry.",
+      "options": ["It errors out", "It builds the image", "It pulls the image", "It restarts the daemon"],
+      "correctIndex": 2,
+      "explanation": "\"If the requested image... was not downloaded previously, it will be automatically downloaded.\""
+    },
+    {
+      "question": "Why is starting a container faster the second time?",
+      "answer": "The image is already cached locally.",
+      "options": ["Network caching", "Daemon optimization", "Image is cached locally", "Container reuse"],
+      "correctIndex": 2,
+      "explanation": "No need to download the image again."
+    },
+    {
+      "question": "What is a container layer?",
+      "answer": "A writable layer added on top of image layers.",
+      "options": ["A VM snapshot", "A network layer", "A writable layer", "A kernel module"],
+      "correctIndex": 2,
+      "explanation": "\"We add a new layer... writable filesystem layer.\""
+    },
+    {
+      "question": "What command lists running containers?",
+      "answer": "`docker ps`",
+      "options": ["docker list", "docker show", "docker ps", "docker run"],
+      "correctIndex": 2,
+      "explanation": "docker ps shows running containers."
+    },
+    {
+      "question": "What command lists all containers including exited ones?",
+      "answer": "`docker ps --all`",
+      "options": ["docker ps -a", "docker list all", "docker ps --all", "docker show"],
+      "correctIndex": 2,
+      "explanation": "docker ps --all shows all containers."
+    },
+    {
+      "question": "What command removes a container?",
+      "answer": "`docker rm <id>`",
+      "options": ["docker delete", "docker remove", "docker rm <id>", "docker kill"],
+      "correctIndex": 2,
+      "explanation": "docker rm removes containers."
+    },
+    {
+      "question": "What command removes an image?",
+      "answer": "`docker rmi <image>`",
+      "options": ["docker rm", "docker delete image", "docker rmi <image>", "docker purge"],
+      "correctIndex": 2,
+      "explanation": "docker rmi removes images."
+    },
+    {
+      "question": "Why might Docker refuse to delete an image?",
+      "answer": "Containers still reference the image.",
+      "options": ["Image is too large", "Image is corrupted", "Containers reference the image", "Docker is offline"],
+      "correctIndex": 2,
+      "explanation": "\"Unable to remove... container is using its referenced image.\""
+    },
+    {
+      "question": "What is the default image tag?",
+      "answer": "latest",
+      "options": ["stable", "default", "latest", "current"],
+      "correctIndex": 2,
+      "explanation": "\"If no tag is given... latest will be taken by default.\""
+    },
+    {
+      "question": "Is the `latest` tag automatically updated?",
+      "answer": "No, it is just a label.",
+      "options": ["Yes", "No", "Only on Docker Hub", "Only on Linux"],
+      "correctIndex": 1,
+      "explanation": "\"latest is not updated dynamically.\""
+    },
+    {
+      "question": "What is a Dockerfile?",
+      "answer": "A text file containing instructions for building an image.",
+      "options": ["A VM config file", "A YAML file", "A text file with build instructions", "A registry manifest"],
+      "correctIndex": 2,
+      "explanation": "\"A Dockerfile is a text file containing instructions for building an image.\""
+    },
+    {
+      "question": "What does the `FROM` instruction specify?",
+      "answer": "The base image.",
+      "options": ["The maintainer", "The default command", "The base image", "The exposed ports"],
+      "correctIndex": 2,
+      "explanation": "\"FROM defines the base image...\""
+    },
+    {
+      "question": "What does the `RUN` instruction do?",
+      "answer": "Executes commands during the build.",
+      "options": ["Runs containers", "Executes commands during build", "Starts services", "Defines metadata"],
+      "correctIndex": 1,
+      "explanation": "RUN executes commands inside the image build."
+    },
+    {
+      "question": "What does the `CMD` instruction define?",
+      "answer": "The default command executed when a container starts.",
+      "options": ["Build commands", "Default runtime command", "Environment variables", "User permissions"],
+      "correctIndex": 1,
+      "explanation": "\"CMD... define the default executable of a Docker image.\""
+    },
+    {
+      "question": "What does the `ENTRYPOINT` instruction define?",
+      "answer": "The main executable for the container.",
+      "options": ["The working directory", "The main executable", "The environment variables", "The exposed ports"],
+      "correctIndex": 1,
+      "explanation": "\"ENTRYPOINT... define the executable of an image when a container is started.\""
+    },
+    {
+      "question": "What does the `EXPOSE` instruction indicate?",
+      "answer": "Which port the application listens on.",
+      "options": ["Which port to block", "Which port to encrypt", "Which port the app listens on", "Which port to mount"],
+      "correctIndex": 2,
+      "explanation": "\"EXPOSE... tells us that the application... will be listening on a particular network port.\""
+    },
+    {
+      "question": "What does the `WORKDIR` instruction do?",
+      "answer": "Sets the working directory for subsequent instructions.",
+      "options": ["Sets the user", "Sets the hostname", "Sets the working directory", "Sets the entrypoint"],
+      "correctIndex": 2,
+      "explanation": "\"WORKDIR sets the working (current) directory...\""
+    },
+    {
+      "question": "What command builds a Docker image?",
+      "answer": "`docker build . -t <name>`",
+      "options": ["docker create", "docker compile", "docker build . -t <name>", "docker run build"],
+      "correctIndex": 2,
+      "explanation": "docker build is used to build images."
+    },
+    {
+      "question": "What is the recommended practice for tagging images?",
+      "answer": "Use descriptive tags like versions or timestamps.",
+      "options": ["Always use latest", "Use random tags", "Use descriptive tags", "Avoid tagging"],
+      "correctIndex": 2,
+      "explanation": "Best practice is to use descriptive tags."
+    },
+    {
+      "question": "Can Linux containers run natively on Windows?",
+      "answer": "No, Docker Desktop uses a Linux VM.",
+      "options": ["Yes", "No", "Only on Windows Server", "Only with Hyper-V"],
+      "correctIndex": 1,
+      "explanation": "\"Docker Desktop... is using a minimal Linuxkit virtual machine in the background.\""
+    },
+    {
+      "question": "What happens when you run `docker run` on an image that is not present locally?",
+      "answer": "Docker automatically pulls the image from a registry.",
+      "options": ["Docker fails with an error", "Docker builds the image automatically", "Docker automatically pulls the image from a registry", "Docker restarts the daemon"],
+      "correctIndex": 2,
+      "explanation": "\"If the requested image... was not downloaded previously, it will be automatically downloaded (pulled).\""
+    },
+    {
+      "question": "Why do containers start faster after the first run?",
+      "answer": "The image is already cached locally.",
+      "options": ["The container is reused", "The kernel optimizes it", "The image is already cached locally", "Docker skips initialization"],
+      "correctIndex": 2,
+      "explanation": "The chapter explains that the second run is faster because the image is already downloaded."
+    },
+    {
+      "question": "What does a container layer store?",
+      "answer": "Only the differences from the base image layer.",
+      "options": ["The entire OS", "Only the differences from the base image layer", "All application logs", "Kernel modules"],
+      "correctIndex": 1,
+      "explanation": "\"Container layers only keep track of differences from the base image.\""
+    },
+    {
+      "question": "What command shows all containers, including exited ones?",
+      "answer": "`docker ps --all`",
+      "options": ["docker ps", "docker list", "docker ps --all", "docker show"],
+      "correctIndex": 2,
+      "explanation": "The chapter demonstrates using `docker ps --all` to view exited containers."
+    },
+    {
+      "question": "Why might `docker rmi` fail to remove an image?",
+      "answer": "Because a container still references the image.",
+      "options": ["The image is corrupted", "Docker is offline", "Because a container still references the image", "The tag is invalid"],
+      "correctIndex": 2,
+      "explanation": "\"Unable to remove... container is using its referenced image.\""
+    },
+    {
+      "question": "What does the `docker commit` command do?",
+      "answer": "Creates a new image from a container’s current state.",
+      "options": ["Starts a container", "Deletes a container", "Creates a new image from a container’s state", "Pushes an image to a registry"],
+      "correctIndex": 2,
+      "explanation": "\"docker commit... create a new image from an existing container.\""
+    },
+    {
+      "question": "Why is building images interactively not recommended?",
+      "answer": "It is manual, error‑prone, and produces larger images.",
+      "options": ["It is too fast", "It requires root access", "It is manual, error‑prone, and produces larger images", "It cannot install packages"],
+      "correctIndex": 2,
+      "explanation": "The chapter states interactive builds are error‑prone and create unnecessary layers."
+    },
+    {
+      "question": "What does the `ADD` instruction do in a Dockerfile?",
+      "answer": "Copies files or directories into the image, including remote URLs.",
+      "options": ["Adds environment variables", "Copies files or directories into the image, including remote URLs", "Adds users", "Adds network ports"],
+      "correctIndex": 1,
+      "explanation": "\"ADD... used to copy files and directories... or remote URLs.\""
+    },
+    {
+      "question": "What is the purpose of the `VOLUME` instruction?",
+      "answer": "To create a mount point for externally mounted volumes.",
+      "options": ["To expose ports", "To set environment variables", "To create a mount point for volumes", "To define the entrypoint"],
+      "correctIndex": 2,
+      "explanation": "\"VOLUME... used to create a mount point... for externally mounted volumes.\""
+    }
+  ]
+}

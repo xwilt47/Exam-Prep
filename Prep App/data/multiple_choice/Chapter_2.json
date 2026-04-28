@@ -1,0 +1,355 @@
+{
+  "label": "Chapter 2 - CNCF and Kubernetes Certifications (40 MCQs)",
+  "multipleChoice": [
+    {
+      "question": "What defines Open Source Software (OSS)?",
+      "answer": "Software whose source code is publicly accessible and modifiable.",
+      "options": ["Software that is free to download", "Software whose source code is publicly accessible and modifiable", "Software owned by a single vendor", "Software that runs only on Linux"],
+      "correctIndex": 1,
+      "explanation": "\"OSS is when the source code of the software is publicly accessible and anyone can study, modify, and distribute it.\""
+    },
+    {
+      "question": "Which license is commonly used for OSS?",
+      "answer": "Apache 2.0",
+      "options": ["Microsoft EULA", "Apache 2.0", "Oracle Enterprise License", "VMware License"],
+      "correctIndex": 1,
+      "explanation": "The chapter lists Apache 2.0 and GPLv3 as examples of OSS licenses."
+    },
+    {
+      "question": "Who created the Linux kernel?",
+      "answer": "Linus Torvalds",
+      "options": ["Richard Stallman", "Linus Torvalds", "Guido van Rossum", "Ken Thompson"],
+      "correctIndex": 1,
+      "explanation": "\"The Linux kernel... was started in 1991 by Linus Torvalds.\""
+    },
+    {
+      "question": "What percentage of the world’s supercomputers run Linux?",
+      "answer": "100%",
+      "options": ["50%", "75%", "95%", "100%"],
+      "correctIndex": 3,
+      "explanation": "\"...a core operating system that powers 100% of the world's supercomputers.\""
+    },
+    {
+      "question": "What is the purpose of the Open Container Initiative (OCI)?",
+      "answer": "To define open industry standards for container formats and runtimes.",
+      "options": ["To sell container runtimes", "To define open industry standards for container formats and runtimes", "To replace Kubernetes", "To create new programming languages"],
+      "correctIndex": 1,
+      "explanation": "\"OCI is an open governance structure whose purpose is to define open industry standards around container formats and runtimes.\""
+    },
+    {
+      "question": "Which OCI specification defines how to package an application?",
+      "answer": "Image specification",
+      "options": ["Runtime specification", "Distribution specification", "Image specification", "Execution specification"],
+      "correctIndex": 2,
+      "explanation": "The image-spec defines how to build and package an application."
+    },
+    {
+      "question": "Which OCI specification defines the container lifecycle?",
+      "answer": "Runtime specification",
+      "options": ["Image specification", "Runtime specification", "Distribution specification", "Container spec"],
+      "correctIndex": 1,
+      "explanation": "\"Runtime specification (runtime-spec) defines the container life cycle...\""
+    },
+    {
+      "question": "Which organization helped establish OCI?",
+      "answer": "The Linux Foundation",
+      "options": ["CNCF", "Google", "The Linux Foundation", "IBM"],
+      "correctIndex": 2,
+      "explanation": "The Linux Foundation played a major role in establishing OCI."
+    },
+    {
+      "question": "When was the Linux Foundation created?",
+      "answer": "2000",
+      "options": ["1991", "2000", "2005", "2015"],
+      "correctIndex": 1,
+      "explanation": "\"The Linux Foundation... appeared in 2000 as a merger...\""
+    },
+    {
+      "question": "What was the original purpose of the Linux Foundation?",
+      "answer": "To standardize, promote, and support Linux.",
+      "options": ["To replace Windows", "To standardize, promote, and support Linux", "To build cloud platforms", "To manage Kubernetes"],
+      "correctIndex": 1,
+      "explanation": "The foundation was created to support Linux adoption."
+    },
+    {
+      "question": "When was CNCF founded?",
+      "answer": "2015",
+      "options": ["2000", "2012", "2015", "2018"],
+      "correctIndex": 2,
+      "explanation": "\"CNCF... was launched in 2015.\""
+    },
+    {
+      "question": "Which project became the first CNCF incubating project?",
+      "answer": "Kubernetes",
+      "options": ["Docker", "Terraform", "Kubernetes", "Prometheus"],
+      "correctIndex": 2,
+      "explanation": "\"Kubernetes became the seed technology and the first incubating project...\""
+    },
+    {
+      "question": "What is CNCF’s mission?",
+      "answer": "To make cloud-native computing ubiquitous.",
+      "options": ["To replace Linux", "To sell cloud services", "To make cloud-native computing ubiquitous", "To manage cloud billing"],
+      "correctIndex": 2,
+      "explanation": "\"The Foundation's mission is to make cloud-native computing ubiquitous.\""
+    },
+    {
+      "question": "Which of the following is a CNCF project maturity level?",
+      "answer": "Sandbox",
+      "options": ["Prototype", "Sandbox", "Legacy", "Enterprise"],
+      "correctIndex": 1,
+      "explanation": "CNCF maturity levels: Sandbox, Incubating, Graduated."
+    },
+    {
+      "question": "What characterizes a CNCF Incubating project?",
+      "answer": "Used in production with active contributions.",
+      "options": ["Only experimental", "Used in production with active contributions", "Vendor-owned", "Requires no documentation"],
+      "correctIndex": 1,
+      "explanation": "\"Incubating: successfully used in production... ongoing flow of code commits...\""
+    },
+    {
+      "question": "What is required for a CNCF project to graduate?",
+      "answer": "Contributors from multiple organizations and a security audit.",
+      "options": ["A marketing plan", "A paid support model", "Contributors from multiple organizations and a security audit", "A proprietary license"],
+      "correctIndex": 2,
+      "explanation": "\"Graduated... contributors from multiple organizations... passed a third-party security audit.\""
+    },
+    {
+      "question": "Which CNCF body handles business decisions?",
+      "answer": "Governing Board (GB)",
+      "options": ["TOC", "EUC", "Governing Board (GB)", "Linux Foundation"],
+      "correctIndex": 2,
+      "explanation": "\"Governing Board (GB): Takes care of marketing, budget, and other business decisions...\""
+    },
+    {
+      "question": "Which CNCF body approves new projects?",
+      "answer": "Technical Oversight Committee (TOC)",
+      "options": ["Governing Board", "End User Community", "Technical Oversight Committee", "Linux Foundation"],
+      "correctIndex": 2,
+      "explanation": "\"TOC... responsible for defining and maintaining the technical vision, approving new projects...\""
+    },
+    {
+      "question": "Which CNCF body provides feedback from real users?",
+      "answer": "End User Community (EUC)",
+      "options": ["TOC", "GB", "EUC", "OCI"],
+      "correctIndex": 2,
+      "explanation": "\"End User Community (EUC): Provides feedback from end users...\""
+    },
+    {
+      "question": "What governance principle does CNCF follow?",
+      "answer": "Minimal Viable Governance",
+      "options": ["Strict Governance", "Minimal Viable Governance", "Vendor Governance", "Open Governance"],
+      "correctIndex": 1,
+      "explanation": "\"CNCF follows the principle of Minimal Viable Governance...\""
+    },
+    {
+      "question": "What is a Cloud Architect responsible for?",
+      "answer": "Designing cloud infrastructure and selecting cloud providers.",
+      "options": ["Writing frontend code", "Designing cloud infrastructure and selecting cloud providers", "Managing HR tasks", "Building mobile apps"],
+      "correctIndex": 1,
+      "explanation": "Cloud Architects design cloud-native architectures and choose providers."
+    },
+    {
+      "question": "What financial concepts must Cloud Architects understand?",
+      "answer": "CAPEX and OPEX",
+      "options": ["ROI and EBITDA", "CAPEX and OPEX", "GDP and CPI", "IRS and SEC"],
+      "correctIndex": 1,
+      "explanation": "\"They must know the difference between CAPEX and OPEX.\""
+    },
+    {
+      "question": "What does a DevOps Engineer do?",
+      "answer": "Bridges development and operations through automation.",
+      "options": ["Only writes code", "Only manages servers", "Bridges development and operations through automation", "Only handles security"],
+      "correctIndex": 2,
+      "explanation": "\"DevOps Engineer... bridges the gaps between developers and operationalists.\""
+    },
+    {
+      "question": "What distinguishes DevSecOps from DevOps?",
+      "answer": "DevSecOps adds a strong focus on security.",
+      "options": ["DevSecOps removes automation", "DevSecOps adds a strong focus on security", "DevOps is only for developers", "DevSecOps is unrelated to DevOps"],
+      "correctIndex": 1,
+      "explanation": "\"DevSecOps... with an extra focus on security.\""
+    },
+    {
+      "question": "What does a FinOps Engineer focus on?",
+      "answer": "Cloud cost optimization and budgeting.",
+      "options": ["Security", "Frontend development", "Cloud cost optimization and budgeting", "Network routing"],
+      "correctIndex": 2,
+      "explanation": "\"FinOps... track budgets, provide transparency, and perform cost optimization...\""
+    },
+    {
+      "question": "What is the main responsibility of an SRE?",
+      "answer": "Ensuring reliability and meeting SLAs/SLOs.",
+      "options": ["Writing UI code", "Ensuring reliability and meeting SLAs/SLOs", "Managing HR tasks", "Building mobile apps"],
+      "correctIndex": 1,
+      "explanation": "\"SRE... focuses on meeting application availability requirements or objectives defined in SLAs or SLOs.\""
+    },
+    {
+      "question": "What is an SLA?",
+      "answer": "A commitment defining service quality and availability.",
+      "options": ["A security audit", "A programming interface", "A commitment defining service quality and availability", "A billing model"],
+      "correctIndex": 2,
+      "explanation": "\"SLA regulates the level of commitment... regarding quality, availability...\""
+    },
+    {
+      "question": "What is an SLO?",
+      "answer": "A measurable characteristic of an SLA.",
+      "options": ["A legal document", "A measurable characteristic of an SLA", "A type of cloud provider", "A runtime specification"],
+      "correctIndex": 1,
+      "explanation": "\"SLOs are specific measurable characteristics of the SLA...\""
+    },
+    {
+      "question": "What does a Cloud Engineer specialize in?",
+      "answer": "Deep knowledge of cloud provider services.",
+      "options": ["Frontend development", "Deep knowledge of cloud provider services", "Marketing", "HR systems"],
+      "correctIndex": 1,
+      "explanation": "Cloud Engineers focus on cloud-specific services."
+    },
+    {
+      "question": "What does a Data Engineer handle?",
+      "answer": "Data storage, protection, and analysis tools.",
+      "options": ["UI design", "Data storage, protection, and analysis tools", "Network cabling", "HR analytics"],
+      "correctIndex": 1,
+      "explanation": "Data Engineers deal with data protection, storage, and analysis."
+    },
+    {
+      "question": "What does a Full Stack Developer do?",
+      "answer": "Works on both frontend and backend components.",
+      "options": ["Only backend", "Only frontend", "Works on both frontend and backend components", "Only cloud infrastructure"],
+      "correctIndex": 2,
+      "explanation": "\"Full Stack Developer... take care of both the frontend... and backend parts of an application.\""
+    },
+    {
+      "question": "Which Kubernetes exam is the easiest?",
+      "answer": "KCNA",
+      "options": ["CKA", "CKAD", "CKS", "KCNA"],
+      "correctIndex": 3,
+      "explanation": "\"KCNA is the easiest exam on the list...\""
+    },
+    {
+      "question": "Which exam must be passed before taking CKS?",
+      "answer": "CKA",
+      "options": ["KCNA", "CKAD", "CKA", "None"],
+      "correctIndex": 2,
+      "explanation": "\"CKS... requires a candidate to hold a valid, non-expired CKA certification.\""
+    },
+    {
+      "question": "How long is the CKA certification valid?",
+      "answer": "3 years",
+      "options": ["1 year", "2 years", "3 years", "5 years"],
+      "correctIndex": 2,
+      "explanation": "\"CKA... validity period was extended to 3 years.\""
+    },
+    {
+      "question": "How many questions are on the KCNA exam?",
+      "answer": "60",
+      "options": ["30", "45", "60", "90"],
+      "correctIndex": 2,
+      "explanation": "\"60 multiple choice questions\""
+    },
+    {
+      "question": "How long is the KCNA exam?",
+      "answer": "90 minutes",
+      "options": ["30 minutes", "60 minutes", "90 minutes", "120 minutes"],
+      "correctIndex": 2,
+      "explanation": "\"90 minutes to complete the exam\""
+    },
+    {
+      "question": "What score is required to pass KCNA?",
+      "answer": "75%",
+      "options": ["50%", "60%", "70%", "75%"],
+      "correctIndex": 3,
+      "explanation": "\"A score of 75% or above is needed to pass\""
+    },
+    {
+      "question": "Which KCNA domain has the highest weight?",
+      "answer": "Kubernetes Fundamentals",
+      "options": ["Cloud-Native Observability", "Cloud-Native Application Delivery", "Kubernetes Fundamentals", "Container Security"],
+      "correctIndex": 2,
+      "explanation": "\"Kubernetes Fundamentals (46%)\""
+    },
+    {
+      "question": "What type of exam is KCNA?",
+      "answer": "Hands-off, multiple-choice only",
+      "options": ["Hands-on lab", "Coding exam", "Hands-off, multiple-choice only", "Interview-based"],
+      "correctIndex": 2,
+      "explanation": "\"KCNA... contains multiple-choice questions\""
+    },
+    {
+      "question": "Which CNCF maturity level is intended for early-stage projects?",
+      "answer": "Sandbox",
+      "options": ["Sandbox", "Incubating", "Graduated", "Legacy"],
+      "correctIndex": 0,
+      "explanation": "\"Sandbox: This is the entry point for early-stage projects...\""
+    },
+    {
+      "question": "Which CNCF requirement applies to ALL hosted projects?",
+      "answer": "Adherence to the CNCF Code of Conduct",
+      "options": ["Must be written in Go", "Adherence to the CNCF Code of Conduct", "Must use Kubernetes", "Must be backed by a Fortune 500 company"],
+      "correctIndex": 1,
+      "explanation": "All CNCF projects must adopt the Code of Conduct and IP Policy."
+    },
+    {
+      "question": "Which CNCF body evaluates whether a project should graduate?",
+      "answer": "Technical Oversight Committee (TOC)",
+      "options": ["Governing Board", "End User Community", "Technical Oversight Committee", "Linux Foundation"],
+      "correctIndex": 2,
+      "explanation": "\"TOC also determines if a project has reached another level of maturity.\""
+    },
+    {
+      "question": "Which role focuses on cloud cost optimization and budgeting?",
+      "answer": "FinOps Engineer",
+      "options": ["DevOps Engineer", "FinOps Engineer", "SRE", "Cloud Architect"],
+      "correctIndex": 1,
+      "explanation": "\"FinOps engineer enables teams to track budgets... and perform cost optimization.\""
+    },
+    {
+      "question": "Which role typically participates in on-call rotations?",
+      "answer": "Site Reliability Engineer (SRE)",
+      "options": ["Full Stack Developer", "Cloud Architect", "Site Reliability Engineer (SRE)", "FinOps Engineer"],
+      "correctIndex": 2,
+      "explanation": "\"SREs often participate in on-call rotation duties...\""
+    },
+    {
+      "question": "Which Kubernetes exam is hands-on and focuses on application deployment?",
+      "answer": "CKAD",
+      "options": ["KCNA", "CKAD", "CKA", "CKS"],
+      "correctIndex": 1,
+      "explanation": "CKAD tests application deployment and management."
+    },
+    {
+      "question": "Which Kubernetes certification focuses specifically on security?",
+      "answer": "CKS",
+      "options": ["KCNA", "CKAD", "CKA", "CKS"],
+      "correctIndex": 3,
+      "explanation": "\"CKS focuses on security and requires significant experience...\""
+    },
+    {
+      "question": "Which exam requires a valid CKA certification before taking it?",
+      "answer": "CKS",
+      "options": ["KCNA", "CKAD", "CKA", "CKS"],
+      "correctIndex": 3,
+      "explanation": "\"CKS... requires a candidate to hold a valid, non-expired CKA certification.\""
+    },
+    {
+      "question": "Which CNCF project maturity level requires a third‑party security audit?",
+      "answer": "Graduated",
+      "options": ["Sandbox", "Incubating", "Graduated", "Legacy"],
+      "correctIndex": 2,
+      "explanation": "\"Graduated... has passed an independent third-party security audit.\""
+    },
+    {
+      "question": "Which KCNA domain has the smallest weight?",
+      "answer": "Cloud-Native Observability",
+      "options": ["Kubernetes Fundamentals", "Container Orchestration", "Cloud-Native Architecture", "Cloud-Native Observability"],
+      "correctIndex": 3,
+      "explanation": "Cloud-Native Observability accounts for 8%, the lowest percentage."
+    },
+    {
+      "question": "Which CNCF requirement helps ensure a positive and empathetic collaborative environment?",
+      "answer": "Adoption of the CNCF Code of Conduct",
+      "options": ["Mandatory weekly meetings", "Adoption of the CNCF Code of Conduct", "Use of a specific programming language", "Paid membership in the Linux Foundation"],
+      "correctIndex": 1,
+      "explanation": "\"The Code of Conduct defines what behavior is acceptable and what is not to create a positive and emphatical collaborative environment.\""
+    }
+  ]
+}

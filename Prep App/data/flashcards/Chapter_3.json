@@ -1,0 +1,213 @@
+{
+  "label": "Chapter 3 - Getting Started with Containers",
+  "flashcards": [
+    {
+      "question": "What is containerization?",
+      "answer": "The process of packaging application code with dependencies into a container. \"Containerization is the process of packaging software application code with dependencies...\""
+    },
+    {
+      "question": "What company created the tools that popularized containers?",
+      "answer": "Docker Inc., originally founded as dotCloud in 2008."
+    },
+    {
+      "question": "What is Docker Engine?",
+      "answer": "An open source client‑server software bundle for building and running containers."
+    },
+    {
+      "question": "What is dockerd?",
+      "answer": "The Docker daemon that exposes a REST API and manages container operations."
+    },
+    {
+      "question": "What is the Docker CLI?",
+      "answer": "A command-line interface used to interact with the Docker daemon."
+    },
+    {
+      "question": "What is Docker Hub?",
+      "answer": "A public container image registry hosting thousands of images."
+    },
+    {
+      "question": "What is a Docker Registry?",
+      "answer": "An open source server-side application for storing and distributing container images."
+    },
+    {
+      "question": "What is Docker Swarm?",
+      "answer": "Docker’s native cluster management and container orchestration tool."
+    },
+    {
+      "question": "What is Docker Compose?",
+      "answer": "A tool for defining multi-container applications using a YAML file."
+    },
+    {
+      "question": "What is Docker Desktop?",
+      "answer": "A GUI-based Docker bundle for Windows/macOS that includes Docker Engine, CLI, Compose, and Kubernetes."
+    },
+    {
+      "question": "What is Dockershim?",
+      "answer": "A compatibility layer that allowed Kubernetes to communicate with dockerd. \"Dockershim has been deprecated since Kubernetes version 1.20...\""
+    },
+    {
+      "question": "Why was Dockershim removed from Kubernetes?",
+      "answer": "Because Kubernetes moved to OCI-compliant runtimes and no longer needed a Docker-specific interface."
+    },
+    {
+      "question": "What two Linux kernel features form the foundation of containers?",
+      "answer": "cgroups and namespaces."
+    },
+    {
+      "question": "What are cgroups?",
+      "answer": "A mechanism to limit, monitor, and control resource usage of process groups."
+    },
+    {
+      "question": "Who developed cgroups?",
+      "answer": "Engineers at Google."
+    },
+    {
+      "question": "What are Linux namespaces?",
+      "answer": "Kernel features that isolate resources so processes see different environments."
+    },
+    {
+      "question": "What does the PID namespace do?",
+      "answer": "Allows processes in different namespaces to have independent PID numbering."
+    },
+    {
+      "question": "What does the network namespace provide?",
+      "answer": "An isolated network stack with its own routing table and IP addresses."
+    },
+    {
+      "question": "What does the mount namespace do?",
+      "answer": "Allows processes to have independent filesystem mount points."
+    },
+    {
+      "question": "What does the UTS namespace control?",
+      "answer": "Hostnames and domain names for isolated processes."
+    },
+    {
+      "question": "What command checks the installed Docker version?",
+      "answer": "`docker --version`"
+    },
+    {
+      "question": "What does `docker run -it ubuntu:22.04 bash` do?",
+      "answer": "Starts an interactive Ubuntu 22.04 container running bash."
+    },
+    {
+      "question": "What does the `-i` flag mean in `docker run`?",
+      "answer": "Interactive mode."
+    },
+    {
+      "question": "What does the `-t` flag mean in `docker run`?",
+      "answer": "Allocates a pseudo‑TTY."
+    },
+    {
+      "question": "What happens if a requested image is not found locally?",
+      "answer": "Docker automatically pulls it from a registry such as Docker Hub."
+    },
+    {
+      "question": "Why is starting a container faster the second time?",
+      "answer": "Because the image is already cached locally."
+    },
+    {
+      "question": "What is a container layer?",
+      "answer": "A writable layer added on top of the read‑only image layers."
+    },
+    {
+      "question": "Why can multiple containers share the same image?",
+      "answer": "Because the image layers are read‑only and containers only store differences."
+    },
+    {
+      "question": "What command lists all running containers?",
+      "answer": "`docker ps`"
+    },
+    {
+      "question": "What command lists all containers, including exited ones?",
+      "answer": "`docker ps --all`"
+    },
+    {
+      "question": "What command removes a container?",
+      "answer": "`docker rm <container_id>`"
+    },
+    {
+      "question": "What command removes an image?",
+      "answer": "`docker rmi <image>`"
+    },
+    {
+      "question": "Why might Docker refuse to delete an image?",
+      "answer": "Because containers still exist that reference the image."
+    },
+    {
+      "question": "What is the default tag used when none is specified?",
+      "answer": "`latest`"
+    },
+    {
+      "question": "Is the `latest` tag automatically updated?",
+      "answer": "No — it is just a label and does not update dynamically."
+    },
+    {
+      "question": "What is the recommended practice for tagging images?",
+      "answer": "Use descriptive tags such as version numbers or timestamps."
+    },
+    {
+      "question": "What is a Dockerfile?",
+      "answer": "A text file containing instructions for building a container image."
+    },
+    {
+      "question": "What does the `FROM` instruction do in a Dockerfile?",
+      "answer": "Specifies the base image."
+    },
+    {
+      "question": "What does the `RUN` instruction do?",
+      "answer": "Executes commands during the image build process."
+    },
+    {
+      "question": "What does the `LABEL` instruction do?",
+      "answer": "Adds metadata to the image."
+    },
+    {
+      "question": "What does the `COPY` instruction do?",
+      "answer": "Copies files from the build context into the image."
+    },
+    {
+      "question": "What does the `CMD` instruction define?",
+      "answer": "The default command executed when a container starts."
+    },
+    {
+      "question": "What does the `ENTRYPOINT` instruction define?",
+      "answer": "The main executable for the container."
+    },
+    {
+      "question": "How do CMD and ENTRYPOINT work together?",
+      "answer": "CMD provides default arguments to ENTRYPOINT."
+    },
+    {
+      "question": "What does the `EXPOSE` instruction indicate?",
+      "answer": "Which port the application listens on at runtime."
+    },
+    {
+      "question": "What does the `ENV` instruction do?",
+      "answer": "Sets environment variables inside the image."
+    },
+    {
+      "question": "What does the `WORKDIR` instruction do?",
+      "answer": "Sets the working directory for subsequent instructions."
+    },
+    {
+      "question": "What command builds a Docker image from a Dockerfile?",
+      "answer": "`docker build . -t <name>`"
+    },
+    {
+      "question": "What is the purpose of tagging images?",
+      "answer": "To identify versions or builds of an image."
+    },
+    {
+      "question": "What is the typical workflow for containerized development?",
+      "answer": "Write code → push to repo → CI builds image → image pushed to registry → orchestrator runs it."
+    },
+    {
+      "question": "Can Linux containers run natively on Windows?",
+      "answer": "No — Docker Desktop uses a Linux VM to run Linux containers."
+    },
+    {
+      "question": "Which type of containers does the KCNA exam focus on?",
+      "answer": "Linux containers only. \"Everything in this book and the KCNA exam itself is only about Linux containers.\""
+    }
+  ]
+}

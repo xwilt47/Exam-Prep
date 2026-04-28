@@ -23,10 +23,43 @@
       </div>
 
       <div class="hero-actions">
-        <button class="mode-button" id="startButton" type="button" disabled>Flashcards</button>
-        <button class="mode-button" id="quizButton" type="button" disabled>Multiple Choice</button>
-        <span class="card-count" id="cardCount">0 flashcards ready</span>
-        <span class="card-count" id="quizCount">0 quiz questions ready</span>
+        <div class="mode-slot">
+          <div class="mode-select-wrap hidden" id="flashcardSelectWrap">
+            <label class="mode-select-label" for="flashcardSelect">Flashcard set</label>
+            <select class="mode-select" id="flashcardSelect" aria-label="Select flashcard set"></select>
+          </div>
+          <label class="shuffle-toggle">
+            <input type="checkbox" id="flashcardShuffle">
+            <span>Shuffle cards</span>
+          </label>
+          <div class="mode-slot-footer">
+            <button class="mode-button" id="startButton" type="button" disabled>Flashcards</button>
+            <span class="card-count" id="cardCount">0 flashcards ready</span>
+          </div>
+        </div>
+        <div class="mode-slot">
+          <div class="mode-select-wrap hidden" id="quizSelectWrap">
+            <label class="mode-select-label" for="quizSelect">Quiz set</label>
+            <select class="mode-select" id="quizSelect" aria-label="Select quiz set"></select>
+          </div>
+          <label class="shuffle-toggle">
+            <input type="checkbox" id="quizShuffle">
+            <span>Shuffle questions</span>
+          </label>
+          <div class="mode-select-wrap" id="quizCountWrap">
+            <label class="mode-select-label" for="quizCountSelect">Questions</label>
+            <select class="mode-select" id="quizCountSelect" aria-label="Number of questions">
+              <option value="20">20 questions</option>
+              <option value="30">30 questions</option>
+              <option value="40">40 questions</option>
+              <option value="all">All questions</option>
+            </select>
+          </div>
+          <div class="mode-slot-footer">
+            <button class="mode-button" id="quizButton" type="button" disabled>Multiple Choice</button>
+            <span class="card-count" id="quizCount">0 quiz questions ready</span>
+          </div>
+        </div>
       </div>
     </section>
 
