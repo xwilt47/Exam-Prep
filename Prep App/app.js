@@ -45,6 +45,8 @@ const testModeToggle      = document.getElementById("testModeToggle");
 const testCounters        = document.getElementById("testCounters");
 const correctCountSpan    = document.getElementById("correctCount");
 const wrongCountSpan      = document.getElementById("wrongCount");
+const quizCount60Option   = document.getElementById("quizCount60Option");
+const timerDisplay        = document.getElementById("timerDisplay");
 
 // ---------------------------------------------------------------------------
 // Controllers
@@ -70,6 +72,8 @@ const quizController = new QuizController({
 let datasets    = { flashcards: [], multipleChoice: [] };
 let currentIndex = 0;
 let activeMode   = "flashcards";
+let _timerId = null;
+let _remainingSeconds = 0;
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -113,6 +117,18 @@ function applySelectedDataset(mode) {
     quizController.items = entry.items;
     updateModeButtonState(quizButton, quizController.ready);
     quizCount.textContent = `${quizController.items.length} quiz questions ready`;
+    // Show the 60-question option only for Mock exam datasets
+    try {
+      const fileName = (entry.file || '').toLowerCase();
+      const isMock = fileName.includes('mock');
+      if (quizCount60Option) {
+        quizCount60Option.hidden = !isMock;
+        // if 60 was selected but this set doesn't support it, fall back to 20
+        if (!isMock && quizCountSelect.value === '60') quizCountSelect.value = '20';
+      }
+    } catch (e) {
+      // ignore
+    }
   }
 }
 
@@ -133,8 +149,54 @@ function updateTestModeUI() {
   if (testCounters) {
     testCounters.classList.toggle("hidden", !active || studyScreen.classList.contains("hidden"));
   }
+  if (timerDisplay) {
+    // only keep timer visible when in test mode and study screen is active
+    timerDisplay.classList.toggle("hidden", !active || studyScreen.classList.contains("hidden") || _remainingSeconds <= 0);
+  }
   if (prevButton) {
     prevButton.disabled = Boolean(active && !studyScreen.classList.contains("hidden"));
+  }
+}
+
+function _formatTime(sec) {
+  const mm = String(Math.floor(sec / 60)).padStart(2, '0');
+  const ss = String(sec % 60).padStart(2, '0');
+  return `${mm}:${ss}`;
+}
+
+function startTimer(seconds) {
+  if (!timerDisplay) return;
+  clearInterval(_timerId);
+  _remainingSeconds = seconds;
+  timerDisplay.textContent = _formatTime(_remainingSeconds);
+  timerDisplay.classList.remove('hidden');
+  _timerId = setInterval(() => {
+    _remainingSeconds -= 1;
+    if (_remainingSeconds <= 0) {
+      clearInterval(_timerId);
+      _timerId = null;
+      timerDisplay.textContent = '00:00';
+      // when timer finishes, disable navigation and show message
+      nextButton.disabled = true;
+      if (studyStatus) {
+        studyStatus.textContent = 'Time is up. Test ended.';
+        studyStatus.classList.remove('hidden');
+      }
+      return;
+    }
+    timerDisplay.textContent = _formatTime(_remainingSeconds);
+  }, 1000);
+}
+
+function stopTimer() {
+  if (_timerId) {
+    clearInterval(_timerId);
+    _timerId = null;
+  }
+  _remainingSeconds = 0;
+  if (timerDisplay) {
+    timerDisplay.classList.add('hidden');
+    timerDisplay.textContent = '';
   }
 }
 
@@ -219,9 +281,23 @@ function goToStudyMode(mode) {
     nextButton.disabled = false;
     renderStudyView();
   } else if (mode === "multiple-choice" && quizController.ready) {
-    const pool       = quizShuffle.checked ? shuffleArray(quizController.items) : [...quizController.items];
+    const pool = quizShuffle.checked ? shuffleArray(quizController.items) : [...quizController.items];
     const countValue = quizCountSelect.value;
-    quizController.items = countValue === "all" ? pool : pool.slice(0, Number(countValue));
+    const selectedEntry = datasets.multipleChoice[Number(quizSelect.value) || 0] || { file: '', items: [] };
+
+    // Special-case: 60-question Mock Exam selection triggers 90-minute test timer
+    if (countValue === 'all') {
+      quizController.items = pool;
+      stopTimer();
+    } else if (countValue === '60' && selectedEntry.file && selectedEntry.file.toLowerCase().includes('mock')) {
+      // take up to 60 random questions from the Mock_Exam pool
+      quizController.items = pool.slice(0, Math.min(60, pool.length));
+      if (isTestMode()) startTimer(90 * 60); // 90 minutes
+    } else {
+      quizController.items = pool.slice(0, Number(countValue));
+      stopTimer();
+    }
+
     nextButton.disabled = false;
     renderStudyView();
   } else {
@@ -232,6 +308,7 @@ function goToStudyMode(mode) {
 function goToIntroMode() {
   studyScreen.classList.add("hidden");
   introScreen.classList.remove("hidden");
+  stopTimer();
   updateTestModeUI();
 }
 
@@ -281,11 +358,13 @@ flashcardSelect.addEventListener("change", () => {
 quizSelect.addEventListener("change", () => {
   applySelectedDataset("multiple-choice");
   updateIntroStatus();
+  stopTimer();
 });
 
 if (testModeToggle) {
   testModeToggle.addEventListener("change", () => {
     if (testModeToggle.checked) quizController.resetScore();
+    if (!testModeToggle.checked) stopTimer();
     updateTestModeUI();
   });
 }
