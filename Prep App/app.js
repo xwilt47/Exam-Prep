@@ -122,7 +122,10 @@ function applySelectedDataset(mode) {
       const fileName = (entry.file || '').toLowerCase();
       const isMock = fileName.includes('mock');
       if (quizCount60Option) {
+        // hide for desktop, disable for mobile/native pickers
         quizCount60Option.hidden = !isMock;
+        quizCount60Option.disabled = !isMock;
+        quizCount60Option.setAttribute('aria-hidden', String(!isMock));
         // if 60 was selected but this set doesn't support it, fall back to 20
         if (!isMock && quizCountSelect.value === '60') quizCountSelect.value = '20';
       }

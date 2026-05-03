@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  prep-app:
+    build: .
+    ports:
+      - "8080:80" # maps host port 8080 to container port 80
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
