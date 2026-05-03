@@ -1,0 +1,865 @@
+{
+  "label": "KCNA Advanced Mock Exam(Questions  120)",
+  "multipleChoice": [
+    {
+      "question": "A microservice in your cluster shows intermittent latency spikes. Logs show no errors, and CPU usage is stable. Which telemetry signal is MOST likely to reveal the root cause?",
+      "answer": "Traces showing slow downstream service calls",
+      "options": ["Logs showing INFO-level messages", "Metrics showing CPU usage", "Traces showing slow downstream service calls", "Node disk utilization metrics"],
+      "correctIndex": 2,
+      "explanation": "Tracing reveals request paths and bottlenecks across microservices."
+    },
+    {
+      "question": "A Kubernetes Deployment is configured with HPA and Cluster Autoscaler. Pods scale up, but nodes do NOT. What is the MOST likely cause?",
+      "answer": "Cluster Autoscaler’s max node count is reached",
+      "options": ["HPA misconfigured target CPU", "Pods have readinessProbe failures", "Cluster Autoscaler’s max node count is reached", "Nodes are using containerd instead of Docker"],
+      "correctIndex": 2,
+      "explanation": "Cluster Autoscaler stops scaling when maxNodes is reached."
+    },
+    {
+      "question": "Which scenario BEST demonstrates horizontal scaling rather than vertical scaling?",
+      "answer": "Increasing the number of pod replicas from 3 to 10",
+      "options": ["Increasing VM RAM from 8GB to 16GB", "Increasing CPU limits on a container", "Increasing pod replicas from 3 to 10", "Switching to a faster storage class"],
+      "correctIndex": 2,
+      "explanation": "Horizontal scaling adds more instances."
+    },
+    {
+      "question": "A team uses GitOps with ArgoCD. A developer manually deletes a Service in production. What happens next?",
+      "answer": "ArgoCD recreates the Service based on the Git repository",
+      "options": ["Nothing until the next commit", "ArgoCD recreates the Service", "The cluster enters degraded mode", "The Deployment is rolled back"],
+      "correctIndex": 1,
+      "explanation": "GitOps enforces Git as the source of truth and overwrites manual changes."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for ensuring a database pod is rescheduled on another node if the current node fails?",
+      "answer": "StatefulSet",
+      "options": ["Deployment", "ReplicaSet", "StatefulSet", "DaemonSet"],
+      "correctIndex": 2,
+      "explanation": "StatefulSets maintain identity and stable storage for stateful workloads."
+    },
+    {
+      "question": "Which of the following BEST describes the purpose of Prometheus labels?",
+      "answer": "They allow filtering and grouping of metrics for precise queries",
+      "options": ["They store logs for each metric", "They allow filtering and grouping of metrics", "They define alert thresholds", "They store metric timestamps"],
+      "correctIndex": 1,
+      "explanation": "Labels add context and enable powerful PromQL queries."
+    },
+    {
+      "question": "A microservice is deployed across three AZs. A single AZ fails. Which Cloud Native principle ensures the application remains available?",
+      "answer": "Resiliency through multi‑zone distribution",
+      "options": ["Loose coupling", "Resiliency through multi‑zone distribution", "GitOps automation", "Vertical autoscaling"],
+      "correctIndex": 1,
+      "explanation": "Resiliency ensures workloads survive infrastructure failures."
+    },
+    {
+      "question": "Which Kubernetes probe prevents traffic from reaching a pod until it is fully ready?",
+      "answer": "readinessProbe",
+      "options": ["livenessProbe", "startupProbe", "readinessProbe", "healthProbe"],
+      "correctIndex": 2,
+      "explanation": "readinessProbe controls when a pod begins receiving traffic."
+    },
+    {
+      "question": "Which of the following is TRUE about Serverless cold starts?",
+      "answer": "They occur when a function has not been invoked for a long period",
+      "options": ["They occur only during high load", "They occur when a function is idle for long periods", "They occur when memory limits are exceeded", "They occur only in multi‑region deployments"],
+      "correctIndex": 1,
+      "explanation": "Cold starts happen when the runtime must be reinitialized."
+    },
+    {
+      "question": "Which Kubernetes autoscaler adjusts CPU/memory requests based on historical usage?",
+      "answer": "Vertical Pod Autoscaler",
+      "options": ["HPA", "Cluster Autoscaler", "Vertical Pod Autoscaler", "Node Autoscaler"],
+      "correctIndex": 2,
+      "explanation": "VPA adjusts resource requests and limits."
+    },
+    {
+      "question": "A team wants to ensure all infrastructure changes are reviewed before deployment. Which practice enforces this?",
+      "answer": "Merge Requests in GitOps",
+      "options": ["HPA policies", "Merge Requests in GitOps", "Manual kubectl reviews", "Terraform plan auto‑apply"],
+      "correctIndex": 1,
+      "explanation": "GitOps requires all changes to be reviewed via MR/PR."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for running a log collector on every node?",
+      "answer": "DaemonSet",
+      "options": ["Deployment", "StatefulSet", "DaemonSet", "ReplicaSet"],
+      "correctIndex": 2,
+      "explanation": "DaemonSets ensure one pod per node."
+    },
+    {
+      "question": "Which of the following BEST describes Infrastructure as Code?",
+      "answer": "Managing infrastructure using declarative configuration files",
+      "options": ["Running scripts manually", "Managing infrastructure using declarative files", "Using Git for application code only", "Deploying containers without YAML"],
+      "correctIndex": 1,
+      "explanation": "IaC defines infrastructure in code form."
+    },
+    {
+      "question": "A Deployment is updated, but pods fail to start due to a misconfiguration. What Kubernetes feature allows quick rollback?",
+      "answer": "Deployment revision history",
+      "options": ["ReplicaSet scaling", "Pod eviction", "Deployment revision history", "Node taints"],
+      "correctIndex": 2,
+      "explanation": "Deployments support rollback to previous revisions."
+    },
+    {
+      "question": "Which Prometheus component sends notifications when alerts fire?",
+      "answer": "Alertmanager",
+      "options": ["Pushgateway", "Grafana", "Alertmanager", "PromQL"],
+      "correctIndex": 2,
+      "explanation": "Alertmanager handles alert routing."
+    },
+    {
+      "question": "Which of the following is a GitOps anti‑pattern?",
+      "answer": "Manually applying kubectl changes in production",
+      "options": ["Using IaC", "Using Merge Requests", "Manually applying kubectl changes", "Using ArgoCD auto‑sync"],
+      "correctIndex": 2,
+      "explanation": "Manual changes cause drift and violate GitOps principles."
+    },
+    {
+      "question": "Which Kubernetes object ensures stable network identity for stateful workloads?",
+      "answer": "StatefulSet",
+      "options": ["Deployment", "ReplicaSet", "StatefulSet", "Job"],
+      "correctIndex": 2,
+      "explanation": "StatefulSets maintain stable identities and storage."
+    },
+    {
+      "question": "Which of the following BEST describes the purpose of CI?",
+      "answer": "To ensure code changes integrate cleanly and remain in a working state",
+      "options": ["To deploy code automatically", "To monitor production", "To ensure code integrates cleanly", "To scale workloads"],
+      "correctIndex": 2,
+      "explanation": "CI validates and integrates code frequently."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for batch processing?",
+      "answer": "Job",
+      "options": ["Deployment", "StatefulSet", "Job", "DaemonSet"],
+      "correctIndex": 2,
+      "explanation": "Jobs run tasks to completion."
+    },
+    {
+      "question": "A team wants to avoid vendor lock‑in for Serverless workloads. Which option is BEST?",
+      "answer": "Using Knative on Kubernetes",
+      "options": ["AWS Lambda", "Azure Functions", "Knative on Kubernetes", "Google Cloud Functions"],
+      "correctIndex": 2,
+      "explanation": "Knative is open‑source and portable."
+    },
+    {
+      "question": "Which Kubernetes feature restarts a container stuck in a deadlock?",
+      "answer": "livenessProbe",
+      "options": ["readinessProbe", "startupProbe", "livenessProbe", "healthProbe"],
+      "correctIndex": 2,
+      "explanation": "livenessProbe triggers restarts when containers become unhealthy."
+    },
+    {
+      "question": "Which of the following BEST describes a GitOps workflow?",
+      "answer": "Git commit → MR approval → ArgoCD sync → Cluster updated",
+      "options": ["kubectl apply → Git commit → ArgoCD sync", "Git commit → ArgoCD sync → Manual approval", "Git commit → MR approval → ArgoCD sync", "Manual deploy → Git commit → ArgoCD sync"],
+      "correctIndex": 2,
+      "explanation": "GitOps requires Git as the source of truth and automated sync."
+    },
+    {
+      "question": "Which Kubernetes resource ensures a pod is restarted if its process exits?",
+      "answer": "Deployment",
+      "options": ["Job", "Deployment", "ConfigMap", "Secret"],
+      "correctIndex": 1,
+      "explanation": "Deployments maintain desired replica count."
+    },
+    {
+      "question": "Which of the following is TRUE about Terraform?",
+      "answer": "It is a declarative IaC tool supporting multiple cloud providers",
+      "options": ["It is imperative", "It only works with AWS", "It is declarative and multi‑cloud", "It replaces Kubernetes"],
+      "correctIndex": 2,
+      "explanation": "Terraform provisions infrastructure declaratively across many providers."
+    },
+    {
+      "question": "Which Kubernetes concept MOST closely resembles IaC?",
+      "answer": "Declarative YAML manifests",
+      "options": ["kubectl exec", "Imperative commands", "Declarative YAML manifests", "Pod logs"],
+      "correctIndex": 2,
+      "explanation": "Kubernetes uses declarative configuration."
+    },
+    {
+      "question": "Which of the following BEST describes Continuous Deployment?",
+      "answer": "Automatically deploying every validated change to production",
+      "options": ["Deploying manually", "Automatically deploying validated changes", "Only building images", "Only running tests"],
+      "correctIndex": 1,
+      "explanation": "Continuous Deployment automates deployment fully."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for running a workload exactly once?",
+      "answer": "Job",
+      "options": ["Deployment", "StatefulSet", "Job", "ReplicaSet"],
+      "correctIndex": 2,
+      "explanation": "Jobs run tasks to completion once."
+    },
+    {
+      "question": "Which of the following BEST describes the purpose of Git in GitOps?",
+      "answer": "It stores the desired state for applications and infrastructure",
+      "options": ["It stores logs", "It stores container images", "It stores desired state", "It stores metrics"],
+      "correctIndex": 2,
+      "explanation": "Git is the single source of truth."
+    },
+    {
+      "question": "Which Kubernetes feature ensures workloads recover automatically after node failure?",
+      "answer": "Controller reconciliation",
+      "options": ["kubectl apply", "Node labels", "Controller reconciliation", "Pod logs"],
+      "correctIndex": 2,
+      "explanation": "Controllers ensure desired state is restored."
+    },
+    {
+      "question": "Which of the following is a benefit of IaC?",
+      "answer": "Reproducible and reviewable infrastructure",
+      "options": ["Manual provisioning", "Faster logging", "Reproducible infrastructure", "Automatic scaling"],
+      "correctIndex": 2,
+      "explanation": "IaC ensures consistency and reviewability."
+    },
+    {
+      "question": "Which tool is commonly used for GitOps continuous delivery?",
+      "answer": "FluxCD",
+      "options": ["Terraform", "FluxCD", "Docker", "MySQL"],
+      "correctIndex": 1,
+      "explanation": "FluxCD automates GitOps workflows."
+    },
+    {
+      "question": "A team notices that their HPA scales pods too slowly during sudden traffic spikes. What is the MOST effective improvement?",
+      "answer": "Use custom metrics such as request-per-second instead of CPU",
+      "options": ["Increase CPU limits", "Use custom metrics like RPS", "Increase node size", "Switch to VPA"],
+      "correctIndex": 1,
+      "explanation": "CPU-based HPA reacts slowly to bursty workloads; custom metrics improve responsiveness."
+    },
+    {
+      "question": "A Kubernetes Deployment rollout is stuck because one pod repeatedly fails readiness checks. What is the safest action?",
+      "answer": "Pause the rollout, fix the issue, then resume",
+      "options": ["Delete the Deployment", "Force rollout completion", "Pause rollout, fix issue, resume", "Scale replicas to zero"],
+      "correctIndex": 2,
+      "explanation": "Pausing prevents further disruption while allowing investigation."
+    },
+    {
+      "question": "Which Kubernetes resource ensures that a pod is recreated even if a user deletes it manually?",
+      "answer": "ReplicaSet",
+      "options": ["ConfigMap", "ReplicaSet", "Secret", "Service"],
+      "correctIndex": 1,
+      "explanation": "ReplicaSets maintain the desired number of pod replicas."
+    },
+    {
+      "question": "A team wants to ensure that all production changes are traceable to a specific review. Which GitOps practice enforces this?",
+      "answer": "Requiring Merge Requests for all changes",
+      "options": ["Manual kubectl apply", "Direct commits to main", "Merge Requests for all changes", "Using kubectl edit"],
+      "correctIndex": 2,
+      "explanation": "MRs enforce traceability and review."
+    },
+    {
+      "question": "A microservice shows high error rates only during peak hours. CPU and memory are normal. What telemetry signal is MOST useful?",
+      "answer": "Tracing showing which service in the chain fails under load",
+      "options": ["Logs only", "CPU metrics", "Tracing data", "Node events"],
+      "correctIndex": 2,
+      "explanation": "Tracing reveals which downstream service fails under load."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a workload that must run exactly once per day at midnight?",
+      "answer": "CronJob",
+      "options": ["Deployment", "Job", "CronJob", "StatefulSet"],
+      "correctIndex": 2,
+      "explanation": "CronJobs schedule recurring tasks."
+    },
+    {
+      "question": "A team wants to prevent accidental deletion of critical Kubernetes resources. Which approach is MOST effective?",
+      "answer": "Use GitOps with auto-sync to restore deleted resources",
+      "options": ["Use kubectl annotate", "Use GitOps auto-sync", "Use taints and tolerations", "Use PodDisruptionBudgets"],
+      "correctIndex": 1,
+      "explanation": "GitOps restores deleted resources automatically."
+    },
+    {
+      "question": "Which Prometheus feature allows grouping metrics by label values?",
+      "answer": "PromQL aggregation functions",
+      "options": ["Alertmanager", "PromQL aggregation", "Pushgateway", "Grafana panels"],
+      "correctIndex": 1,
+      "explanation": "PromQL supports grouping via labels."
+    },
+    {
+      "question": "A team wants to ensure that infrastructure is always deployed consistently across environments. Which practice ensures this?",
+      "answer": "Using IaC stored in Git",
+      "options": ["Manual provisioning", "IaC stored in Git", "Editing cloud resources manually", "Using kubectl edit"],
+      "correctIndex": 1,
+      "explanation": "IaC ensures consistency and reproducibility."
+    },
+    {
+      "question": "Which Kubernetes probe prevents a pod from being restarted too early during initialization?",
+      "answer": "startupProbe",
+      "options": ["livenessProbe", "readinessProbe", "startupProbe", "healthProbe"],
+      "correctIndex": 2,
+      "explanation": "startupProbe delays other probes until initialization completes."
+    },
+    {
+      "question": "A team wants to reduce the risk of deploying faulty code. Which CI/CD practice helps MOST?",
+      "answer": "Running automated tests on every commit",
+      "options": ["Manual testing", "Running tests weekly", "Running automated tests on every commit", "Skipping tests for small changes"],
+      "correctIndex": 2,
+      "explanation": "Frequent automated testing reduces risk."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a distributed database requiring stable identities?",
+      "answer": "StatefulSet",
+      "options": ["Deployment", "ReplicaSet", "StatefulSet", "DaemonSet"],
+      "correctIndex": 2,
+      "explanation": "StatefulSets maintain stable identities and storage."
+    },
+    {
+      "question": "A team wants to detect performance degradation before users notice. Which telemetry signal is MOST proactive?",
+      "answer": "Metrics with alert thresholds",
+      "options": ["Logs", "Metrics with thresholds", "Traces", "Events"],
+      "correctIndex": 1,
+      "explanation": "Metrics allow proactive alerting."
+    },
+    {
+      "question": "Which Kubernetes resource ensures that a pod is recreated if its container exits unexpectedly?",
+      "answer": "Deployment",
+      "options": ["Job", "Deployment", "ConfigMap", "Secret"],
+      "correctIndex": 1,
+      "explanation": "Deployments maintain desired replica count."
+    },
+    {
+      "question": "Which GitOps tool continuously reconciles cluster state with Git?",
+      "answer": "FluxCD",
+      "options": ["Terraform", "FluxCD", "Docker", "Prometheus"],
+      "correctIndex": 1,
+      "explanation": "FluxCD syncs Git state to clusters."
+    },
+    {
+      "question": "A team wants to ensure that all infrastructure changes are reviewed before deployment. Which practice enforces this?",
+      "answer": "Merge Request approval workflow",
+      "options": ["Manual kubectl apply", "Direct commits to main", "Merge Request approvals", "Skipping CI tests"],
+      "correctIndex": 2,
+      "explanation": "MRs enforce review and validation."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for running a workload on every node?",
+      "answer": "DaemonSet",
+      "options": ["Deployment", "StatefulSet", "DaemonSet", "ReplicaSet"],
+      "correctIndex": 2,
+      "explanation": "DaemonSets run one pod per node."
+    },
+    {
+      "question": "Which Prometheus component is responsible for sending notifications?",
+      "answer": "Alertmanager",
+      "options": ["PromQL", "Alertmanager", "Pushgateway", "Grafana"],
+      "correctIndex": 1,
+      "explanation": "Alertmanager handles alert routing."
+    },
+    {
+      "question": "A team wants to ensure that their cluster automatically recovers from node failures. Which Kubernetes feature enables this?",
+      "answer": "Controller reconciliation",
+      "options": ["kubectl apply", "Node labels", "Controller reconciliation", "Pod logs"],
+      "correctIndex": 2,
+      "explanation": "Controllers restore desired state."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a workload that must run to completion and then exit?",
+      "answer": "Job",
+      "options": ["Deployment", "StatefulSet", "Job", "DaemonSet"],
+      "correctIndex": 2,
+      "explanation": "Jobs run tasks to completion."
+    },
+    {
+      "question": "A team wants to avoid vendor lock-in for Serverless workloads. Which option is BEST?",
+      "answer": "Knative",
+      "options": ["AWS Lambda", "Azure Functions", "Knative", "Google Cloud Functions"],
+      "correctIndex": 2,
+      "explanation": "Knative is open-source and portable."
+    },
+    {
+      "question": "Which Kubernetes feature ensures that a container is restarted if it becomes unresponsive?",
+      "answer": "livenessProbe",
+      "options": ["readinessProbe", "startupProbe", "livenessProbe", "terminationGracePeriod"],
+      "correctIndex": 2,
+      "explanation": "livenessProbe detects deadlocks."
+    },
+    {
+      "question": "Which IaC tool is cloud-agnostic and supports multiple providers?",
+      "answer": "Terraform",
+      "options": ["CloudFormation", "Terraform", "Azure ARM", "Google Deployment Manager"],
+      "correctIndex": 1,
+      "explanation": "Terraform supports many providers."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a long-running stateless API?",
+      "answer": "Deployment",
+      "options": ["Job", "Deployment", "CronJob", "StatefulSet"],
+      "correctIndex": 1,
+      "explanation": "Deployments manage stateless workloads."
+    },
+    {
+      "question": "Which Cloud Native concept ensures applications remain functional despite failures?",
+      "answer": "Resiliency",
+      "options": ["Scalability", "Resiliency", "Observability", "GitOps"],
+      "correctIndex": 1,
+      "explanation": "Resiliency ensures recovery from failures."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for scheduled tasks?",
+      "answer": "CronJob",
+      "options": ["Deployment", "CronJob", "StatefulSet", "ReplicaSet"],
+      "correctIndex": 1,
+      "explanation": "CronJobs run tasks on a schedule."
+    },
+    {
+      "question": "Which Kubernetes feature ensures that pods are recreated if deleted manually?",
+      "answer": "Controller reconciliation",
+      "options": ["kubectl apply", "Node taints", "Controller reconciliation", "Pod logs"],
+      "correctIndex": 2,
+      "explanation": "Controllers restore desired state."
+    },
+    {
+      "question": "Which of the following is a key benefit of GitOps?",
+      "answer": "Transparent, auditable change history",
+      "options": ["Manual deployments", "Opaque changes", "Transparent change history", "Skipping CI"],
+      "correctIndex": 2,
+      "explanation": "GitOps uses Git for full auditability."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a workload requiring stable network identity?",
+      "answer": "StatefulSet",
+      "options": ["Deployment", "ReplicaSet", "StatefulSet", "DaemonSet"],
+      "correctIndex": 2,
+      "explanation": "StatefulSets maintain identity."
+    },
+    {
+      "question": "Which Kubernetes resource ensures persistent storage is preserved across pod restarts?",
+      "answer": "PersistentVolumeClaim",
+      "options": ["ConfigMap", "Secret", "PersistentVolumeClaim", "Service"],
+      "correctIndex": 2,
+      "explanation": "PVCs bind pods to persistent storage."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for running a logging agent on every node?",
+      "answer": "DaemonSet",
+      "options": ["Deployment", "StatefulSet", "DaemonSet", "ReplicaSet"],
+      "correctIndex": 2,
+      "explanation": "DaemonSets run one pod per node."
+    },
+    {
+      "question": "Which Prometheus feature allows visualizing time-series data?",
+      "answer": "Grafana dashboards",
+      "options": ["Alertmanager", "PromQL only", "Grafana dashboards", "Pushgateway"],
+      "correctIndex": 2,
+      "explanation": "Grafana visualizes Prometheus metrics."
+    },
+    {
+      "question": "Which Kubernetes probe ensures a container has fully initialized before other probes run?",
+      "answer": "startupProbe",
+      "options": ["livenessProbe", "readinessProbe", "startupProbe", "healthProbe"],
+      "correctIndex": 2,
+      "explanation": "startupProbe delays other probes until initialization completes."
+    },
+    {
+      "question": "Which GitOps tool continuously syncs Kubernetes manifests from Git?",
+      "answer": "ArgoCD",
+      "options": ["Terraform", "ArgoCD", "Docker", "Prometheus"],
+      "correctIndex": 1,
+      "explanation": "ArgoCD syncs Git state to clusters."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a workload that must run exactly once?",
+      "answer": "Job",
+      "options": ["Deployment", "StatefulSet", "Job", "ReplicaSet"],
+      "correctIndex": 2,
+      "explanation": "Jobs run tasks to completion once."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a recurring nightly batch job?",
+      "answer": "CronJob",
+      "options": ["Deployment", "Job", "CronJob", "StatefulSet"],
+      "correctIndex": 2,
+      "explanation": "CronJobs schedule recurring tasks."
+    },
+    {
+      "question": "A team using GitOps with ArgoCD notices that updates to ConfigMaps do not trigger pod restarts, causing outdated configuration to persist. What is the MOST Cloud Native‑aligned solution?",
+      "answer": "Implement an annotation-based restart mechanism triggered by ArgoCD on ConfigMap changes",
+      "options": [
+        "Manually delete pods after every ConfigMap update",
+        "Disable GitOps and apply changes manually",
+        "Implement annotation-based restarts triggered by ArgoCD",
+        "Increase the number of replicas to force restarts"
+      ],
+      "correctIndex": 2,
+      "explanation": "Kubernetes does not restart pods on ConfigMap changes; GitOps workflows often use annotations to trigger controlled restarts."
+    },
+    {
+      "question": "A microservice is deployed using a Deployment with rolling updates. During rollout, half the pods run the old version and half run the new version. Latency spikes occur only during this window. What is the BEST mitigation?",
+      "answer": "Use a canary strategy to gradually shift traffic to the new version",
+      "options": [
+        "Disable rolling updates",
+        "Use a canary strategy to shift traffic gradually",
+        "Increase CPU limits on all pods",
+        "Switch to a Recreate deployment strategy"
+      ],
+      "correctIndex": 1,
+      "explanation": "Canary deployments reduce risk by gradually shifting traffic and observing behavior."
+    },
+    {
+      "question": "A team wants to ensure that Terraform does not accidentally destroy critical resources during refactoring. Which feature provides the BEST protection?",
+      "answer": "Using lifecycle rules such as prevent_destroy",
+      "options": [
+        "Running terraform plan twice",
+        "Using lifecycle prevent_destroy",
+        "Using kubectl diff before applying",
+        "Storing state locally instead of remotely"
+      ],
+      "correctIndex": 1,
+      "explanation": "Terraform lifecycle rules prevent accidental deletion of critical resources."
+    },
+    {
+      "question": "A Kubernetes cluster experiences sudden pod evictions during high I/O workloads. CPU and memory are normal. What is the MOST likely cause?",
+      "answer": "Node disk pressure triggering eviction thresholds",
+      "options": [
+        "Insufficient CPU limits",
+        "Node disk pressure triggering eviction",
+        "Pod livenessProbe failures",
+        "Insufficient network bandwidth"
+      ],
+      "correctIndex": 1,
+      "explanation": "Kubernetes evicts pods when disk pressure thresholds are exceeded, even if CPU and memory are stable."
+    },
+    {
+      "question": "Which Kubernetes feature ensures workloads recover automatically after node failure?",
+      "answer": "Controller reconciliation",
+      "options": ["kubectl apply", "Node labels", "Controller reconciliation", "Pod logs"],
+      "correctIndex": 2,
+      "explanation": "Controllers maintain desired state."
+    },
+    {
+      "question": "Which of the following is TRUE about Serverless cold starts?",
+      "answer": "They occur when a function has been idle for a long period",
+      "options": ["They occur only during high load", "They occur when idle for long periods", "They occur when memory limits are exceeded", "They occur only in multi-region deployments"],
+      "correctIndex": 1,
+      "explanation": "Cold starts happen when the runtime must be reinitialized."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a long-running stateful workload?",
+      "answer": "StatefulSet",
+      "options": ["Deployment", "Job", "StatefulSet", "DaemonSet"],
+      "correctIndex": 2,
+      "explanation": "StatefulSets maintain identity and storage."
+    },
+    {
+      "question": "A team notices that their GitOps pipeline frequently overwrites manual hotfixes applied in production. What is the MOST appropriate long-term solution?",
+      "answer": "Implement a hotfix workflow that requires committing emergency changes directly into the GitOps repository",
+      "options": ["Disable GitOps auto-sync temporarily", "Apply hotfixes manually and reapply them daily", "Implement a hotfix workflow committing changes into Git", "Use kubectl patch to bypass GitOps"],
+      "correctIndex": 2,
+      "explanation": "GitOps requires all changes—including hotfixes—to originate from Git to avoid drift."
+    },
+    {
+      "question": "A Kubernetes Deployment is updated with a new container image, but the rollout stalls. The new pods remain in CrashLoopBackOff. What is the MOST efficient way to restore service availability?",
+      "answer": "Use kubectl rollout undo to revert to the previous Deployment revision",
+      "options": ["Delete the Deployment", "Scale replicas to zero and back up", "Use kubectl rollout undo", "Restart the kubelet on all nodes"],
+      "correctIndex": 2,
+      "explanation": "Rollout undo quickly restores the last working revision."
+    },
+    {
+      "question": "Your CI pipeline takes too long because integration tests run on every commit. Which optimization aligns with Cloud Native principles?",
+      "answer": "Run unit tests on every commit and run integration tests only on merge requests",
+      "options": ["Remove integration tests entirely", "Run all tests only before releases", "Run unit tests on commits and integration tests on merge requests", "Run integration tests manually"],
+      "correctIndex": 2,
+      "explanation": "Shifting heavier tests to MR stage maintains speed without sacrificing quality."
+    },
+    {
+      "question": "A Terraform configuration is applied, but a cloud resource was modified manually afterward. What will Terraform do on the next apply?",
+      "answer": "Detect drift and attempt to revert the resource to match the IaC definition",
+      "options": ["Ignore the manual change", "Delete the resource automatically", "Detect drift and revert the resource", "Fail the plan and require manual intervention"],
+      "correctIndex": 2,
+      "explanation": "Terraform enforces the declared state and corrects drift unless configured otherwise."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for ensuring ordered startup of pods?",
+      "answer": "StatefulSet",
+      "options": ["Deployment", "ReplicaSet", "StatefulSet", "DaemonSet"],
+      "correctIndex": 2,
+      "explanation": "StatefulSets support ordered, sequential startup."
+    },
+    {
+      "question": "Which of the following is TRUE about CI pipelines?",
+      "answer": "They run automated tests on every code change",
+      "options": ["They deploy code automatically", "They run tests on every change", "They replace Git", "They manage infrastructure"],
+      "correctIndex": 1,
+      "explanation": "CI validates code frequently."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for long‑running, stateless workloads?",
+      "answer": "Deployment",
+      "options": ["Job", "Deployment", "CronJob", "StatefulSet"],
+      "correctIndex": 1,
+      "explanation": "Deployments manage stateless workloads."
+    },
+    {
+      "question": "Which of the following BEST describes GitOps auto‑sync?",
+      "answer": "Automatically applying Git changes to the cluster",
+      "options": ["Automatically running tests", "Automatically scaling pods", "Automatically applying Git changes", "Automatically deleting old pods"],
+      "correctIndex": 2,
+      "explanation": "Auto‑sync enforces Git state."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for scheduled tasks?",
+      "answer": "CronJob",
+      "options": ["Deployment", "CronJob", "StatefulSet", "ReplicaSet"],
+      "correctIndex": 1,
+      "explanation": "CronJobs run tasks on a schedule."
+    },
+    {
+      "question": "A team deploys a microservice that frequently restarts due to OOMKilled events. CPU usage is low. Which Kubernetes feature would MOST help diagnose the issue?",
+      "answer": "Container memory metrics collected via Prometheus",
+      "options": ["Pod logs only", "Node CPU metrics", "Container memory metrics via Prometheus", "Tracing data from Jaeger"],
+      "correctIndex": 2,
+      "explanation": "OOMKilled events are tied to memory usage, best observed via metrics."
+    },
+    {
+      "question": "A cluster uses HPA based on CPU. Traffic increases, but CPU stays low while latency spikes. What is the BEST fix?",
+      "answer": "Use custom metrics such as request rate or latency for HPA",
+      "options": ["Increase CPU limits", "Use custom metrics for HPA", "Increase node count manually", "Switch to Vertical Pod Autoscaler"],
+      "correctIndex": 1,
+      "explanation": "CPU is not always a good scaling signal; custom metrics improve accuracy."
+    },
+    {
+      "question": "A GitOps workflow is implemented with ArgoCD. Which action ensures that only reviewed changes reach production?",
+      "answer": "Requiring Merge Requests before changes are merged into the GitOps repo",
+      "options": ["Manual kubectl apply", "Direct commits to main", "Merge Requests before merging", "Disabling auto-sync"],
+      "correctIndex": 2,
+      "explanation": "GitOps relies on MR/PR review for safe changes."
+    },
+    {
+      "question": "Which Kubernetes object guarantees that a pod receives the same network identity after rescheduling?",
+      "answer": "StatefulSet",
+      "options": ["Deployment", "ReplicaSet", "StatefulSet", "DaemonSet"],
+      "correctIndex": 2,
+      "explanation": "StatefulSets maintain stable identities."
+    },
+    {
+      "question": "A team wants to ensure that infrastructure changes are reproducible and version-controlled. Which practice is MOST appropriate?",
+      "answer": "Infrastructure as Code stored in Git",
+      "options": ["Manual provisioning", "IaC stored in Git", "kubectl apply on production", "Using cloud dashboards"],
+      "correctIndex": 1,
+      "explanation": "IaC ensures reproducibility and versioning."
+    },
+    {
+      "question": "A pod is stuck in CrashLoopBackOff due to a misconfigured environment variable. Which Kubernetes feature helps prevent this from impacting traffic?",
+      "answer": "readinessProbe",
+      "options": ["livenessProbe", "readinessProbe", "startupProbe", "terminationGracePeriod"],
+      "correctIndex": 1,
+      "explanation": "readinessProbe prevents traffic routing to unhealthy pods."
+    },
+    {
+      "question": "Which Prometheus feature allows predicting when a metric will reach a critical threshold?",
+      "answer": "PromQL functions using rate() and predict_linear()",
+      "options": ["Alertmanager templates", "Grafana dashboards", "PromQL predictive functions", "Pushgateway metrics"],
+      "correctIndex": 2,
+      "explanation": "PromQL supports forecasting with predict_linear()."
+    },
+    {
+      "question": "A team wants to avoid manual drift in Kubernetes. Which combination BEST enforces desired state?",
+      "answer": "GitOps + Kubernetes reconciliation loop",
+      "options": ["kubectl apply + CI", "GitOps + reconciliation loop", "Manual reviews + CD", "Terraform + kubectl edit"],
+      "correctIndex": 1,
+      "explanation": "GitOps + reconciliation ensures drift correction."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a workload that must run to completion and then stop?",
+      "answer": "Job",
+      "options": ["Deployment", "StatefulSet", "Job", "DaemonSet"],
+      "correctIndex": 2,
+      "explanation": "Jobs run tasks to completion."
+    },
+    {
+      "question": "A cluster is experiencing node pressure due to high disk usage. Which metric is MOST relevant?",
+      "answer": "Node filesystem usage metrics",
+      "options": ["Pod CPU usage", "Node filesystem usage", "Pod restart count", "Service latency"],
+      "correctIndex": 1,
+      "explanation": "Disk pressure triggers eviction and impacts scheduling."
+    },
+    {
+      "question": "Which scenario BEST demonstrates declarative configuration?",
+      "answer": "Defining desired infrastructure state in YAML files",
+      "options": ["Running kubectl commands manually", "Writing bash scripts", "Defining desired state in YAML", "Editing cloud resources in UI"],
+      "correctIndex": 2,
+      "explanation": "Declarative config describes desired state, not steps."
+    },
+    {
+      "question": "A team uses Terraform to provision cloud resources. A VM was manually resized in the cloud console. What happens on the next terraform apply?",
+      "answer": "Terraform detects drift and reverts the VM to the defined size",
+      "options": ["Terraform ignores the change", "Terraform deletes the VM", "Terraform reverts the VM", "Terraform fails with an error"],
+      "correctIndex": 2,
+      "explanation": "Terraform enforces the declared state."
+    },
+    {
+      "question": "Which Kubernetes object ensures that a pod runs on every node?",
+      "answer": "DaemonSet",
+      "options": ["Deployment", "StatefulSet", "DaemonSet", "ReplicaSet"],
+      "correctIndex": 2,
+      "explanation": "DaemonSets run one pod per node."
+    },
+    {
+      "question": "A microservice is experiencing increased latency. CPU and memory are normal. Which telemetry signal is MOST useful?",
+      "answer": "Tracing data showing slow downstream calls",
+      "options": ["Logs", "CPU metrics", "Tracing data", "Node events"],
+      "correctIndex": 2,
+      "explanation": "Tracing reveals bottlenecks across services."
+    },
+    {
+      "question": "Which Kubernetes feature ensures that a container is restarted if it becomes unresponsive?",
+      "answer": "livenessProbe",
+      "options": ["readinessProbe", "startupProbe", "livenessProbe", "terminationGracePeriod"],
+      "correctIndex": 2,
+      "explanation": "livenessProbe detects deadlocks."
+    },
+    {
+      "question": "Which of the following is a key benefit of GitOps?",
+      "answer": "Automatic correction of drift",
+      "options": ["Manual deployments", "Automatic drift correction", "No need for CI", "No need for IaC"],
+      "correctIndex": 1,
+      "explanation": "GitOps enforces Git-defined desired state."
+    },
+    {
+      "question": "A team wants to ensure that only validated changes reach production. Which practice supports this?",
+      "answer": "Mandatory Merge Request approvals",
+      "options": ["Direct commits to main", "Manual kubectl apply", "Mandatory MR approvals", "Skipping CI tests"],
+      "correctIndex": 2,
+      "explanation": "MRs enforce review and validation."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a recurring nightly batch job?",
+      "answer": "CronJob",
+      "options": ["Deployment", "Job", "CronJob", "StatefulSet"],
+      "correctIndex": 2,
+      "explanation": "CronJobs schedule recurring tasks."
+    },
+    {
+      "question": "Which Prometheus component allows short-lived jobs to push metrics?",
+      "answer": "Pushgateway",
+      "options": ["Alertmanager", "Pushgateway", "Grafana", "PromQL"],
+      "correctIndex": 1,
+      "explanation": "Pushgateway supports push-based metrics."
+    },
+    {
+      "question": "A team wants to reduce risk during deployments. Which strategy aligns BEST with Cloud Native principles?",
+      "answer": "Deploy small, frequent changes",
+      "options": ["Deploy large updates monthly", "Deploy small, frequent changes", "Deploy only during maintenance windows", "Deploy manually using kubectl"],
+      "correctIndex": 1,
+      "explanation": "Small changes reduce risk and improve reliability."
+    },
+    {
+      "question": "Which Kubernetes resource ensures persistent storage is preserved across pod restarts?",
+      "answer": "PersistentVolumeClaim",
+      "options": ["ConfigMap", "Secret", "PersistentVolumeClaim", "Service"],
+      "correctIndex": 2,
+      "explanation": "PVCs bind pods to persistent storage."
+    },
+    {
+      "question": "Which of the following BEST describes Continuous Deployment?",
+      "answer": "Automatically deploying every validated change",
+      "options": ["Manual deployment", "Automatically deploying validated changes", "Only building images", "Only running tests"],
+      "correctIndex": 1,
+      "explanation": "Continuous Deployment automates deployment fully."
+    },
+    {
+      "question": "A team wants to ensure that infrastructure is always deployed consistently across environments. Which practice ensures this?",
+      "answer": "Using IaC with version control",
+      "options": ["Manual provisioning", "Using IaC with Git", "Editing cloud resources manually", "Using kubectl edit"],
+      "correctIndex": 1,
+      "explanation": "IaC ensures consistency and reproducibility."
+    },
+    {
+      "question": "Which Kubernetes feature ensures that pods are rescheduled when a node fails?",
+      "answer": "Controller reconciliation",
+      "options": ["kubectl apply", "Node labels", "Controller reconciliation", "Pod logs"],
+      "correctIndex": 2,
+      "explanation": "Controllers maintain desired state."
+    },
+    {
+      "question": "Which of the following is TRUE about Serverless billing?",
+      "answer": "You pay only for actual function execution time",
+      "options": ["You pay hourly", "You pay monthly", "You pay only for execution time", "You pay per VM uptime"],
+      "correctIndex": 2,
+      "explanation": "Serverless charges based on usage."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a workload requiring stable network identity?",
+      "answer": "StatefulSet",
+      "options": ["Deployment", "ReplicaSet", "StatefulSet", "DaemonSet"],
+      "correctIndex": 2,
+      "explanation": "StatefulSets maintain identity."
+    },
+    {
+      "question": "Which of the following is a benefit of CI?",
+      "answer": "Detecting issues early through automated tests",
+      "options": ["Skipping tests", "Manual builds", "Early issue detection", "Manual deployments"],
+      "correctIndex": 2,
+      "explanation": "CI ensures early detection of issues."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for running a logging agent on every node?",
+      "answer": "DaemonSet",
+      "options": ["Deployment", "StatefulSet", "DaemonSet", "ReplicaSet"],
+      "correctIndex": 2,
+      "explanation": "DaemonSets run one pod per node."
+    },
+    {
+      "question": "Which Prometheus feature allows visualizing time-series data?",
+      "answer": "Prometheus UI or Grafana dashboards",
+      "options": ["Alertmanager", "PromQL only", "Grafana dashboards", "Pushgateway"],
+      "correctIndex": 2,
+      "explanation": "Grafana visualizes Prometheus metrics."
+    },
+    {
+      "question": "Which Kubernetes probe ensures a container has fully initialized before other probes run?",
+      "answer": "startupProbe",
+      "options": ["livenessProbe", "readinessProbe", "startupProbe", "healthProbe"],
+      "correctIndex": 2,
+      "explanation": "startupProbe delays other probes until initialization completes."
+    },
+    {
+      "question": "Which GitOps tool continuously syncs Kubernetes manifests from Git?",
+      "answer": "ArgoCD",
+      "options": ["Terraform", "ArgoCD", "Docker", "Prometheus"],
+      "correctIndex": 1,
+      "explanation": "ArgoCD syncs Git state to clusters."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a long-running stateless API?",
+      "answer": "Deployment",
+      "options": ["Job", "Deployment", "CronJob", "StatefulSet"],
+      "correctIndex": 1,
+      "explanation": "Deployments manage stateless workloads."
+    },
+    {
+      "question": "Which IaC tool is cloud-agnostic and supports multiple providers?",
+      "answer": "Terraform",
+      "options": ["CloudFormation", "Terraform", "Azure ARM", "Google Deployment Manager"],
+      "correctIndex": 1,
+      "explanation": "Terraform supports many providers."
+    },
+    {
+      "question": "Which Kubernetes resource is MOST appropriate for a workload that must run at a specific time daily?",
+      "answer": "CronJob",
+      "options": ["Deployment", "Job", "CronJob", "StatefulSet"],
+      "correctIndex": 2,
+      "explanation": "CronJobs schedule recurring tasks."
+    },
+    {
+      "question": "Which Cloud Native concept ensures applications remain functional despite failures?",
+      "answer": "Resiliency",
+      "options": ["Scalability", "Resiliency", "Observability", "GitOps"],
+      "correctIndex": 1,
+      "explanation": "Resiliency ensures recovery from failures."
+    },
+    {
+      "question": "Which Kubernetes feature ensures that pods are recreated if deleted manually?",
+      "answer": "Controller reconciliation",
+      "options": ["kubectl apply", "Node taints", "Controller reconciliation", "Pod logs"],
+      "correctIndex": 2,
+      "explanation": "Controllers restore desired state."
+    },
+    {
+      "question": "Which of the following is a key benefit of GitOps for teams?",
+      "answer": "Transparent, auditable change history",
+      "options": ["Manual deployments", "Opaque changes", "Transparent change history", "Skipping CI"],
+      "correctIndex": 2,
+      "explanation": "GitOps uses Git for full auditability."
+    }
+  ]
+}

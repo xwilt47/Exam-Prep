@@ -1,0 +1,205 @@
+{
+  "label": "Chapter 6 - Deploying and Scaling Applications with Kubernetes",
+  "flashcards": [
+    {
+      "question": "What is the primary purpose of a Kubernetes Deployment?",
+      "answer": "A Deployment manages Pods and ReplicaSets to ensure declarative updates and lifecycle control. The chapter states: \"Deployment is for controlling Pods and managing the application life cycle of those Pods.\""
+    },
+    {
+      "question": "Why are Pods alone not resilient in Kubernetes?",
+      "answer": "Pods do not provide self-healing, rolling updates, or autoscaling. The text says: \"Pods... don't provide any advanced Kubernetes features, such as self-healing, rolling updates, or autoscaling.\""
+    },
+    {
+      "question": "What does a ReplicaSet ensure?",
+      "answer": "It ensures a specified number of replica Pods are running. The chapter states: \"A ReplicaSet is used to maintain the given number of replica Pods running at any given time.\""
+    },
+    {
+      "question": "Why is Deployment preferred over directly using ReplicaSets?",
+      "answer": "Deployments provide update orchestration and higher-level management. The text says: \"ReplicaSet does not allow you to implement custom update orchestration... use Deployments instead.\""
+    },
+    {
+      "question": "What is the role of the selector field in a Deployment?",
+      "answer": "It defines how the Deployment finds the Pods it manages. The chapter states: \"The selector... defines how this Deployment finds the pods that it manages.\""
+    },
+    {
+      "question": "What happens when a Pod managed by a Deployment is deleted?",
+      "answer": "Kubernetes automatically creates a replacement Pod. The text says: \"Kubernetes detected that... only two replicas were running... and spawned a new, third replica.\""
+    },
+    {
+      "question": "What command is used to scale a Deployment?",
+      "answer": "kubectl scale deployment <name> --replicas <n>. The chapter shows: \"$ minikube kubectl -- scale deployment nginx-deployment --replicas 5\"."
+    },
+    {
+      "question": "What is a rolling update in Kubernetes?",
+      "answer": "A zero-downtime method of updating application Pods. The text says: \"Rolling updates... allow us to make updates with zero downtime for customers.\""
+    },
+    {
+      "question": "How do you update a Deployment’s container image?",
+      "answer": "kubectl set image deployment/<name> <container>=<image>. The chapter shows: \"kubectl -- set image deployment/nginx-deployment nginx=nginx:1.20\"."
+    },
+    {
+      "question": "What does kubectl rollout undo do?",
+      "answer": "It rolls back a Deployment to a previous revision. The chapter states: \"we can simply call kubectl rollout undo...\""
+    },
+    {
+      "question": "What does imagePullPolicy: IfNotPresent mean?",
+      "answer": "The image is pulled only if not already cached. The text says: \"IfNotPresent... image will be downloaded only if... not already present locally.\""
+    },
+    {
+      "question": "What does imagePullPolicy: Always do?",
+      "answer": "Always checks the registry for the latest digest. The chapter states: \"Always... every time a pod... is started, the image registry will be asked for an image digest.\""
+    },
+    {
+      "question": "What does maxUnavailable control in a rolling update?",
+      "answer": "The maximum number of unavailable Pods during an update. The text says: \"maxUnavailable... defines the maximum number of unavailable pods during a rolling update.\""
+    },
+    {
+      "question": "What does maxSurge control in a rolling update?",
+      "answer": "How many extra Pods can be created beyond desired replicas. The chapter states: \"maxSurge... defines the maximum number of pods that can be created over the desired number of replicas.\""
+    },
+    {
+      "question": "What is the Recreate strategy in Deployments?",
+      "answer": "All old Pods are killed before new ones are created. The text says: \"Recreate... all existing Pods are killed at once and new ones are only created after all old Pods have been terminated.\""
+    },
+    {
+      "question": "What is a DaemonSet?",
+      "answer": "A controller ensuring one Pod per node. The chapter states: \"DaemonSet... ensures that all or certain nodes... each run a single replica of the target pod.\""
+    },
+    {
+      "question": "What are common DaemonSet use cases?",
+      "answer": "Log collection, monitoring, and storage daemons. The text lists: \"log collection service... node-monitoring daemon... cluster storage daemon.\""
+    },
+    {
+      "question": "Can you set replicas in a DaemonSet?",
+      "answer": "No. DaemonSets always run exactly one Pod per node. The chapter states: \"DaemonSet will always run only one pod per node.\""
+    },
+    {
+      "question": "Why do stateful applications need persistent storage?",
+      "answer": "Container filesystems are ephemeral. The text says: \"Data written on a container filesystem is not persisted by default.\""
+    },
+    {
+      "question": "What is a PersistentVolume (PV)?",
+      "answer": "A piece of storage in the cluster. The chapter states: \"Persistent Volume (PV): This is a piece of storage in the cluster...\""
+    },
+    {
+      "question": "What is a PersistentVolumeClaim (PVC)?",
+      "answer": "A user request for storage. The text says: \"Persistent VolumeClaim (PVC): This is a request for storage by the user...\""
+    },
+    {
+      "question": "What does ReadWriteOnce mean?",
+      "answer": "Volume can be mounted read-write by a single node. The chapter states: \"ReadWriteOnce... mounted as a read-write by a single node.\""
+    },
+    {
+      "question": "What does ReadWriteMany mean?",
+      "answer": "Volume can be mounted read-write by many nodes. The text says: \"ReadWriteMany... mounted as read-write by many nodes.\""
+    },
+    {
+      "question": "What is a StorageClass?",
+      "answer": "Defines storage types and provisioning behavior. The chapter states: \"Storage classes provide a way to classify different storage options...\""
+    },
+    {
+      "question": "What happens if no PV matches a PVC?",
+      "answer": "Kubernetes dynamically provisions a PV. The text says: \"Kubernetes can dynamically provision a PV based on the storage class...\""
+    },
+    {
+      "question": "What is a StatefulSet?",
+      "answer": "A controller for ordered, unique, stateful Pods. The chapter states: \"StatefulSet... guarantees the ordering and uniqueness of these Pods.\""
+    },
+    {
+      "question": "What naming behavior do StatefulSets provide?",
+      "answer": "Stable Pod names without random suffixes. The text says: \"Pods created by StatefulSets have stable naming (without randomly generated UUIDs).\""
+    },
+    {
+      "question": "What does volumeClaimTemplates do in a StatefulSet?",
+      "answer": "Automatically provisions a PV per Pod replica. The chapter states: \"StatefulSets can provision a PV per pod replica.\""
+    },
+    {
+      "question": "What is a ConfigMap?",
+      "answer": "Stores non-confidential configuration data. The text says: \"A ConfigMap is a resource to store non-confidential data...\""
+    },
+    {
+      "question": "What is a Secret?",
+      "answer": "Stores sensitive data like passwords and tokens. The chapter states: \"A Secret is a resource to store sensitive data such as passwords, tokens...\""
+    },
+    {
+      "question": "How can ConfigMaps and Secrets be consumed?",
+      "answer": "As environment variables or mounted files. The text says: \"consumed inside Pods as environment variables... or configuration files.\""
+    },
+    {
+      "question": "Why shouldn’t configuration be baked into container images?",
+      "answer": "It requires rebuilding images for small changes. The chapter states: \"If you do so... you'll have to rebuild container images.\""
+    },
+    {
+      "question": "What is Kubernetes service discovery based on?",
+      "answer": "DNS. The text says: \"service discovery mechanism based on Domain Name System (DNS).\""
+    },
+    {
+      "question": "What is a Service in Kubernetes?",
+      "answer": "An abstraction that exposes Pods and enables stable networking. The chapter states: \"Service is an abstraction layer that enables loose coupling...\""
+    },
+    {
+      "question": "Why can’t clients rely on Pod IPs?",
+      "answer": "Pods get new IPs when recreated. The text says: \"Pods... are recreated with a new name and a new IP address.\""
+    },
+    {
+      "question": "What are labels in Kubernetes?",
+      "answer": "Key/value metadata attached to objects. The chapter states: \"Labels are simple key/value metadata pairs...\""
+    },
+    {
+      "question": "What are selectors used for?",
+      "answer": "Selecting groups of objects by labels. The text says: \"Selectors allow the identification of a set of Kubernetes objects.\""
+    },
+    {
+      "question": "What is a ClusterIP Service?",
+      "answer": "Internal-only service accessible within the cluster. The chapter states: \"ClusterIP... exposes an application on an internal cluster IP.\""
+    },
+    {
+      "question": "What is a NodePort Service?",
+      "answer": "Exposes the app on a static port on each node. The text says: \"NodePort... exposes the application on the same static port of each node.\""
+    },
+    {
+      "question": "What is a LoadBalancer Service?",
+      "answer": "Exposes the app externally using a cloud load balancer. The chapter states: \"LoadBalancer... exposes the application outside of cluster using a cloud provider's load balancer.\""
+    },
+    {
+      "question": "What is an ExternalName Service?",
+      "answer": "Maps a service to an external DNS name. The text says: \"ExternalName... maps the service to an external DNS name... returning a CNAME record.\""
+    },
+    {
+      "question": "What is a probe in Kubernetes?",
+      "answer": "A diagnostic check performed by kubelet. The chapter states: \"A probe is a diagnostic that is performed by a Kubernetes kubelet on a container.\""
+    },
+    {
+      "question": "What is a liveness probe?",
+      "answer": "Checks if a container is alive; restarts it if not. The text says: \"Liveness: Ensures that a process... is alive and, if not, restarts the container.\""
+    },
+    {
+      "question": "What is a readiness probe?",
+      "answer": "Checks if a container is ready to accept traffic. The chapter states: \"Readiness: Ensures that the application is ready to accept traffic.\""
+    },
+    {
+      "question": "What is a startup probe?",
+      "answer": "Used for slow-starting apps; disables other probes until success. The text says: \"Startup... disables liveness and readiness probes until it succeeds.\""
+    },
+    {
+      "question": "What happens when a liveness probe fails?",
+      "answer": "The container is restarted. The chapter states: \"Liveness probe failed... container... will be restarted.\""
+    },
+    {
+      "question": "What happens when a readiness probe fails?",
+      "answer": "The Pod is removed from Service endpoints. The text says: \"its pod IP is automatically taken out from the list of endpoints of the Service.\""
+    },
+    {
+      "question": "What types of checks can probes perform?",
+      "answer": "Command, HTTP request, or TCP probe. The chapter states: \"Each probe can execute a custom command, perform an HTTP request, or a TCP probe.\""
+    },
+    {
+      "question": "What happens when a readiness probe fails in Kubernetes?",
+      "answer": "The Pod is temporarily removed from Service endpoints so it stops receiving traffic. The chapter states: \"its pod IP is automatically taken out from the list of endpoints of the Service.\""
+    },
+    {
+      "question": "What is the reconciliation loop?",
+      "answer": "Kubernetes continuously ensuring desired state matches current state. The text says: \"Kubernetes reconciliation loop kicked in and spawned a new... replica.\""
+    }
+  ]
+}

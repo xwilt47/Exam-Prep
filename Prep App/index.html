@@ -15,7 +15,7 @@
       <p class="eyebrow">Study mode</p>
       <h1>Flashcards And Multiple Choice App.</h1>
       <p class="hero-copy">
-        <br>Pick Flashcards or Multiple Choice to begin. <br> <br> For Flashcards, tap each card to flip it, reveal the answer, and move through the set one prompt at a time. <br> <br> For Multiple Choice, select the correct answer from the options provided. You can shuffle the order of cards or questions for a more dynamic study session. In test mode, your score will be tracked but answers won't be revealed until the end....and no BACKIES! Happy studying!
+        <br>Pick Flashcards or Multiple Choice to begin. <br> <br> For Flashcards, tap each card to flip it, reveal the answer, and move through the set one prompt at a time. <br> <br> For Multiple Choice, select the correct answer from the options provided. You can shuffle the order of cards or questions for a more dynamic study session. ENJOY!
       </p>
 
       <div class="status-box" id="introStatus" aria-live="polite">
@@ -49,6 +49,14 @@
           <label class="shuffle-toggle">
             <input type="checkbox" id="testModeToggle">
             <span>Test mode</span>
+            <span class="info-icon" aria-label="What is test mode?" tabindex="0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="16" x2="12" y2="12"/>
+                <circle cx="12" cy="8" r="0.5" fill="currentColor" stroke="none"/>
+              </svg>
+              <span class="info-tooltip" role="tooltip">In test mode, your score will be tracked but answers won&rsquo;t be revealed until the end&hellip;and no BACKIES! Happy studying!</span>
+            </span>
           </label>
           <div class="mode-select-wrap" id="quizCountWrap">
             <label class="mode-select-label" for="quizCountSelect">Questions</label>
@@ -112,6 +120,6 @@
     </section>
   </main>
 
-  <script src="app.js" defer></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>

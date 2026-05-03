@@ -1,4 +1,4 @@
 {
-  "flashcards": ["Chapter_1.json", "Chapter_2.json", "Chapter_3.json", "Chapter_4.json", "Chapter_5.json"],
-  "multipleChoice": ["Chapter_1.json", "Chapter_2.json", "Chapter_3.json", "Chapter_4.json", "Chapter_5.json"]
+  "flashcards": ["Chapter_1.json", "Chapter_2.json", "Chapter_3.json", "Chapter_4.json", "Chapter_5.json", "Chapter_6.json", "Chapter_7.json", "Chapter_8.json", "Chapter_9.json", "Chapter_10.json", "Chapter_11.json"],
+  "multipleChoice": ["Chapter_1.json", "Chapter_2.json", "Chapter_3.json", "Chapter_4.json", "Chapter_5.json", "Chapter_6.json", "Chapter_7.json", "Chapter_8.json", "Chapter_9.json", "Chapter_10.json", "Chapter_11.json", "Mock_Exam.json"]
 }

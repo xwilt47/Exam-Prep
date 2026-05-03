@@ -1,0 +1,205 @@
+{
+  "label": "Chapter 7 - Application Placement and Debugging with Kubernetes",
+  "flashcards": [
+    {
+      "question": "What is scheduling in Kubernetes?",
+      "answer": "The process of assigning Pods to nodes. The chapter states: \"Scheduling is the process of assigning Pods to Kubernetes nodes for the kubelet to run them.\""
+    },
+    {
+      "question": "Which component performs scheduling in Kubernetes?",
+      "answer": "kube-scheduler. \"The scheduler is the component... that decides on which node a pod will run.\""
+    },
+    {
+      "question": "What are the two stages of Kubernetes scheduling?",
+      "answer": "Filtering and scoring. \"The default scheduler selects a node... in two stages: Filtering and Scoring.\""
+    },
+    {
+      "question": "What happens during the filtering stage?",
+      "answer": "Nodes that meet pod requirements are selected. \"Filtering... determines the set of nodes where it is feasible to run the pod.\""
+    },
+    {
+      "question": "What happens during the scoring stage?",
+      "answer": "Nodes are ranked and the highest-scoring node is chosen. \"Each node... gets a score, and the node with the highest score is picked.\""
+    },
+    {
+      "question": "What is nodeSelector used for?",
+      "answer": "To schedule Pods only on nodes with matching labels."
+    },
+    {
+      "question": "What happens if no node matches a Pod’s nodeSelector?",
+      "answer": "The Pod stays in Pending state. \"0/2 nodes are available: 2 node(s) didn't match Pod's node affinity/selector.\""
+    },
+    {
+      "question": "How do you label a node?",
+      "answer": "kubectl label node <node> key=value"
+    },
+    {
+      "question": "What is nodeName used for?",
+      "answer": "To force a Pod to run on a specific node."
+    },
+    {
+      "question": "What is nodeAffinity?",
+      "answer": "Rules that attract Pods to specific nodes based on labels."
+    },
+    {
+      "question": "What is podAffinity?",
+      "answer": "Rules that schedule Pods near other Pods."
+    },
+    {
+      "question": "What is nodeAntiAffinity?",
+      "answer": "Rules that prevent Pods from being scheduled on certain nodes."
+    },
+    {
+      "question": "What is podAntiAffinity?",
+      "answer": "Rules that prevent Pods from being scheduled near certain Pods."
+    },
+    {
+      "question": "What is requiredDuringSchedulingIgnoredDuringExecution?",
+      "answer": "A hard affinity rule. \"Hard requirement, meaning the pod won't be scheduled unless the rule is met.\""
+    },
+    {
+      "question": "What is preferredDuringSchedulingIgnoredDuringExecution?",
+      "answer": "A soft affinity rule. \"Scheduler will try... but if not available, the pod will still be scheduled.\""
+    },
+    {
+      "question": "What does IgnoredDuringExecution mean?",
+      "answer": "Pods continue running even if labels change after scheduling."
+    },
+    {
+      "question": "What are topology spread constraints?",
+      "answer": "Rules that control how Pods are distributed across zones, nodes, or other domains."
+    },
+    {
+      "question": "Why use topology spread constraints?",
+      "answer": "To improve availability across failure domains like AZs."
+    },
+    {
+      "question": "What is an Availability Zone (AZ)?",
+      "answer": "A discrete data center with redundant power and networking."
+    },
+    {
+      "question": "Can multiple scheduling rules be combined?",
+      "answer": "Yes. \"It is possible to combine multiple rules per pod... both rules must be satisfied.\""
+    },
+    {
+      "question": "What are resource requests?",
+      "answer": "The amount of CPU/memory a container needs. \"A resource request... how many resources each container... needs.\""
+    },
+    {
+      "question": "What are resource limits?",
+      "answer": "The maximum CPU/memory a container can consume."
+    },
+    {
+      "question": "What happens if a container exceeds its memory limit?",
+      "answer": "It is killed with OOMKilled. \"If a process tries to allocate more memory... the kernel will terminate that process with an OOM error.\""
+    },
+    {
+      "question": "What happens if a container exceeds its CPU limit?",
+      "answer": "It is throttled, not killed."
+    },
+    {
+      "question": "What is 1 CPU in Kubernetes?",
+      "answer": "Equivalent to 1 vCPU or 1 physical core."
+    },
+    {
+      "question": "What does 500m CPU mean?",
+      "answer": "Half a CPU core."
+    },
+    {
+      "question": "What happens if a limit is set but no request?",
+      "answer": "Kubernetes copies the limit as the request."
+    },
+    {
+      "question": "What is CrashLoopBackOff?",
+      "answer": "A state where a container repeatedly crashes. \"Status: CrashLoopBackOff... Reason: OOMKilled.\""
+    },
+    {
+      "question": "Why are requests and limits important?",
+      "answer": "They prevent overloaded nodes and protect against runaway containers."
+    },
+    {
+      "question": "What command retrieves logs from a Pod?",
+      "answer": "kubectl logs <pod>"
+    },
+    {
+      "question": "How do you get logs from a previous container instance?",
+      "answer": "kubectl logs --previous"
+    },
+    {
+      "question": "Where should applications write logs?",
+      "answer": "stdout and stderr. \"What the application writes to stdout and stderr.\""
+    },
+    {
+      "question": "What is a logging sidecar?",
+      "answer": "A helper container that collects and forwards logs."
+    },
+    {
+      "question": "What is cluster-level logging?",
+      "answer": "Centralized log storage independent of Pod lifecycle."
+    },
+    {
+      "question": "What is a node logging agent?",
+      "answer": "A DaemonSet that collects logs from each node."
+    },
+    {
+      "question": "What command retrieves Kubernetes events?",
+      "answer": "kubectl get events"
+    },
+    {
+      "question": "What are Kubernetes events?",
+      "answer": "Records documenting changes in resource state."
+    },
+    {
+      "question": "How long are events kept by default?",
+      "answer": "One hour."
+    },
+    {
+      "question": "What is kubectl port-forward used for?",
+      "answer": "Forwarding local ports to a Pod’s ports."
+    },
+    {
+      "question": "What is kubectl exec used for?",
+      "answer": "Running commands inside a container."
+    },
+    {
+      "question": "How do you open an interactive shell inside a container?",
+      "answer": "kubectl exec -it <pod> -- bash"
+    },
+    {
+      "question": "What is kubectl cp used for?",
+      "answer": "Copying files between local machine and containers."
+    },
+    {
+      "question": "What does Pending status mean?",
+      "answer": "Pod cannot be scheduled due to unmet requirements."
+    },
+    {
+      "question": "What does ContainerCreating mean?",
+      "answer": "Kubernetes is pulling the image and starting the container."
+    },
+    {
+      "question": "What does OOMKilled mean?",
+      "answer": "Container exceeded memory limit and was terminated."
+    },
+    {
+      "question": "What does CrashLoopBackOff indicate?",
+      "answer": "Container repeatedly crashes after restart attempts."
+    },
+    {
+      "question": "What is the purpose of kubectl describe?",
+      "answer": "To show detailed information and events for a resource."
+    },
+    {
+      "question": "What is the best practice for logging in Kubernetes?",
+      "answer": "Use cluster-level logging with node agents."
+    },
+    {
+      "question": "What is the best practice for resource configuration?",
+      "answer": "Always set both requests and limits."
+    },
+    {
+      "question": "What is the scheduler’s infinite loop responsible for?",
+      "answer": "Watching for unscheduled Pods and assigning nodes."
+    }
+  ]
+}

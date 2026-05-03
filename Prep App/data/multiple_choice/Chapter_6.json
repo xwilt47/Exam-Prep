@@ -1,0 +1,355 @@
+{
+  "label": "Chapter 6 - Deploying and Scaling Applications with Kubernetes",
+  "multipleChoice": [
+    {
+      "question": "What is the primary purpose of a Deployment in Kubernetes?",
+      "answer": "To manage Pods and ReplicaSets and provide declarative updates.",
+      "options": ["To store logs", "To manage Pods and ReplicaSets", "To run DaemonSets", "To manage nodes"],
+      "correctIndex": 1,
+      "explanation": "The chapter states: \"Deployment is for controlling Pods and managing the application life cycle of those Pods.\""
+    },
+    {
+      "question": "Why are Pods alone not resilient?",
+      "answer": "They lack self-healing, rolling updates, and autoscaling.",
+      "options": ["They cannot run containers", "They lack networking", "They lack resilience features", "They cannot restart"],
+      "correctIndex": 2,
+      "explanation": "\"Pods... don't provide any advanced Kubernetes features, such as self-healing, rolling updates, or autoscaling.\""
+    },
+    {
+      "question": "What does a ReplicaSet ensure?",
+      "answer": "A specified number of Pods are running at all times.",
+      "options": ["Pods run on every node", "Pods run only once", "A specific number of Pods run", "Pods never restart"],
+      "correctIndex": 2,
+      "explanation": "\"A ReplicaSet is used to maintain the given number of replica Pods running at any given time.\""
+    },
+    {
+      "question": "Which resource is recommended for managing Pods instead of directly using ReplicaSets?",
+      "answer": "Deployment",
+      "options": ["StatefulSet", "DaemonSet", "Deployment", "Job"],
+      "correctIndex": 2,
+      "explanation": "Deployments provide update orchestration and higher-level management."
+    },
+    {
+      "question": "What does the selector field in a Deployment do?",
+      "answer": "Matches Pods that the Deployment manages.",
+      "options": ["Assigns nodes", "Defines storage", "Matches Pods", "Defines networking"],
+      "correctIndex": 2,
+      "explanation": "\"The selector... defines how this Deployment finds the pods that it manages.\""
+    },
+    {
+      "question": "What happens when a Pod managed by a Deployment is deleted?",
+      "answer": "A new Pod is automatically created.",
+      "options": ["Nothing", "Deployment is deleted", "A new Pod is created", "ReplicaSet stops"],
+      "correctIndex": 2,
+      "explanation": "Kubernetes immediately replaces deleted Pods to maintain desired state."
+    },
+    {
+      "question": "Which command scales a Deployment?",
+      "answer": "kubectl scale deployment <name> --replicas <n>",
+      "options": ["kubectl grow", "kubectl update", "kubectl scale", "kubectl expand"],
+      "correctIndex": 2,
+      "explanation": "The chapter demonstrates scaling with kubectl scale."
+    },
+    {
+      "question": "What is a rolling update?",
+      "answer": "A zero-downtime method of updating Pods.",
+      "options": ["A full restart", "A node reboot", "A zero-downtime update", "A rollback"],
+      "correctIndex": 2,
+      "explanation": "\"Rolling updates... allow us to make updates with zero downtime.\""
+    },
+    {
+      "question": "Which command updates a Deployment’s container image?",
+      "answer": "kubectl set image",
+      "options": ["kubectl update image", "kubectl replace image", "kubectl set image", "kubectl patch image"],
+      "correctIndex": 2,
+      "explanation": "The chapter uses: kubectl set image deployment/nginx-deployment..."
+    },
+    {
+      "question": "What does kubectl rollout undo do?",
+      "answer": "Rolls back a Deployment to a previous revision.",
+      "options": ["Deletes Pods", "Restarts nodes", "Rolls back Deployment", "Deletes ReplicaSets"],
+      "correctIndex": 2,
+      "explanation": "\"kubectl rollout undo... rolled back\""
+    },
+    {
+      "question": "What does imagePullPolicy: IfNotPresent mean?",
+      "answer": "Image is pulled only if not already cached.",
+      "options": ["Always pull", "Never pull", "Pull if not cached", "Pull only on restart"],
+      "correctIndex": 2,
+      "explanation": "\"IfNotPresent... image will be downloaded only if... not already present locally.\""
+    },
+    {
+      "question": "What does imagePullPolicy: Always do?",
+      "answer": "Always checks the registry for the latest image digest.",
+      "options": ["Never pulls", "Pulls only once", "Always checks registry", "Pulls only on failure"],
+      "correctIndex": 2,
+      "explanation": "\"Always... the image registry will be asked for an image digest.\""
+    },
+    {
+      "question": "What does maxUnavailable control?",
+      "answer": "Maximum number of unavailable Pods during an update.",
+      "options": ["Max Pods per node", "Max nodes unavailable", "Max Pods unavailable", "Max images pulled"],
+      "correctIndex": 2,
+      "explanation": "\"maxUnavailable... defines the maximum number of unavailable pods during a rolling update.\""
+    },
+    {
+      "question": "What does maxSurge control?",
+      "answer": "How many extra Pods can be created beyond desired replicas.",
+      "options": ["Max nodes", "Max CPU usage", "Extra Pods allowed", "Extra storage allowed"],
+      "correctIndex": 2,
+      "explanation": "\"maxSurge... defines the maximum number of pods that can be created over the desired number of replicas.\""
+    },
+    {
+      "question": "What is the Recreate strategy?",
+      "answer": "Kills all old Pods before creating new ones.",
+      "options": ["Updates one Pod at a time", "Creates new Pods first", "Kills all old Pods first", "Does nothing"],
+      "correctIndex": 2,
+      "explanation": "\"Recreate... all existing Pods are killed at once.\""
+    },
+    {
+      "question": "What is a DaemonSet?",
+      "answer": "Ensures one Pod runs on each node.",
+      "options": ["Runs multiple Pods per node", "Runs Pods only on control plane", "Ensures one Pod per node", "Runs Pods only on demand"],
+      "correctIndex": 2,
+      "explanation": "\"DaemonSet... ensures that all or certain nodes... each run a single replica.\""
+    },
+    {
+      "question": "Which is NOT a typical DaemonSet use case?",
+      "answer": "Running web servers",
+      "options": ["Log collection", "Node monitoring", "Storage daemons", "Running web servers"],
+      "correctIndex": 3,
+      "explanation": "DaemonSets run node-level services, not application workloads."
+    },
+    {
+      "question": "Can you set replicas in a DaemonSet?",
+      "answer": "No, it always runs one Pod per node.",
+      "options": ["Yes", "Only on control plane", "Only on workers", "No"],
+      "correctIndex": 3,
+      "explanation": "\"DaemonSet will always run only one pod per node.\""
+    },
+    {
+      "question": "Why do stateful apps need persistent storage?",
+      "answer": "Container filesystems are ephemeral.",
+      "options": ["Containers cannot write data", "Pods never restart", "Filesystems are ephemeral", "Nodes delete data"],
+      "correctIndex": 2,
+      "explanation": "\"Data written on a container filesystem is not persisted by default.\""
+    },
+    {
+      "question": "What is a PersistentVolume (PV)?",
+      "answer": "A piece of storage in the cluster.",
+      "options": ["A Pod", "A node", "A storage resource", "A ReplicaSet"],
+      "correctIndex": 2,
+      "explanation": "\"Persistent Volume (PV): This is a piece of storage in the cluster...\""
+    },
+    {
+      "question": "What is a PersistentVolumeClaim (PVC)?",
+      "answer": "A request for storage by a user.",
+      "options": ["A storage class", "A Pod", "A request for storage", "A ReplicaSet"],
+      "correctIndex": 2,
+      "explanation": "\"Persistent VolumeClaim (PVC): This is a request for storage by the user...\""
+    },
+    {
+      "question": "What does ReadWriteOnce allow?",
+      "answer": "Volume mounted read-write by a single node.",
+      "options": ["Multiple nodes", "Read-only", "Single node read-write", "No writes"],
+      "correctIndex": 2,
+      "explanation": "\"ReadWriteOnce... mounted as a read-write by a single node.\""
+    },
+    {
+      "question": "What does ReadWriteMany allow?",
+      "answer": "Volume mounted read-write by many nodes.",
+      "options": ["Single node only", "Read-only", "Many nodes read-write", "Only Pods on same node"],
+      "correctIndex": 2,
+      "explanation": "\"ReadWriteMany... mounted as read-write by many nodes.\""
+    },
+    {
+      "question": "What is a StorageClass?",
+      "answer": "Defines storage types and provisioning behavior.",
+      "options": ["A Pod type", "A node label", "A storage policy", "A ReplicaSet"],
+      "correctIndex": 2,
+      "explanation": "\"Storage classes provide a way to classify different storage options...\""
+    },
+    {
+      "question": "What happens if no PV matches a PVC?",
+      "answer": "Kubernetes dynamically provisions a PV.",
+      "options": ["PVC fails", "Pod crashes", "Kubernetes provisions a PV", "Node restarts"],
+      "correctIndex": 2,
+      "explanation": "Kubernetes provisions PVs dynamically when needed."
+    },
+    {
+      "question": "What is a StatefulSet?",
+      "answer": "A controller for ordered, unique, stateful Pods.",
+      "options": ["A Deployment", "A DaemonSet", "A Stateful controller", "A Job"],
+      "correctIndex": 2,
+      "explanation": "\"StatefulSet... guarantees the ordering and uniqueness of these Pods.\""
+    },
+    {
+      "question": "What naming behavior do StatefulSets provide?",
+      "answer": "Stable Pod names without random suffixes.",
+      "options": ["Random names", "Node-based names", "Stable names", "IP-based names"],
+      "correctIndex": 2,
+      "explanation": "StatefulSet Pods have stable names."
+    },
+    {
+      "question": "What does volumeClaimTemplates do?",
+      "answer": "Creates a PV per Pod replica.",
+      "options": ["Creates Pods", "Creates nodes", "Creates PVs per Pod", "Creates Deployments"],
+      "correctIndex": 2,
+      "explanation": "StatefulSets can provision a PV per Pod."
+    },
+    {
+      "question": "What is a ConfigMap used for?",
+      "answer": "Storing non-confidential configuration data.",
+      "options": ["Passwords", "Tokens", "Non-confidential data", "Node metadata"],
+      "correctIndex": 2,
+      "explanation": "\"ConfigMap... store non-confidential data.\""
+    },
+    {
+      "question": "What is a Secret used for?",
+      "answer": "Storing sensitive data like passwords.",
+      "options": ["Logs", "Images", "Sensitive data", "Pod names"],
+      "correctIndex": 2,
+      "explanation": "\"Secret... store sensitive data such as passwords, tokens...\""
+    },
+    {
+      "question": "How can ConfigMaps be consumed?",
+      "answer": "As environment variables or mounted files.",
+      "options": ["Only as files", "Only as env vars", "As env vars or files", "Only via API"],
+      "correctIndex": 2,
+      "explanation": "They can be consumed as env vars or mounted files."
+    },
+    {
+      "question": "Why shouldn’t configuration be baked into images?",
+      "answer": "It requires rebuilding images for small changes.",
+      "options": ["Images break", "Pods restart", "Rebuilds required", "Nodes fail"],
+      "correctIndex": 2,
+      "explanation": "Baking config into images requires rebuilds."
+    },
+    {
+      "question": "What is Kubernetes service discovery based on?",
+      "answer": "DNS",
+      "options": ["ARP", "DHCP", "DNS", "NAT"],
+      "correctIndex": 2,
+      "explanation": "\"Service discovery mechanism based on DNS.\""
+    },
+    {
+      "question": "What is a Service in Kubernetes?",
+      "answer": "An abstraction exposing Pods via stable networking.",
+      "options": ["A Pod", "A node", "A networking abstraction", "A ReplicaSet"],
+      "correctIndex": 2,
+      "explanation": "\"Service is an abstraction layer that enables loose coupling...\""
+    },
+    {
+      "question": "Why can’t clients rely on Pod IPs?",
+      "answer": "Pods get new IPs when recreated.",
+      "options": ["IPs never change", "Nodes change", "Pods get new IPs", "DNS fails"],
+      "correctIndex": 2,
+      "explanation": "Pods are recreated with new IPs."
+    },
+    {
+      "question": "What is a ClusterIP Service?",
+      "answer": "Internal-only service accessible within the cluster.",
+      "options": ["External service", "Node-level service", "Internal service", "DaemonSet service"],
+      "correctIndex": 2,
+      "explanation": "\"ClusterIP... exposes an application on an internal cluster IP.\""
+    },
+    {
+      "question": "What is a NodePort Service?",
+      "answer": "Exposes the app on a static port on each node.",
+      "options": ["Internal only", "Dynamic port", "Static port on each node", "Cloud-only"],
+      "correctIndex": 2,
+      "explanation": "\"NodePort... exposes the application on the same static port of each node.\""
+    },
+    {
+      "question": "What is a LoadBalancer Service?",
+      "answer": "Exposes the app externally using a cloud load balancer.",
+      "options": ["Internal only", "Node-only", "External via cloud LB", "DNS only"],
+      "correctIndex": 2,
+      "explanation": "\"LoadBalancer... exposes the application outside of cluster using a cloud provider's load balancer.\""
+    },
+    {
+      "question": "What is an ExternalName Service?",
+      "answer": "Maps a service to an external DNS name.",
+      "options": ["Maps to IP", "Maps to Pod", "Maps to DNS name", "Maps to node"],
+      "correctIndex": 2,
+      "explanation": "\"ExternalName... maps the service to an external DNS name...\""
+    },
+    {
+      "question": "What is a probe?",
+      "answer": "A diagnostic check performed by kubelet.",
+      "options": ["A Pod", "A node", "A diagnostic check", "A Deployment"],
+      "correctIndex": 2,
+      "explanation": "\"A probe is a diagnostic... performed by a Kubernetes kubelet.\""
+    },
+    {
+      "question": "What is a liveness probe?",
+      "answer": "Checks if a container is alive and restarts it if not.",
+      "options": ["Checks readiness", "Checks storage", "Checks if alive", "Checks networking"],
+      "correctIndex": 2,
+      "explanation": "\"Liveness... Ensures that a process... is alive and, if not, restarts the container.\""
+    },
+    {
+      "question": "What is a readiness probe?",
+      "answer": "Checks if a container is ready to accept traffic.",
+      "options": ["Checks if alive", "Checks if ready", "Checks storage", "Checks CPU"],
+      "correctIndex": 1,
+      "explanation": "\"Readiness... Ensures that the application is ready to accept traffic.\""
+    },
+    {
+      "question": "What is a startup probe?",
+      "answer": "Used for slow-starting apps; disables other probes until success.",
+      "options": ["Checks readiness", "Checks liveness", "Used for slow-starting apps", "Checks memory"],
+      "correctIndex": 2,
+      "explanation": "\"Startup... disables liveness and readiness probes until it succeeds.\""
+    },
+    {
+      "question": "What happens when a liveness probe fails?",
+      "answer": "The container is restarted.",
+      "options": ["Pod deleted", "Node rebooted", "Container restarted", "Service removed"],
+      "correctIndex": 2,
+      "explanation": "Liveness failure triggers container restart."
+    },
+    {
+      "question": "What happens when a readiness probe fails?",
+      "answer": "Pod is removed from Service endpoints.",
+      "options": ["Pod deleted", "Node rebooted", "Removed from endpoints", "Container restarted"],
+      "correctIndex": 2,
+      "explanation": "\"its pod IP is automatically taken out from the list of endpoints of the Service.\""
+    },
+    {
+      "question": "Which types of checks can probes perform?",
+      "answer": "Command, HTTP, or TCP checks.",
+      "options": ["Only HTTP", "Only TCP", "Command/HTTP/TCP", "Only command"],
+      "correctIndex": 2,
+      "explanation": "\"Each probe can execute a custom command, perform an HTTP request, or a TCP probe.\""
+    },
+    {
+      "question": "What is the reconciliation loop?",
+      "answer": "Kubernetes continuously ensuring desired state matches current state.",
+      "options": ["A logging loop", "A networking loop", "A state-matching loop", "A storage loop"],
+      "correctIndex": 2,
+      "explanation": "The reconciliation loop maintains desired state."
+    },
+    {
+      "question": "Which Kubernetes resource guarantees ordered, unique Pod identities?",
+      "answer": "StatefulSet",
+      "options": ["Deployment", "ReplicaSet", "StatefulSet", "DaemonSet"],
+      "correctIndex": 2,
+      "explanation": "\"StatefulSet... guarantees the ordering and uniqueness of these Pods.\""
+    },
+    {
+      "question": "What happens if a PVC requests 3Gi but the only available PV is 5Gi?",
+      "answer": "The 5Gi PV is bound and fully usable by the Pod.",
+      "options": ["PVC fails", "Only 3Gi is usable", "The 5Gi PV is bound", "Kubernetes resizes the PV"],
+      "correctIndex": 2,
+      "explanation": "The chapter states: \"if the closest available PV... is 5Gi, it will be taken and all 5Gi will be usable.\""
+    },
+    {
+      "question": "Which probe type should be used for applications that take a long time to start?",
+      "answer": "Startup probe",
+      "options": ["Liveness probe", "Readiness probe", "Startup probe", "Health probe"],
+      "correctIndex": 2,
+      "explanation": "\"Startup... disables liveness and readiness probes until it succeeds.\""
+    }
+  ]
+}

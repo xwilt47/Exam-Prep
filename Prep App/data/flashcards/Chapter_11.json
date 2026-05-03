@@ -1,0 +1,205 @@
+{
+  "label": "Chapter 11 - Automating Cloud Native Application Delivery",
+  "flashcards": [
+    {
+      "question": "What is the first step in modern Cloud Native application delivery?",
+      "answer": "Developers write code and commit it to a Version Control System such as Git."
+    },
+    {
+      "question": "What is a release in software delivery?",
+      "answer": "A version of software containing new features, enhancements, or bug fixes delivered to users."
+    },
+    {
+      "question": "What does semantic versioning represent?",
+      "answer": "A versioning system where v1.0.0 typically represents the first stable release."
+    },
+    {
+      "question": "Why is automation essential in Cloud Native delivery?",
+      "answer": "It speeds up delivery, reduces errors, and enables frequent, stable releases."
+    },
+    {
+      "question": "What are the benefits of automating build-test-release stages?",
+      "answer": "Faster delivery, fewer bugs, more productivity, and repeatable results."
+    },
+    {
+      "question": "What does the modern application lifecycle include?",
+      "answer": "Code, build, test, release, deploy, operate, and monitor."
+    },
+    {
+      "question": "Why are small, frequent releases preferred?",
+      "answer": "They reduce risk and make issues easier to identify and fix."
+    },
+    {
+      "question": "What does CI stand for?",
+      "answer": "Continuous Integration."
+    },
+    {
+      "question": "What is Continuous Integration?",
+      "answer": "A practice where code changes are regularly built, tested, and integrated into a shared repository."
+    },
+    {
+      "question": "What problem does CI solve?",
+      "answer": "Conflicting changes and large, hard-to-merge code sets."
+    },
+    {
+      "question": "What does CD stand for in software delivery?",
+      "answer": "Continuous Delivery or Continuous Deployment."
+    },
+    {
+      "question": "What is Continuous Delivery?",
+      "answer": "Automation where tested code is packaged and uploaded for deployment after approval."
+    },
+    {
+      "question": "What is Continuous Deployment?",
+      "answer": "Automatic deployment of tested and validated changes to live environments."
+    },
+    {
+      "question": "What is a CI/CD pipeline?",
+      "answer": "A sequence of automated stages such as build, test, package, and deploy."
+    },
+    {
+      "question": "Why are pipelines essential in CI/CD?",
+      "answer": "They automate sequential steps required to deliver software."
+    },
+    {
+      "question": "What is the recommended release strategy in CI/CD?",
+      "answer": "Small, well-tested, frequent releases."
+    },
+    {
+      "question": "Name three popular CI/CD tools.",
+      "answer": "Jenkins, GitLab CI, GitHub Actions."
+    },
+    {
+      "question": "What is GitOps?",
+      "answer": "An operational framework combining Git version control, IaC, and CI/CD."
+    },
+    {
+      "question": "What is the central source of truth in GitOps?",
+      "answer": "A Git repository."
+    },
+    {
+      "question": "What is a Merge Request (MR)?",
+      "answer": "A Git mechanism for proposing, reviewing, and approving changes."
+    },
+    {
+      "question": "What is Infrastructure as Code (IaC)?",
+      "answer": "Managing and provisioning infrastructure using declarative configuration files."
+    },
+    {
+      "question": "What is infrastructure drift?",
+      "answer": "When real infrastructure state differs from what is defined in IaC."
+    },
+    {
+      "question": "Why is eliminating infrastructure drift important?",
+      "answer": "Drift causes uncertainty, failures, and security risks."
+    },
+    {
+      "question": "Which tools support GitOps automation?",
+      "answer": "ArgoCD, FluxCD, Jenkins X."
+    },
+    {
+      "question": "What happens when manual changes are made in a GitOps-managed environment?",
+      "answer": "They are overwritten by the desired state from Git."
+    },
+    {
+      "question": "What is auto-sync in ArgoCD?",
+      "answer": "A feature that automatically applies Git changes to the cluster and corrects drift."
+    },
+    {
+      "question": "Why does GitOps work especially well with Kubernetes?",
+      "answer": "Kubernetes has a reconciliation loop that enforces desired state."
+    },
+    {
+      "question": "What is the role of CI in GitOps?",
+      "answer": "To automate building and testing before changes are merged."
+    },
+    {
+      "question": "What is the role of CD in GitOps?",
+      "answer": "To automatically deploy changes from Git to live environments."
+    },
+    {
+      "question": "What is declarative configuration?",
+      "answer": "Describing the desired state rather than step-by-step instructions."
+    },
+    {
+      "question": "Why is GitOps considered highly auditable?",
+      "answer": "All changes are tracked through Git commits and merge requests."
+    },
+    {
+      "question": "What is Terraform?",
+      "answer": "A popular IaC tool supporting many cloud providers."
+    },
+    {
+      "question": "What file formats does Terraform accept?",
+      "answer": "JSON and its own .tf format."
+    },
+    {
+      "question": "What does Terraform do when resources already match the desired state?",
+      "answer": "It makes no changes."
+    },
+    {
+      "question": "What is an example of a resource Terraform can provision?",
+      "answer": "VMs, load balancers, storage, firewall rules."
+    },
+    {
+      "question": "What is the benefit of storing IaC in Git?",
+      "answer": "Configuration becomes reviewable, versioned, and reproducible."
+    },
+    {
+      "question": "What is the relationship between IaC and GitOps?",
+      "answer": "IaC defines desired state; GitOps ensures it is applied and maintained."
+    },
+    {
+      "question": "Why are manual deployments discouraged in GitOps?",
+      "answer": "They cause drift and break the automation model."
+    },
+    {
+      "question": "What is the advantage of IaC for provisioning infrastructure?",
+      "answer": "Faster setup and consistent, repeatable environments."
+    },
+    {
+      "question": "What is the purpose of CI in the CI/CD pipeline?",
+      "answer": "To build, test, and validate code changes."
+    },
+    {
+      "question": "What is the purpose of CD in the CI/CD pipeline?",
+      "answer": "To package and deploy validated code."
+    },
+    {
+      "question": "Why is GitOps beneficial for teams?",
+      "answer": "It increases stability, reduces manual work, and accelerates delivery."
+    },
+    {
+      "question": "What is the main goal of Continuous Deployment?",
+      "answer": "Automatic deployment of every validated change."
+    },
+    {
+      "question": "What is the main goal of Continuous Delivery?",
+      "answer": "Ensure code is always ready for deployment with minimal effort."
+    },
+     {
+      "question": "What is the main purpose of Continuous Integration (CI)?",
+      "answer": "To regularly build, test, and integrate code changes into a shared repository."
+    },
+    {
+      "question": "What is infrastructure drift?",
+      "answer": "When the real infrastructure state differs from what is defined in IaC configuration."
+    },
+    {
+      "question": "What is GitOps?",
+      "answer": "An operational framework combining Git version control, IaC, and CI/CD to manage infrastructure and application delivery."
+    },
+    {
+      "question": "What is the main goal of Continuous Integration?",
+      "answer": "Ensure code changes integrate smoothly and remain in a working state."
+    },
+    {
+      "question": "Why is Kubernetes ideal for GitOps?",
+      "answer": "Its reconciliation loop enforces desired state automatically."
+    },
+    {
+      "question": "What is the final outcome of a CI/CD pipeline?",
+      "answer": "A built, tested, packaged, and deployable software artifact."
+    }
+  ]
+}

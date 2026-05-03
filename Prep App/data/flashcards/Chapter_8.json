@@ -1,0 +1,205 @@
+{
+  "label": "Chapter 8 - Following Kubernetes Best Practices",
+  "flashcards": [
+    {
+      "question": "What are the three types of communication in Kubernetes networking?",
+      "answer": "Container-to-container, Pod-to-pod (East-West), and external (North-South). The chapter states: \"three types of communication... container to container, pod to pod... and the outside world.\""
+    },
+    {
+      "question": "How do containers in the same pod communicate?",
+      "answer": "Via localhost. \"Within a pod, all containers can easily communicate with each other via localhost.\""
+    },
+    {
+      "question": "What is East-West traffic?",
+      "answer": "Pod-to-pod communication inside the cluster. \"Pod to pod... often called East-West traffic.\""
+    },
+    {
+      "question": "What is North-South traffic?",
+      "answer": "Traffic between the cluster and the outside world. \"Communication with the outside world... known as North-South traffic.\""
+    },
+    {
+      "question": "Why is using pod IPs in configuration not practical?",
+      "answer": "Pod IPs change frequently. \"It is almost impossible to refer to IP addresses... as addresses change all the time.\""
+    },
+    {
+      "question": "What Kubernetes resource provides stable service discovery?",
+      "answer": "ClusterIP Service. \"ClusterIP Service... automatically tracks all changes to the list of endpoints.\""
+    },
+    {
+      "question": "Do namespaces provide network isolation by default?",
+      "answer": "No. \"Namespaces do not provide network isolation... unless restricted by a NetworkPolicy.\""
+    },
+    {
+      "question": "What is a NetworkPolicy?",
+      "answer": "A resource that controls pod-level traffic flow. \"NetworkPolicy... allows us to control network traffic flow in Kubernetes.\""
+    },
+    {
+      "question": "What does a NetworkPolicy restrict?",
+      "answer": "Traffic to/from selected pods, namespaces, or IP blocks."
+    },
+    {
+      "question": "Why are network policies important in microservice architectures?",
+      "answer": "Microservices increase East-West traffic that must be secured. \"Microservices... cause increased East-West network traffic that should also be secured.\""
+    },
+    {
+      "question": "Do all CNI providers support NetworkPolicy?",
+      "answer": "No. \"Kindnet... does not support network policies.\""
+    },
+    {
+      "question": "What is RBAC in Kubernetes?",
+      "answer": "Role-Based Access Control for restricting access. \"Kubernetes RBAC... ensures users only have access according to their assigned roles.\""
+    },
+    {
+      "question": "What principle does RBAC help enforce?",
+      "answer": "Least privilege. \"Least privilege principle... minimum privileges required to fulfill their job.\""
+    },
+    {
+      "question": "What is a Role in Kubernetes?",
+      "answer": "A namespaced set of permissions. \"Role... restricting access to a specific namespace.\""
+    },
+    {
+      "question": "What is a ClusterRole?",
+      "answer": "A cluster-wide set of permissions."
+    },
+    {
+      "question": "What is a RoleBinding?",
+      "answer": "Associates a Role with users, groups, or service accounts. \"RoleBinding... used to reference any number of users, groups, and service accounts.\""
+    },
+    {
+      "question": "What command checks RBAC permissions?",
+      "answer": "kubectl auth can-i. \"kubectl auth can-I command allows us to verify what is allowed.\""
+    },
+    {
+      "question": "What does the verb 'get' allow in RBAC?",
+      "answer": "Retrieve details of a specific resource. \"get allows us to retrieve information... but you need to know the name.\""
+    },
+    {
+      "question": "What does the verb 'list' allow in RBAC?",
+      "answer": "List all resources of a type. \"list allows us to only list resources.\""
+    },
+    {
+      "question": "What does the verb 'watch' allow in RBAC?",
+      "answer": "See updates to resources in real time. \"watch... allows us to see updates... in real time.\""
+    },
+    {
+      "question": "What is Helm?",
+      "answer": "A package manager for Kubernetes. \"Helm... automating the creation, packaging, deployment, and configuration of Kubernetes applications.\""
+    },
+    {
+      "question": "What is a Helm chart?",
+      "answer": "A package containing Kubernetes resource definitions. \"Helm chart... contains all K8s resource definitions required to run an application.\""
+    },
+    {
+      "question": "What is a Helm repository?",
+      "answer": "A place where charts are stored and shared."
+    },
+    {
+      "question": "What is a Helm release?",
+      "answer": "An installed instance of a chart. \"One chart can be installed many times... each installation... a new release.\""
+    },
+    {
+      "question": "What command rolls back a Helm release?",
+      "answer": "helm rollback. \"helm rollback... get back to the working revision.\""
+    },
+    {
+      "question": "What are the 4Cs of Cloud Native security?",
+      "answer": "Cloud, Cluster, Container, Code. \"4Cs of Cloud Native security: Cloud, Clusters, Containers, and Code.\""
+    },
+    {
+      "question": "Which layer is the foundation of the 4Cs?",
+      "answer": "Cloud. \"Cloud... acts as a trusted base for the Kubernetes cluster.\""
+    },
+    {
+      "question": "Why is the Cloud layer important?",
+      "answer": "If insecure, everything above is insecure. \"If the Cloud layer is vulnerable... no guarantee that components built on top are secure.\""
+    },
+    {
+      "question": "What are examples of Cluster layer best practices?",
+      "answer": "RBAC, API restrictions, etcd encryption, version updates."
+    },
+    {
+      "question": "Why avoid running containers as root?",
+      "answer": "Root inside container may compromise the node. \"Avoid running applications... as the root user.\""
+    },
+    {
+      "question": "Why avoid untrusted container images?",
+      "answer": "They may contain malicious code. \"Container images... might package malicious code inside.\""
+    },
+    {
+      "question": "What should be automated in image pipelines?",
+      "answer": "Vulnerability scanning. \"Automate vulnerability scanning as a part of the container image build process.\""
+    },
+    {
+      "question": "Why consider a service mesh?",
+      "answer": "To encrypt pod traffic. \"Service mesh... encrypt all pod traffic.\""
+    },
+    {
+      "question": "What is the recommended default network policy stance?",
+      "answer": "Deny all, then allow specific traffic. \"Deny all communication... and put tailored allow rules.\""
+    },
+    {
+      "question": "Why use controllers instead of standalone Pods?",
+      "answer": "Controllers provide resilience and features like rolling updates. \"Simple pod specification does not provide fault tolerance... use Deployment, StatefulSet, DaemonSet, or Job.\""
+    },
+    {
+      "question": "Why use namespaces?",
+      "answer": "To organize workloads and apply RBAC and network policies. \"Namespaces... great for RBAC configuration and restricting traffic.\""
+    },
+    {
+      "question": "Why set resource requests and limits?",
+      "answer": "To help scheduling and prevent resource exhaustion. \"Required... to make the best scheduling decisions and protect clusters.\""
+    },
+    {
+      "question": "Why use readiness probes?",
+      "answer": "To ensure Pods receive traffic only when ready. \"Requests reach pods only when they are ready.\""
+    },
+    {
+      "question": "Why use liveness probes?",
+      "answer": "To restart stuck or deadlocked containers. \"livenessProbe... restart the container.\""
+    },
+    {
+      "question": "Why use small container images?",
+      "answer": "They start faster and use less disk space. \"Large images take longer to download... minimal images... 5–10 MB.\""
+    },
+    {
+      "question": "Why use labels and annotations?",
+      "answer": "To organize workloads and store metadata. \"Add metadata... helpful for operations and tracking applications.\""
+    },
+    {
+      "question": "Why use multiple control plane nodes?",
+      "answer": "To avoid split-brain and improve availability. \"Use an uneven number... to avoid split-brain situations.\""
+    },
+    {
+      "question": "Why spread Pods across AZs?",
+      "answer": "To improve resilience against zone failures."
+    },
+    {
+      "question": "What is IPAM used for?",
+      "answer": "Controlling how pod IPs are allocated. \"IPAM plugins... subdivide the overlay network IP pool.\""
+    },
+    {
+      "question": "Do Services help with both East-West and North-South traffic?",
+      "answer": "Yes. \"Use Kubernetes Services for both East-West and North-South communication.\""
+    },
+    {
+      "question": "What does RBAC restrict?",
+      "answer": "Access to Kubernetes API resources."
+    },
+    {
+      "question": "What is the least privilege principle?",
+      "answer": "Users get only the permissions they need. \"Each user... receives only the minimum privileges required.\""
+    },
+    {
+      "question": "What does helm upgrade do?",
+      "answer": "Applies changes to an existing release."
+    },
+    {
+      "question": "What does helm rollback do?",
+      "answer": "Restores a previous release version."
+    },
+    {
+      "question": "Why is Kubernetes networking considered difficult?",
+      "answer": "Many CNIs and technologies like BGP/VXLAN. \"K8s networking is probably the hardest part to understand.\""
+    }
+  ]
+}

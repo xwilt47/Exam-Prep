@@ -168,19 +168,128 @@ h1 {
 .shuffle-toggle {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0;
   font-size: 0.88rem;
   color: var(--text-muted);
   cursor: pointer;
   user-select: none;
 }
 
+/* Hide native checkbox */
 .shuffle-toggle input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--accent);
-  cursor: pointer;
-  flex-shrink: 0;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Track + thumb via span pseudo-elements */
+.shuffle-toggle input[type="checkbox"] + span {
+  position: relative;
+  padding-left: 44px;
+  line-height: 1.4;
+}
+
+.shuffle-toggle input[type="checkbox"] + span::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: rgba(28, 36, 48, 0.12);
+  border: 1.5px solid rgba(28, 36, 48, 0.14);
+  transition: background 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.shuffle-toggle input[type="checkbox"] + span::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.22);
+  transition: left 200ms ease, background 200ms ease;
+}
+
+.shuffle-toggle input[type="checkbox"]:checked + span::before {
+  background: var(--accent);
+  border-color: var(--accent-dark);
+}
+
+.shuffle-toggle input[type="checkbox"]:checked + span::after {
+  left: 19px;
+  background: #fff;
+}
+
+.shuffle-toggle:hover input[type="checkbox"] + span::before {
+  border-color: var(--accent);
+}
+
+.shuffle-toggle:focus-within input[type="checkbox"] + span::before {
+  box-shadow: 0 0 0 3px rgba(13, 124, 102, 0.2);
+}
+
+.info-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent);
+  cursor: default;
+  line-height: 1;
+  vertical-align: middle;
+  opacity: 0.75;
+  transition: opacity 150ms ease;
+  padding: 0 0 2px 2px;
+}
+
+.info-icon:hover,
+.info-icon:focus {
+  opacity: 1;
+  outline: none;
+}
+
+.info-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  background: #1a1a2e;
+  color: #f0f0f0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.45;
+  padding: 10px 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  pointer-events: none;
+  z-index: 100;
+  white-space: normal;
+  text-align: left;
+}
+
+.info-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1a1a2e;
+}
+
+.info-icon:hover .info-tooltip,
+.info-icon:focus .info-tooltip {
+  display: block;
 }
 
 .primary-button,

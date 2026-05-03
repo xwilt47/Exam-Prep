@@ -1,0 +1,355 @@
+{
+  "label": "Chapter 8 - Following Kubernetes Best Practices",
+  "multipleChoice": [
+    {
+      "question": "Which type of traffic refers to pod-to-pod communication inside a Kubernetes cluster?",
+      "answer": "East-West traffic",
+      "options": ["North-South traffic", "East-West traffic", "Localhost traffic", "Ingress traffic"],
+      "correctIndex": 1,
+      "explanation": "The chapter states pod-to-pod communication is often called East-West traffic."
+    },
+    {
+      "question": "How do containers inside the same pod communicate?",
+      "answer": "Via localhost",
+      "options": ["Via NodePort", "Via LoadBalancer", "Via localhost", "Via Ingress"],
+      "correctIndex": 2,
+      "explanation": "Containers in a pod share a network namespace and communicate via localhost."
+    },
+    {
+      "question": "What type of traffic refers to communication between the cluster and the outside world?",
+      "answer": "North-South traffic",
+      "options": ["East-West traffic", "North-South traffic", "Pod-local traffic", "Overlay traffic"],
+      "correctIndex": 1,
+      "explanation": "North-South traffic refers to communication with external networks."
+    },
+    {
+      "question": "Which Kubernetes resource provides stable service discovery for pods?",
+      "answer": "ClusterIP Service",
+      "options": ["NodePort", "LoadBalancer", "ClusterIP", "Ingress"],
+      "correctIndex": 2,
+      "explanation": "ClusterIP automatically tracks pod IP changes."
+    },
+    {
+      "question": "Do Kubernetes namespaces provide network isolation by default?",
+      "answer": "No",
+      "options": ["Yes", "No", "Only on certain CNIs", "Only with RBAC"],
+      "correctIndex": 1,
+      "explanation": "Namespaces do not isolate network traffic unless NetworkPolicies are applied."
+    },
+    {
+      "question": "Which resource is used to restrict pod-to-pod communication?",
+      "answer": "NetworkPolicy",
+      "options": ["PodSecurityPolicy", "TrafficPolicy", "NetworkPolicy", "IngressPolicy"],
+      "correctIndex": 2,
+      "explanation": "NetworkPolicy controls allowed traffic flows."
+    },
+    {
+      "question": "What is required for NetworkPolicy to work?",
+      "answer": "A CNI provider that supports network policies",
+      "options": ["A specific Kubernetes version", "A special namespace", "A supporting CNI provider", "A LoadBalancer"],
+      "correctIndex": 2,
+      "explanation": "Not all CNIs support NetworkPolicy (e.g., Kindnet does not)."
+    },
+    {
+      "question": "What is RBAC used for in Kubernetes?",
+      "answer": "Restricting access to Kubernetes resources",
+      "options": ["Managing logs", "Restricting access", "Scaling pods", "Managing storage"],
+      "correctIndex": 1,
+      "explanation": "RBAC ensures users only have access according to assigned roles."
+    },
+    {
+      "question": "What principle does RBAC help enforce?",
+      "answer": "Least privilege",
+      "options": ["Zero trust", "Least privilege", "Open access", "Role inheritance"],
+      "correctIndex": 1,
+      "explanation": "RBAC enforces the least privilege principle."
+    },
+    {
+      "question": "What is a Role in Kubernetes?",
+      "answer": "A namespaced set of permissions",
+      "options": ["Cluster-wide permissions", "Node-level permissions", "Namespaced permissions", "Pod-level permissions"],
+      "correctIndex": 2,
+      "explanation": "Roles apply only within a namespace."
+    },
+    {
+      "question": "What is a ClusterRole?",
+      "answer": "A cluster-wide set of permissions",
+      "options": ["Namespace-only permissions", "Pod permissions", "Cluster-wide permissions", "Node permissions"],
+      "correctIndex": 2,
+      "explanation": "ClusterRoles apply across the entire cluster."
+    },
+    {
+      "question": "What does a RoleBinding do?",
+      "answer": "Associates a Role with users, groups, or service accounts",
+      "options": ["Creates a Role", "Creates a namespace", "Associates a Role with subjects", "Assigns nodes"],
+      "correctIndex": 2,
+      "explanation": "RoleBinding connects Roles to subjects."
+    },
+    {
+      "question": "Which command checks whether a user has permission to perform an action?",
+      "answer": "kubectl auth can-i",
+      "options": ["kubectl check", "kubectl verify", "kubectl auth can-i", "kubectl access"],
+      "correctIndex": 2,
+      "explanation": "kubectl auth can-i verifies permissions."
+    },
+    {
+      "question": "What does the RBAC verb 'get' allow?",
+      "answer": "Retrieve details of a specific resource",
+      "options": ["List all resources", "Retrieve details of a resource", "Watch updates", "Create resources"],
+      "correctIndex": 1,
+      "explanation": "The chapter explains 'get' retrieves resource information."
+    },
+    {
+      "question": "What does the RBAC verb 'list' allow?",
+      "answer": "List all resources of a type",
+      "options": ["Retrieve details", "List resources", "Watch updates", "Delete resources"],
+      "correctIndex": 1,
+      "explanation": "'list' shows all resources of a type."
+    },
+    {
+      "question": "Which Kubernetes traffic type requires a Service of type NodePort or LoadBalancer to expose workloads?",
+      "answer": "North-South traffic",
+      "options": ["East-West traffic", "Localhost traffic", "North-South traffic", "Pod-to-pod traffic"],
+      "correctIndex": 2,
+      "explanation": "The chapter states that communication with the outside world (North-South) requires NodePort or LoadBalancer."
+    },
+    {
+      "question": "What is the main purpose of IPAM plugins in Kubernetes?",
+      "answer": "To control how pod IP addresses are allocated",
+      "options": ["To encrypt pod traffic", "To manage DNS", "To control pod IP allocation", "To manage node labels"],
+      "correctIndex": 2,
+      "explanation": "IPAM plugins subdivide the overlay network IP pool and allocate pod IPs."
+    },
+    {
+      "question": "Which CNI provider used by minikube does NOT support NetworkPolicy?",
+      "answer": "Kindnet",
+      "options": ["Calico", "Cilium", "Kindnet", "Weave"],
+      "correctIndex": 2,
+      "explanation": "The chapter explicitly states that Kindnet does not support network policies."
+    },
+    {
+      "question": "What does a RoleBinding connect?",
+      "answer": "A Role or ClusterRole to users, groups, or service accounts",
+      "options": ["A Pod to a node", "A Deployment to a namespace", "A Role to subjects", "A Service to endpoints"],
+      "correctIndex": 2,
+      "explanation": "RoleBinding associates permissions with subjects."
+    },
+    {
+      "question": "Which RBAC verb allows real-time updates of resource changes?",
+      "answer": "watch",
+      "options": ["get", "list", "watch", "patch"],
+      "correctIndex": 2,
+      "explanation": "The chapter states that 'watch' allows seeing updates in real time."
+    },
+    {
+      "question": "What is the purpose of a Helm repository?",
+      "answer": "To store and share Helm charts",
+      "options": ["To store container images", "To store Pod logs", "To store and share charts", "To store RBAC rules"],
+      "correctIndex": 2,
+      "explanation": "Helm repositories act like package indexes for charts."
+    },
+    {
+      "question": "Which layer of the 4Cs focuses on securing the Kubernetes API, RBAC, and etcd?",
+      "answer": "Cluster",
+      "options": ["Cloud", "Cluster", "Container", "Code"],
+      "correctIndex": 1,
+      "explanation": "Cluster layer includes RBAC, API restrictions, and etcd encryption."
+    },
+    {
+      "question": "Why is it recommended to use multiple worker nodes across availability zones?",
+      "answer": "To improve resilience against node or zone failures",
+      "options": ["To reduce CPU usage", "To simplify RBAC", "To improve resilience", "To reduce storage costs"],
+      "correctIndex": 2,
+      "explanation": "The chapter emphasizes spreading workloads across AZs for high availability."
+    },
+    {
+      "question": "Why should large container images be avoided?",
+      "answer": "They increase startup time and consume more disk space",
+      "options": ["They are insecure", "They cannot run on Kubernetes", "They increase startup time", "They break networking"],
+      "correctIndex": 2,
+      "explanation": "Large images take longer to download and start."
+    },
+    {
+      "question": "Which Kubernetes best practice helps ensure Pods only receive traffic when ready?",
+      "answer": "Using readiness probes",
+      "options": ["Using liveness probes", "Using readiness probes", "Using annotations", "Using Helm charts"],
+      "correctIndex": 1,
+      "explanation": "Readiness probes ensure Pods receive traffic only when fully ready."
+    },
+    {
+      "question": "What does the RBAC verb 'watch' allow?",
+      "answer": "See updates to resources in real time",
+      "options": ["List resources", "Watch updates", "Create resources", "Patch resources"],
+      "correctIndex": 1,
+      "explanation": "'watch' streams updates."
+    },
+    {
+      "question": "What is Helm?",
+      "answer": "A package manager for Kubernetes",
+      "options": ["A container runtime", "A scheduler", "A package manager", "A CNI plugin"],
+      "correctIndex": 2,
+      "explanation": "Helm manages Kubernetes application specifications."
+    },
+    {
+      "question": "What is a Helm chart?",
+      "answer": "A package containing Kubernetes resource definitions",
+      "options": ["A Dockerfile", "A Pod manifest", "A package of K8s specs", "A YAML validator"],
+      "correctIndex": 2,
+      "explanation": "Charts contain all specs needed to deploy an app."
+    },
+    {
+      "question": "What is a Helm release?",
+      "answer": "An installed instance of a chart",
+      "options": ["A chart template", "A Pod", "An installed chart instance", "A namespace"],
+      "correctIndex": 2,
+      "explanation": "Each installation creates a release."
+    },
+    {
+      "question": "What does helm rollback do?",
+      "answer": "Restores a previous release version",
+      "options": ["Deletes a release", "Updates a release", "Rolls back a release", "Validates a chart"],
+      "correctIndex": 2,
+      "explanation": "helm rollback returns to a previous revision."
+    },
+    {
+      "question": "What are the 4Cs of Cloud Native security?",
+      "answer": "Cloud, Cluster, Container, Code",
+      "options": ["Cloud, Collocation, Cluster, Code", "Cloud, Cluster, Container, Code", "Cloud, Compute, Container, Code", "Cluster, Container, Code, Compute"],
+      "correctIndex": 1,
+      "explanation": "The chapter lists Cloud, Clusters, Containers, and Code."
+    },
+    {
+      "question": "Which layer is the foundation of the 4Cs?",
+      "answer": "Cloud",
+      "options": ["Cluster", "Container", "Code", "Cloud"],
+      "correctIndex": 3,
+      "explanation": "Cloud is the trusted base layer."
+    },
+    {
+      "question": "Why is the Cloud layer important?",
+      "answer": "If insecure, everything above is insecure",
+      "options": ["It stores logs", "It runs containers", "It secures the API", "If insecure, all layers are insecure"],
+      "correctIndex": 3,
+      "explanation": "The chapter emphasizes Cloud as the foundation."
+    },
+    {
+      "question": "Which container type is most secure?",
+      "answer": "Virtualized containers",
+      "options": ["Namespaced", "Sandboxed", "Virtualized", "Rootless"],
+      "correctIndex": 2,
+      "explanation": "Virtualized containers provide maximum isolation."
+    },
+    {
+      "question": "Why avoid running containers as root?",
+      "answer": "Root inside a container may compromise the node",
+      "options": ["It slows performance", "It breaks networking", "It risks node compromise", "It prevents logging"],
+      "correctIndex": 2,
+      "explanation": "Root containers can compromise the host."
+    },
+    {
+      "question": "Why avoid untrusted container images?",
+      "answer": "They may contain malicious code",
+      "options": ["They are too large", "They run slowly", "They may contain malicious code", "They cannot run on Linux"],
+      "correctIndex": 2,
+      "explanation": "The chapter warns about malicious images."
+    },
+    {
+      "question": "What should be automated in image pipelines?",
+      "answer": "Vulnerability scanning",
+      "options": ["Image shrinking", "Log rotation", "Vulnerability scanning", "Pod restarts"],
+      "correctIndex": 2,
+      "explanation": "Automated scanning reduces risk."
+    },
+    {
+      "question": "Why use a service mesh?",
+      "answer": "To encrypt pod traffic",
+      "options": ["To scale pods", "To store logs", "To encrypt traffic", "To manage nodes"],
+      "correctIndex": 2,
+      "explanation": "Service meshes encrypt East-West traffic."
+    },
+    {
+      "question": "What is the recommended default stance for network policies?",
+      "answer": "Deny all, then allow specific traffic",
+      "options": ["Allow all", "Deny all", "Allow some", "Allow only North-South"],
+      "correctIndex": 1,
+      "explanation": "The chapter recommends deny-all by default."
+    },
+    {
+      "question": "Why use controllers instead of standalone Pods?",
+      "answer": "Controllers provide resilience and advanced features",
+      "options": ["Pods are deprecated", "Controllers are faster", "Controllers provide resilience", "Pods cannot run alone"],
+      "correctIndex": 2,
+      "explanation": "Controllers support rolling updates and self-healing."
+    },
+    {
+      "question": "Why use namespaces?",
+      "answer": "To organize workloads and apply RBAC and network policies",
+      "options": ["To speed up pods", "To store logs", "To organize workloads", "To manage nodes"],
+      "correctIndex": 2,
+      "explanation": "Namespaces improve organization and security."
+    },
+    {
+      "question": "Why set resource requests and limits?",
+      "answer": "To help scheduling and prevent resource exhaustion",
+      "options": ["To speed up deployments", "To reduce YAML size", "To help scheduling", "To avoid labels"],
+      "correctIndex": 2,
+      "explanation": "Requests and limits protect cluster stability."
+    },
+    {
+      "question": "Why use readiness probes?",
+      "answer": "To ensure Pods receive traffic only when ready",
+      "options": ["To restart Pods", "To scale Pods", "To ensure readiness", "To log traffic"],
+      "correctIndex": 2,
+      "explanation": "Readiness probes prevent premature traffic."
+    },
+    {
+      "question": "Why use liveness probes?",
+      "answer": "To restart stuck or deadlocked containers",
+      "options": ["To scale Pods", "To delete Pods", "To restart stuck containers", "To update images"],
+      "correctIndex": 2,
+      "explanation": "Liveness probes detect deadlocks."
+    },
+    {
+      "question": "Why use small container images?",
+      "answer": "They start faster and use less disk space",
+      "options": ["They are more secure", "They run faster", "They start faster", "They use more CPU"],
+      "correctIndex": 2,
+      "explanation": "Small images reduce startup time."
+    },
+    {
+      "question": "Why use labels and annotations?",
+      "answer": "To organize resources and store metadata",
+      "options": ["To speed up pods", "To store logs", "To organize resources", "To manage nodes"],
+      "correctIndex": 2,
+      "explanation": "Labels and annotations help with organization and tracking."
+    },
+    {
+      "question": "Why use multiple control plane nodes?",
+      "answer": "To avoid split-brain and improve availability",
+      "options": ["To reduce cost", "To improve logging", "To avoid split-brain", "To speed up scheduling"],
+      "correctIndex": 2,
+      "explanation": "Odd-number control planes prevent split-brain."
+    },
+    {
+      "question": "Why spread Pods across AZs?",
+      "answer": "To improve resilience against zone failures",
+      "options": ["To reduce cost", "To improve logging", "To improve resilience", "To reduce CPU usage"],
+      "correctIndex": 2,
+      "explanation": "Spreading Pods improves availability."
+    },
+    {
+      "question": "What is IPAM used for?",
+      "answer": "Controlling how pod IPs are allocated",
+      "options": ["Managing logs", "Allocating pod IPs", "Scaling pods", "Encrypting traffic"],
+      "correctIndex": 1,
+      "explanation": "IPAM plugins subdivide IP pools."
+    },
+    {
+      "question": "Do Services support both East-West and North-South traffic?",
+      "answer": "Yes",
+      "options": ["No", "Only East-West", "Only North-South", "Yes"],
+      "correctIndex": 3,
+      "explanation": "Services support both internal and external communication."
+    }
+  ]
+}

@@ -1,0 +1,355 @@
+{
+  "label": "Chapter 10 - Telemetry and Observability",
+  "multipleChoice": [
+    {
+      "question": "What are the three primary telemetry signals?",
+      "answer": "Logs, metrics, and traces",
+      "options": ["Logs, metrics, and traces", "Logs, alerts, and dashboards", "Metrics, dashboards, and traces", "Logs, events, and traces"],
+      "correctIndex": 0,
+      "explanation": "The chapter defines logs, metrics, and traces as the three telemetry signals."
+    },
+    {
+      "question": "What is telemetry?",
+      "answer": "Monitoring and collecting system performance data for analysis",
+      "options": ["A logging tool", "A tracing protocol", "Monitoring and collecting performance data", "A visualization method"],
+      "correctIndex": 2,
+      "explanation": "Telemetry refers to collecting data about system performance."
+    },
+    {
+      "question": "What is observability?",
+      "answer": "The ability to generate insights based on telemetry signals",
+      "options": ["The ability to store logs", "The ability to scale applications", "The ability to generate insights from telemetry", "The ability to deploy microservices"],
+      "correctIndex": 2,
+      "explanation": "Observability means understanding system state using telemetry."
+    },
+    {
+      "question": "Why is relying only on logs insufficient?",
+      "answer": "Logs may not provide the right data at the right time",
+      "options": ["Logs are too large", "Logs are expensive", "Logs may not provide timely data", "Logs cannot be stored"],
+      "correctIndex": 2,
+      "explanation": "Logs alone may not give proactive insights."
+    },
+    {
+      "question": "Which telemetry signal is text-based?",
+      "answer": "Logs",
+      "options": ["Metrics", "Logs", "Traces", "Events"],
+      "correctIndex": 1,
+      "explanation": "Logs are text-based event records."
+    },
+    {
+      "question": "What do logs typically include?",
+      "answer": "Timestamp, message, severity, and status codes",
+      "options": ["Only timestamps", "Only messages", "Timestamp, message, severity, status codes", "Only severity"],
+      "correctIndex": 2,
+      "explanation": "Logs contain multiple fields describing events."
+    },
+    {
+      "question": "What are metrics?",
+      "answer": "Regular time-series measurements of system performance",
+      "options": ["Single measurements", "Time-series performance measurements", "Text events", "Network packets"],
+      "correctIndex": 1,
+      "explanation": "Metrics are collected at regular intervals."
+    },
+    {
+      "question": "Why must metrics be collected frequently?",
+      "answer": "To detect trends and patterns",
+      "options": ["To reduce storage", "To increase CPU usage", "To detect trends", "To reduce logs"],
+      "correctIndex": 2,
+      "explanation": "Frequent metrics reveal patterns over time."
+    },
+    {
+      "question": "What is tracing used for?",
+      "answer": "Tracking requests across distributed systems",
+      "options": ["Tracking CPU usage", "Tracking logs", "Tracking requests across services", "Tracking storage usage"],
+      "correctIndex": 2,
+      "explanation": "Tracing shows how requests flow through microservices."
+    },
+    {
+      "question": "Which tool is commonly used for tracing?",
+      "answer": "Jaeger",
+      "options": ["Grafana", "Jaeger", "Prometheus", "Fluentd"],
+      "correctIndex": 1,
+      "explanation": "Jaeger is a popular tracing tool."
+    },
+    {
+      "question": "What is OpenTelemetry?",
+      "answer": "A vendor-agnostic framework for telemetry ingestion",
+      "options": ["A logging tool", "A cloud provider", "A telemetry framework", "A database"],
+      "correctIndex": 2,
+      "explanation": "OpenTelemetry provides APIs and SDKs for telemetry."
+    },
+    {
+      "question": "What is Prometheus primarily used for?",
+      "answer": "Monitoring and alerting",
+      "options": ["Tracing", "Logging", "Monitoring and alerting", "Deployment"],
+      "correctIndex": 2,
+      "explanation": "Prometheus is a monitoring and alerting system."
+    },
+    {
+      "question": "What type of database does Prometheus use?",
+      "answer": "Time Series Database (TSDB)",
+      "options": ["Relational DB", "Document DB", "TSDB", "Graph DB"],
+      "correctIndex": 2,
+      "explanation": "Prometheus stores metrics in TSDB."
+    },
+    {
+      "question": "What is the dominant Prometheus collection model?",
+      "answer": "Pull",
+      "options": ["Push", "Pull", "Hybrid", "Manual"],
+      "correctIndex": 1,
+      "explanation": "Prometheus scrapes metrics via pull model."
+    },
+    {
+      "question": "Which Prometheus component allows pushing metrics?",
+      "answer": "Pushgateway",
+      "options": ["Alertmanager", "Grafana", "Pushgateway", "Node exporter"],
+      "correctIndex": 2,
+      "explanation": "Pushgateway enables push-based metrics."
+    },
+    {
+      "question": "What is a Prometheus label?",
+      "answer": "A key-value attribute that adds context to a metric",
+      "options": ["A log entry", "A trace ID", "A key-value attribute", "A timestamp"],
+      "correctIndex": 2,
+      "explanation": "Labels help filter and group metrics."
+    },
+    {
+      "question": "What is a Prometheus exporter?",
+      "answer": "A tool that exposes metrics for applications lacking native support",
+      "options": ["A log parser", "A tracing agent", "A metrics translator", "A metrics exporter"],
+      "correctIndex": 3,
+      "explanation": "Exporters expose metrics in Prometheus format."
+    },
+    {
+      "question": "Where are exporters commonly deployed in Kubernetes?",
+      "answer": "As sidecar containers",
+      "options": ["As init containers", "As CRDs", "As sidecars", "As nodes"],
+      "correctIndex": 2,
+      "explanation": "Exporters often run as sidecars."
+    },
+    {
+      "question": "What is Alertmanager responsible for?",
+      "answer": "Sending notifications based on alerts",
+      "options": ["Scraping metrics", "Storing logs", "Sending notifications", "Running exporters"],
+      "correctIndex": 2,
+      "explanation": "Alertmanager handles alert routing."
+    },
+    {
+      "question": "What triggers an alert?",
+      "answer": "A metric crossing a threshold",
+      "options": ["A log entry", "A trace event", "A metric threshold", "A deployment"],
+      "correctIndex": 2,
+      "explanation": "Alerts fire when thresholds are exceeded."
+    },
+    {
+      "question": "What unique feature does Prometheus offer for alerting?",
+      "answer": "Predicting when a metric will reach a threshold",
+      "options": ["Predicting logs", "Predicting traces", "Predicting metric thresholds", "Predicting deployments"],
+      "correctIndex": 2,
+      "explanation": "Prometheus can forecast metric trends."
+    },
+    {
+      "question": "What is direct instrumentation?",
+      "answer": "Adding Prometheus client libraries to application code",
+      "options": ["Adding logs", "Adding exporters", "Adding client libraries", "Adding dashboards"],
+      "correctIndex": 2,
+      "explanation": "Direct instrumentation integrates Prometheus natively."
+    },
+    {
+      "question": "What is FinOps?",
+      "answer": "A cloud financial management discipline",
+      "options": ["A logging tool", "A tracing protocol", "A financial management practice", "A deployment model"],
+      "correctIndex": 2,
+      "explanation": "FinOps helps manage cloud spending."
+    },
+    {
+      "question": "What does FinOps emphasize?",
+      "answer": "Collaboration between engineering, finance, and business teams",
+      "options": ["Only engineering", "Only finance", "Engineering, finance, and business", "Only operations"],
+      "correctIndex": 2,
+      "explanation": "FinOps requires cross-team collaboration."
+    },
+    {
+      "question": "What is on-demand pricing?",
+      "answer": "Paying only for resources while they run",
+      "options": ["Paying yearly", "Paying monthly", "Paying only while running", "Paying upfront"],
+      "correctIndex": 2,
+      "explanation": "On-demand charges apply only during usage."
+    },
+    {
+      "question": "What are reserved instances?",
+      "answer": "Long-term reserved capacity with discounts",
+      "options": ["Short-term VMs", "Long-term reserved capacity", "Spot capacity", "Free-tier resources"],
+      "correctIndex": 1,
+      "explanation": "Reserved instances offer discounts for long-term commitment."
+    },
+    {
+      "question": "What are spot instances?",
+      "answer": "Discounted spare capacity that can be terminated anytime",
+      "options": ["Guaranteed VMs", "Reserved VMs", "Spare capacity", "Free VMs"],
+      "correctIndex": 2,
+      "explanation": "Spot instances are cheap but interruptible."
+    },
+    {
+      "question": "When should spot instances be used?",
+      "answer": "For non-critical or interruptible workloads",
+      "options": ["Critical workloads", "Databases", "Non-critical workloads", "Control plane nodes"],
+      "correctIndex": 2,
+      "explanation": "Spot is ideal for interruptible tasks."
+    },
+    {
+      "question": "What is rightsizing?",
+      "answer": "Matching instance size to workload needs",
+      "options": ["Scaling logs", "Scaling metrics", "Matching instance size", "Matching trace IDs"],
+      "correctIndex": 2,
+      "explanation": "Rightsizing optimizes cost and performance."
+    },
+    {
+      "question": "Why is rightsizing important?",
+      "answer": "To avoid overprovisioning and reduce costs",
+      "options": ["To increase logs", "To reduce metrics", "To avoid overprovisioning", "To increase CPU usage"],
+      "correctIndex": 2,
+      "explanation": "Rightsizing prevents waste."
+    },
+    {
+      "question": "What is an example of a basic metric?",
+      "answer": "CPU utilization",
+      "options": ["Log severity", "Trace ID", "CPU utilization", "User ID"],
+      "correctIndex": 2,
+      "explanation": "CPU usage is a common metric."
+    },
+    {
+      "question": "What is an example of an application-specific metric?",
+      "answer": "API requests per minute",
+      "options": ["CPU usage", "Disk IOPS", "API requests per minute", "Trace spans"],
+      "correctIndex": 2,
+      "explanation": "Application metrics reflect app behavior."
+    },
+    {
+      "question": "Why can too much telemetry be harmful?",
+      "answer": "It creates noise and hides insights",
+      "options": ["It increases CPU usage", "It reduces logs", "It creates noise", "It reduces metrics"],
+      "correctIndex": 2,
+      "explanation": "Too much data makes analysis harder."
+    },
+    {
+      "question": "What is the default Prometheus endpoint?",
+      "answer": "/metrics",
+      "options": ["/logs", "/trace", "/metrics", "/export"],
+      "correctIndex": 2,
+      "explanation": "Prometheus scrapes /metrics."
+    },
+    {
+      "question": "Which tool is commonly used to visualize Prometheus metrics?",
+      "answer": "Grafana",
+      "options": ["Jaeger", "Grafana", "Zipkin", "Fluentd"],
+      "correctIndex": 1,
+      "explanation": "Grafana is widely used for dashboards."
+    },
+    {
+      "question": "What does PromQL allow?",
+      "answer": "Querying and analyzing metrics",
+      "options": ["Querying logs", "Querying traces", "Querying metrics", "Querying deployments"],
+      "correctIndex": 2,
+      "explanation": "PromQL is Prometheus' query language."
+    },
+    {
+      "question": "What does Kubernetes service discovery provide for Prometheus?",
+      "answer": "Automatic discovery of scrape targets",
+      "options": ["Automatic logging", "Automatic tracing", "Automatic target discovery", "Automatic scaling"],
+      "correctIndex": 2,
+      "explanation": "Prometheus can auto-discover K8s endpoints."
+    },
+     {
+      "question": "Which telemetry signal helps identify the exact flow of a request through microservices?",
+      "answer": "Traces",
+      "options": ["Logs", "Metrics", "Traces", "Events"],
+      "correctIndex": 2,
+      "explanation": "Tracing shows how requests move across distributed systems."
+    },
+    {
+      "question": "Which telemetry signal is best for understanding long-term performance trends?",
+      "answer": "Metrics",
+      "options": ["Logs", "Metrics", "Traces", "Alerts"],
+      "correctIndex": 1,
+      "explanation": "Metrics are collected regularly and stored as time-series data."
+    },
+    {
+      "question": "Which telemetry signal is text-based and often includes severity levels?",
+      "answer": "Logs",
+      "options": ["Metrics", "Logs", "Traces", "Dashboards"],
+      "correctIndex": 1,
+      "explanation": "Logs contain text messages with timestamps and severity."
+    },
+    {
+      "question": "Which tool is commonly used to visualize Prometheus metrics?",
+      "answer": "Grafana",
+      "options": ["Jaeger", "Grafana", "Zipkin", "Fluentd"],
+      "correctIndex": 1,
+      "explanation": "Grafana is widely used for dashboards and visualization."
+    },
+    {
+      "question": "Which Prometheus component handles notifications?",
+      "answer": "Alertmanager",
+      "options": ["Pushgateway", "Alertmanager", "Node Exporter", "Grafana"],
+      "correctIndex": 1,
+      "explanation": "Alertmanager routes alerts to email, SMS, or chat."
+    },
+    {
+      "question": "Which Prometheus model is used when scraping metrics from /metrics endpoints?",
+      "answer": "Pull model",
+      "options": ["Push model", "Pull model", "Hybrid model", "Manual model"],
+      "correctIndex": 1,
+      "explanation": "Prometheus primarily uses the pull model."
+    },
+    {
+      "question": "Which Prometheus component is used for short-lived jobs?",
+      "answer": "Pushgateway",
+      "options": ["Alertmanager", "Pushgateway", "Grafana", "PromQL"],
+      "correctIndex": 1,
+      "explanation": "Pushgateway allows jobs to push metrics before exiting."
+    },
+    {
+      "question": "What is the purpose of PromQL?",
+      "answer": "Querying and analyzing metrics stored in Prometheus",
+      "options": ["Querying logs", "Querying traces", "Querying metrics", "Querying alerts"],
+      "correctIndex": 2,
+      "explanation": "PromQL is Prometheus' query language for metrics."
+    },
+    {
+      "question": "What is the main purpose of exporters in Prometheus?",
+      "answer": "Expose metrics for applications without native Prometheus support",
+      "options": ["Store logs", "Send alerts", "Expose metrics", "Scale workloads"],
+      "correctIndex": 2,
+      "explanation": "Exporters convert application data into Prometheus format."
+    },
+    {
+      "question": "Which of the following is a benefit of observability?",
+      "answer": "Faster incident response",
+      "options": ["Higher storage usage", "Faster incident response", "More logs by default", "Reduced CPU usage"],
+      "correctIndex": 1,
+      "explanation": "Observability helps operators detect and resolve issues quickly."
+    },
+    {
+      "question": "What is the main purpose of FinOps?",
+      "answer": "To make data-driven cloud spending decisions",
+      "options": ["To collect logs", "To scale applications", "To make data-driven spending decisions", "To manage Kubernetes clusters"],
+      "correctIndex": 2,
+      "explanation": "FinOps aligns engineering and finance for cost optimization."
+    },
+    {
+      "question": "Which cloud instance type offers the highest discount but can be terminated anytime?",
+      "answer": "Spot instances",
+      "options": ["On-demand instances", "Reserved instances", "Spot instances", "Dedicated instances"],
+      "correctIndex": 2,
+      "explanation": "Spot instances are cheap but interruptible."
+    },
+    {
+      "question": "What is the relationship between telemetry and observability?",
+      "answer": "Telemetry provides data; observability provides insights",
+      "options": ["Telemetry provides insights", "Observability provides data", "Telemetry provides data; observability provides insights", "Both provide logs"],
+      "correctIndex": 2,
+      "explanation": "Observability depends on telemetry."
+    }
+  ]
+}

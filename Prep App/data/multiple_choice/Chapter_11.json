@@ -1,0 +1,355 @@
+{
+  "label": "Chapter 11 - Automating Cloud Native Application Delivery",
+  "multipleChoice": [
+    {
+      "question": "What is the first step in Cloud Native application delivery?",
+      "answer": "Developers commit code to a Version Control System",
+      "options": ["Deploying to production", "Running manual tests", "Developers commit code to VCS", "Creating a release"],
+      "correctIndex": 2,
+      "explanation": "The chapter states developers write code and commit it to Git or another VCS."
+    },
+    {
+      "question": "What is a release?",
+      "answer": "A version of software delivered to users",
+      "options": ["A test environment", "A Git branch", "A version of software delivered to users", "A CI pipeline"],
+      "correctIndex": 2,
+      "explanation": "A release includes new features, enhancements, or fixes."
+    },
+    {
+      "question": "What does v1.0.0 represent in semantic versioning?",
+      "answer": "The first stable release",
+      "options": ["A beta version", "The first stable release", "A patch update", "A rollback version"],
+      "correctIndex": 1,
+      "explanation": "Semantic versioning defines v1.0.0 as the first stable release."
+    },
+    {
+      "question": "Why is automation essential in Cloud Native delivery?",
+      "answer": "It speeds up delivery and reduces errors",
+      "options": ["It increases manual work", "It slows down releases", "It speeds up delivery and reduces errors", "It removes the need for testing"],
+      "correctIndex": 2,
+      "explanation": "Automation enables fast, stable, repeatable releases."
+    },
+    {
+      "question": "Which of the following is NOT a benefit of automation?",
+      "answer": "More manual intervention",
+      "options": ["Faster delivery", "More stable releases", "More manual intervention", "Fewer bugs"],
+      "correctIndex": 2,
+      "explanation": "Automation reduces manual work."
+    },
+    {
+      "question": "Which lifecycle stage ensures the application is functioning in production?",
+      "answer": "Monitor",
+      "options": ["Code", "Monitor", "Build", "Release"],
+      "correctIndex": 1,
+      "explanation": "Monitoring ensures the application performs correctly in production."
+    },
+    {
+      "question": "What does CI stand for?",
+      "answer": "Continuous Integration",
+      "options": ["Continuous Improvement", "Continuous Integration", "Continuous Inspection", "Continuous Infrastructure"],
+      "correctIndex": 1,
+      "explanation": "CI = Continuous Integration."
+    },
+    {
+      "question": "What is the goal of Continuous Integration?",
+      "answer": "Ensure code is always in a working state",
+      "options": ["Deploy code automatically", "Ensure code is always in a working state", "Remove testing", "Replace Git"],
+      "correctIndex": 1,
+      "explanation": "CI ensures frequent integration and testing."
+    },
+    {
+      "question": "Which stages does CI focus on?",
+      "answer": "Build and test",
+      "options": ["Deploy and monitor", "Build and test", "Release and operate", "Plan and monitor"],
+      "correctIndex": 1,
+      "explanation": "CI automates building and testing code."
+    },
+    {
+      "question": "What does Continuous Delivery do?",
+      "answer": "Packages and prepares tested code for deployment",
+      "options": ["Automatically deploys to production", "Packages tested code for deployment", "Runs unit tests", "Builds container images only"],
+      "correctIndex": 1,
+      "explanation": "CD prepares code for deployment after approval."
+    },
+    {
+      "question": "What is Continuous Deployment?",
+      "answer": "Automatically deploying tested code to environments",
+      "options": ["Manual deployment", "Automatically deploying tested code", "Only building code", "Only testing code"],
+      "correctIndex": 1,
+      "explanation": "Continuous Deployment deploys automatically after tests pass."
+    },
+    {
+      "question": "What is a CI/CD pipeline?",
+      "answer": "A sequence of automated stages for software delivery",
+      "options": ["A Git branch", "A Kubernetes controller", "A sequence of automated stages", "A monitoring tool"],
+      "correctIndex": 2,
+      "explanation": "Pipelines automate build, test, package, deploy."
+    },
+    {
+      "question": "Why are small, frequent releases recommended?",
+      "answer": "They reduce risk and make issues easier to fix",
+      "options": ["They increase risk", "They require no testing", "They reduce risk", "They eliminate CI/CD"],
+      "correctIndex": 2,
+      "explanation": "Small changes are easier to validate and roll back."
+    },
+    {
+      "question": "Which of the following is a CI/CD tool?",
+      "answer": "GitLab CI",
+      "options": ["Terraform", "GitLab CI", "CloudFormation", "MySQL"],
+      "correctIndex": 1,
+      "explanation": "GitLab CI is a CI/CD automation tool."
+    },
+    {
+      "question": "What is GitOps?",
+      "answer": "An operational framework using Git, IaC, and CI/CD",
+      "options": ["A logging system", "A monitoring tool", "An operational framework using Git and IaC", "A container runtime"],
+      "correctIndex": 2,
+      "explanation": "GitOps uses Git as the source of truth."
+    },
+    {
+      "question": "What is the source of truth in GitOps?",
+      "answer": "Git repository",
+      "options": ["Kubernetes cluster", "Git repository", "CI pipeline", "Cloud provider"],
+      "correctIndex": 1,
+      "explanation": "Git stores the desired state."
+    },
+    {
+      "question": "What is a Merge Request (MR)?",
+      "answer": "A Git mechanism for proposing and reviewing changes",
+      "options": ["A deployment tool", "A CI job", "A Git review mechanism", "A Kubernetes resource"],
+      "correctIndex": 2,
+      "explanation": "MRs allow collaboration and review."
+    },
+    {
+      "question": "What is IaC?",
+      "answer": "Managing infrastructure using declarative configuration files",
+      "options": ["Manual provisioning", "Managing infrastructure with code", "A CI tool", "A monitoring tool"],
+      "correctIndex": 1,
+      "explanation": "IaC defines infrastructure as code."
+    },
+    {
+      "question": "What is infrastructure drift?",
+      "answer": "When real infrastructure differs from IaC definitions",
+      "options": ["When VMs scale up", "When logs increase", "When real state differs from IaC", "When Git branches diverge"],
+      "correctIndex": 2,
+      "explanation": "Drift occurs when manual changes alter infrastructure."
+    },
+    {
+      "question": "What happens to manual changes in GitOps?",
+      "answer": "They are overwritten by the desired state from Git",
+      "options": ["They persist forever", "They are ignored", "They are overwritten", "They trigger alerts only"],
+      "correctIndex": 2,
+      "explanation": "GitOps enforces the Git-defined state."
+    },
+    {
+      "question": "Which tool supports GitOps?",
+      "answer": "ArgoCD",
+      "options": ["Terraform", "ArgoCD", "MySQL", "Docker"],
+      "correctIndex": 1,
+      "explanation": "ArgoCD syncs Git state to Kubernetes."
+    },
+    {
+      "question": "Why does GitOps work well with Kubernetes?",
+      "answer": "Kubernetes enforces desired state via reconciliation",
+      "options": ["Kubernetes stores logs", "Kubernetes uses Git", "Kubernetes enforces desired state", "Kubernetes has no drift"],
+      "correctIndex": 2,
+      "explanation": "Kubernetes constantly reconciles actual vs desired state."
+    },
+    {
+      "question": "What is the purpose of CI in GitOps?",
+      "answer": "To build and test code before merging",
+      "options": ["To deploy code", "To monitor clusters", "To build and test code", "To store logs"],
+      "correctIndex": 2,
+      "explanation": "CI validates changes before they enter Git."
+    },
+    {
+      "question": "What is the purpose of CD in GitOps?",
+      "answer": "To deploy changes from Git to environments",
+      "options": ["To run tests", "To build images", "To deploy Git changes", "To store artifacts"],
+      "correctIndex": 2,
+      "explanation": "CD applies Git-defined state to clusters."
+    },
+    {
+      "question": "What is declarative configuration?",
+      "answer": "Describing desired state instead of step-by-step instructions",
+      "options": ["Manual scripting", "Procedural instructions", "Describing desired state", "Imperative commands"],
+      "correctIndex": 2,
+      "explanation": "Declarative config defines what, not how."
+    },
+    {
+      "question": "What is Terraform?",
+      "answer": "A popular IaC tool",
+      "options": ["A CI tool", "A GitOps tool", "A monitoring tool", "An IaC tool"],
+      "correctIndex": 3,
+      "explanation": "Terraform provisions infrastructure declaratively."
+    },
+    {
+      "question": "What file format does Terraform use?",
+      "answer": ".tf",
+      "options": [".yaml", ".json", ".tf", ".ini"],
+      "correctIndex": 2,
+      "explanation": "Terraform uses .tf files."
+    },
+    {
+      "question": "What does Terraform do when resources match the desired state?",
+      "answer": "Makes no changes",
+      "options": ["Deletes resources", "Recreates resources", "Makes no changes", "Scales resources"],
+      "correctIndex": 2,
+      "explanation": "Terraform is idempotent."
+    },
+    {
+      "question": "Which cloud provider offers CloudFormation?",
+      "answer": "AWS",
+      "options": ["Azure", "Google Cloud", "AWS", "IBM Cloud"],
+      "correctIndex": 2,
+      "explanation": "CloudFormation is AWS-specific."
+    },
+    {
+      "question": "What is the main benefit of IaC?",
+      "answer": "Reproducible and reviewable infrastructure",
+      "options": ["Manual provisioning", "Faster logging", "Reproducible infrastructure", "Automatic scaling"],
+      "correctIndex": 2,
+      "explanation": "IaC ensures consistency and reviewability."
+    },
+    {
+      "question": "What is the main benefit of GitOps?",
+      "answer": "Fast, stable, automated delivery",
+      "options": ["Manual deployments", "Slow releases", "Fast, automated delivery", "No need for CI"],
+      "correctIndex": 2,
+      "explanation": "GitOps accelerates delivery and stability."
+    },
+    {
+      "question": "What triggers deployments in GitOps?",
+      "answer": "Merged changes in Git",
+      "options": ["Manual kubectl commands", "CI failures", "Merged Git changes", "Node restarts"],
+      "correctIndex": 2,
+      "explanation": "GitOps deploys based on Git state."
+    },
+    {
+      "question": "What is a GitOps anti-pattern?",
+      "answer": "Manual changes in the live environment",
+      "options": ["Using IaC", "Using Git", "Manual live changes", "Using CI/CD"],
+      "correctIndex": 2,
+      "explanation": "Manual changes cause drift."
+    },
+    {
+      "question": "What does Kubernetes' reconciliation loop do?",
+      "answer": "Ensures actual state matches desired state",
+      "options": ["Runs CI jobs", "Stores logs", "Ensures desired state", "Builds images"],
+      "correctIndex": 2,
+      "explanation": "Reconciliation enforces desired state."
+    },
+    {
+      "question": "What is the main purpose of CI?",
+      "answer": "Build and test code frequently",
+      "options": ["Deploy code", "Monitor clusters", "Build and test code", "Provision infrastructure"],
+      "correctIndex": 2,
+      "explanation": "CI validates code changes."
+    },
+    {
+      "question": "What is the main purpose of CD?",
+      "answer": "Deploy validated code",
+      "options": ["Run tests", "Store artifacts", "Deploy validated code", "Scale clusters"],
+      "correctIndex": 2,
+      "explanation": "CD deploys tested changes."
+    },
+    {
+      "question": "What is the main purpose of IaC?",
+      "answer": "Define and provision infrastructure declaratively",
+      "options": ["Run CI jobs", "Store logs", "Define infrastructure declaratively", "Deploy containers"],
+      "correctIndex": 2,
+      "explanation": "IaC provisions infrastructure via code."
+    },
+    {
+      "question": "What does CI stand for?",
+      "answer": "Continuous Integration",
+      "options": ["Continuous Improvement", "Continuous Integration", "Continuous Inspection", "Continuous Infrastructure"],
+      "correctIndex": 1,
+      "explanation": "CI focuses on integrating and testing code frequently."
+    },
+    {
+      "question": "Which stages are part of CI automation?",
+      "answer": "Build and Test",
+      "options": ["Release and Deploy", "Build and Test", "Monitor and Operate", "Plan and Release"],
+      "correctIndex": 1,
+      "explanation": "CI automates building and testing code changes."
+    },
+    {
+      "question": "What is Continuous Delivery?",
+      "answer": "Automation that prepares tested code for deployment after approval",
+      "options": ["Automatic deployment to production", "Manual deployment process", "Automation preparing tested code for deployment", "A monitoring system"],
+      "correctIndex": 2,
+      "explanation": "CD ensures code is packaged and ready for deployment."
+    },
+    {
+      "question": "What is Continuous Deployment?",
+      "answer": "Automatically deploying tested code to environments",
+      "options": ["Manual deployment", "Automatically deploying tested code", "Only building code", "Only testing code"],
+      "correctIndex": 1,
+      "explanation": "Continuous Deployment deploys changes automatically after tests pass."
+    },
+    {
+      "question": "Which of the following is a CI/CD tool?",
+      "answer": "GitLab CI",
+      "options": ["Terraform", "GitLab CI", "CloudFormation", "MySQL"],
+      "correctIndex": 1,
+      "explanation": "GitLab CI is widely used for CI/CD automation."
+    },
+    {
+      "question": "What is the central source of truth in GitOps?",
+      "answer": "Git repository",
+      "options": ["Kubernetes cluster", "Git repository", "CI pipeline", "Cloud provider"],
+      "correctIndex": 1,
+      "explanation": "Git stores the desired state for applications and infrastructure."
+    },
+    {
+      "question": "What is infrastructure drift?",
+      "answer": "When real infrastructure state differs from IaC definitions",
+      "options": ["When VMs scale up", "When logs increase", "When real state differs from IaC", "When Git branches diverge"],
+      "correctIndex": 2,
+      "explanation": "Drift occurs when manual changes alter infrastructure."
+    },
+    {
+      "question": "Which tool is commonly used for GitOps?",
+      "answer": "ArgoCD",
+      "options": ["Terraform", "ArgoCD", "Docker", "MySQL"],
+      "correctIndex": 1,
+      "explanation": "ArgoCD syncs Git state to Kubernetes clusters."
+    },
+    {
+      "question": "What is the purpose of IaC?",
+      "answer": "To manage and provision infrastructure using declarative configuration files",
+      "options": ["To run CI jobs", "To store logs", "To manage infrastructure declaratively", "To deploy containers"],
+      "correctIndex": 2,
+      "explanation": "IaC defines infrastructure as code for reproducibility and automation."
+    },
+    {
+      "question": "Which file format is used by Terraform?",
+      "answer": ".tf",
+      "options": [".yaml", ".json", ".tf", ".ini"],
+      "correctIndex": 2,
+      "explanation": "Terraform uses .tf files for configuration."
+    },
+    {
+      "question": "What happens when manual changes are made in a GitOps-managed environment?",
+      "answer": "They are overwritten by the desired state from Git",
+      "options": ["They persist forever", "They are ignored", "They are overwritten", "They trigger alerts only"],
+      "correctIndex": 2,
+      "explanation": "GitOps enforces the Git-defined desired state."
+    },
+    {
+      "question": "What is the main benefit of CI?",
+      "answer": "Ensuring code is always in a working state through frequent testing",
+      "options": ["Automatic deployment", "Manual testing", "Ensuring code is always working", "Skipping code reviews"],
+      "correctIndex": 2,
+      "explanation": "CI ensures code remains stable and testable."
+    },
+    {
+      "question": "Which of the following is a GitOps tool?",
+      "answer": "FluxCD",
+      "options": ["Terraform", "FluxCD", "Docker", "MySQL"],
+      "correctIndex": 1,
+      "explanation": "FluxCD automates GitOps workflows."
+    }
+  ]
+}

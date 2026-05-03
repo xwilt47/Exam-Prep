@@ -1,0 +1,205 @@
+{
+  "label": "Chapter 9 - Understanding Cloud Native Architectures",
+  "flashcards": [
+    {
+      "question": "What is the definition of Cloud Native?",
+      "answer": "An approach to building and running applications on modern, dynamic infrastructures emphasizing resiliency, scalability, automation, and observability. The chapter states: \"Cloud Native... emphasizes application workloads with high resiliency, scalability, a high degree of automation, ease of management, and observability.\""
+    },
+     {
+      "question": "What is the core idea behind Cloud Native resiliency?",
+      "answer": "Applications should automatically recover from failures without manual intervention. The chapter states: \"The ability to recover without manual intervention is often called self-healing.\""
+    },
+    {
+      "question": "What is the main purpose of autoscaling in Cloud Native systems?",
+      "answer": "To automatically adjust computing resources based on demand. \"Autoscaling... add or reduce computing resources automatically to meet the current demand.\""
+    },
+    {
+      "question": "What is a cold start in Serverless computing?",
+      "answer": "A delay when a function runs after being idle for some time. \"Cold start... initialization takes some time (typically tens of seconds).\""
+    },
+    {
+      "question": "What does the Horizontal Pod Autoscaler (HPA) do?",
+      "answer": "It increases or decreases the number of pod replicas based on load. \"HPA... add more pods when the load goes up and remove pods when the load goes down.\""
+    },
+    {
+      "question": "What is the smallest unit of a Serverless application?",
+      "answer": "A function. \"Serverless... code is written as small functions that are triggered by events.\""
+    },
+    {
+      "question": "Does Cloud Native require running in the cloud?",
+      "answer": "No. \"A Cloud Native application is not strictly required to run in the cloud... can be followed on-premises.\""
+    },
+    {
+      "question": "What disqualifies an application from being Cloud Native?",
+      "answer": "Requiring manual intervention to start or scale. \"If your application requires manual intervention... it's not Cloud Native.\""
+    },
+    {
+      "question": "What are microservices?",
+      "answer": "Small, loosely coupled applications that communicate over the network. \"Microservices... small applications that work together as a part of a larger application.\""
+    },
+    {
+      "question": "How do microservices differ from monolithic applications?",
+      "answer": "Microservices are loosely coupled; monoliths bundle all logic together. \"Opposite of monolithic applications... tightly coupled.\""
+    },
+    {
+      "question": "Why are microservices commonly used in Cloud Native architectures?",
+      "answer": "They allow independent scaling, development, and updates. \"Microservices... can be scaled, developed, and updated individually.\""
+    },
+    {
+      "question": "Why is Kubernetes attractive for Cloud Native workloads?",
+      "answer": "It is infrastructure‑agnostic and supports automation. \"Kubernetes is also infrastructure‑agnostic... can run on bare-metal, VMs, cloud, hybrid.\""
+    },
+    {
+      "question": "What is reduced time to market (TTM)?",
+      "answer": "Delivering features faster due to automation. \"High degree of automation... deliver new features rapidly.\""
+    },
+    {
+      "question": "How does Cloud Native improve cost efficiency?",
+      "answer": "By scaling based on demand and eliminating waste. \"Scale based on demand... paying only for resources required.\""
+    },
+    {
+      "question": "How does Cloud Native improve reliability?",
+      "answer": "Through self-healing and automatic recovery. \"Cloud Native applications can self-heal and automatically recover from failures.\""
+    },
+    {
+      "question": "What is resiliency?",
+      "answer": "Ability to automatically recover from failures. \"Resiliency... can automatically recover from failures.\""
+    },
+    {
+      "question": "What is self-healing?",
+      "answer": "Automatic recovery without manual intervention. \"Ability to recover without manual intervention is called self-healing.\""
+    },
+    {
+      "question": "What Kubernetes mechanism enables self-healing?",
+      "answer": "The reconciliation loop. \"Kubernetes detected... desired state and current state were different... reconciliation loop.\""
+    },
+    {
+      "question": "What is autoscaling?",
+      "answer": "Automatically adding or reducing computing resources based on demand. \"Autoscaling... ability to add or reduce computing resources automatically.\""
+    },
+    {
+      "question": "Why was autoscaling a major improvement over traditional IT?",
+      "answer": "Traditional systems were sized for peak usage, causing waste. \"Applications... designed to account for peak usage... resulted in underutilized hardware.\""
+    },
+    {
+      "question": "What is horizontal scaling?",
+      "answer": "Adding or removing instances. \"Horizontal... add or reduce number of instances.\""
+    },
+    {
+      "question": "What is vertical scaling?",
+      "answer": "Increasing or decreasing instance size (CPU/RAM). \"Vertical... change configuration such as vCPUs or RAM.\""
+    },
+    {
+      "question": "Which scaling type is preferred for Cloud Native?",
+      "answer": "Horizontal scaling. \"Cloud Native microservice architectures commonly apply horizontal autoscaling.\""
+    },
+    {
+      "question": "What does the Horizontal Pod Autoscaler (HPA) do?",
+      "answer": "Adjusts the number of pod replicas based on load. \"HPA... add more pods when load goes up and remove pods when load goes down.\""
+    },
+    {
+      "question": "What does the Vertical Pod Autoscaler (VPA) do?",
+      "answer": "Adjusts container resource requests and limits. \"VPA... updates resource requests and limits based on historical usage.\""
+    },
+    {
+      "question": "What does the Cluster Autoscaler do?",
+      "answer": "Adds or removes worker nodes based on resource needs. \"Cluster Autoscaler... adjusts the size of the Kubernetes cluster.\""
+    },
+    {
+      "question": "Why must application and infrastructure scale together?",
+      "answer": "Scaling one without the other causes bottlenecks. \"Scaling one without another won't be sufficient.\""
+    },
+    {
+      "question": "What is Serverless computing?",
+      "answer": "Running code as small functions without managing servers. \"Serverless... code written as small functions... without the need to manage servers.\""
+    },
+    {
+      "question": "What triggers Serverless functions?",
+      "answer": "Events such as user actions or file uploads. \"Functions are triggered by events... user clicked a button, uploaded a file.\""
+    },
+    {
+      "question": "Do Serverless applications still run on servers?",
+      "answer": "Yes, but servers are abstracted away. \"Serverless computing still relies on real hardware servers underneath.\""
+    },
+    {
+      "question": "How is Serverless billed?",
+      "answer": "Based on actual function execution time. \"Most cloud providers won't charge anything when idle... billed by execution time.\""
+    },
+    {
+      "question": "What is a cold start in Serverless?",
+      "answer": "Delay when a function runs after being idle. \"Cold start... initialization takes time... tens of seconds.\""
+    },
+    {
+      "question": "What is an API Gateway in Serverless?",
+      "answer": "A component that exposes endpoints and routes requests to functions. \"API Gateway... define endpoints... connect those endpoints with functions.\""
+    },
+    {
+      "question": "Name two open source Serverless frameworks.",
+      "answer": "Knative and OpenFaaS. \"OpenFaaS... Knative... curated CNCF projects.\""
+    },
+    {
+      "question": "What is a limitation of Serverless?",
+      "answer": "Little control over runtime configuration. \"Little to no control over runtime configuration... cannot change OS or JVM parameters.\""
+    },
+    {
+      "question": "Why can Serverless lead to vendor lock-in?",
+      "answer": "FaaS offerings are not standardized. \"FaaS offerings are not standardized... migrating requires significant work.\""
+    },
+    {
+      "question": "What is loose coupling?",
+      "answer": "Designing microservices that operate independently. \"Apply the principle of loose coupling... microservices performing small tasks.\""
+    },
+    {
+      "question": "Why is loose coupling important?",
+      "answer": "It improves scalability and resilience. \"Loose coupling... fits well with Cloud Native architectures.\""
+    },
+    {
+      "question": "What is Chaos Monkey?",
+      "answer": "A tool that randomly terminates VMs/containers to test resiliency. \"Netflix... Chaos Monkey... randomly terminates VMs and containers.\""
+    },
+    {
+      "question": "Why introduce random failures in infrastructure?",
+      "answer": "To detect weak spots and improve resiliency. \"Detect weak spots that need improvement or redesign.\""
+    },
+    {
+      "question": "Why should Cloud Native apps run multiple replicas?",
+      "answer": "To ensure availability during failures. \"Always run at least two replicas... spread across topology.\""
+    },
+    {
+      "question": "What Kubernetes feature helps self-heal failed pods?",
+      "answer": "The reconciliation loop. \"Reconciliation loop will kick in and self-heal the application.\""
+    },
+    {
+      "question": "Why configure resource requests and limits?",
+      "answer": "To help Kubernetes schedule optimally and avoid overload. \"Helps K8s schedule pods in an optimal way.\""
+    },
+    {
+      "question": "What is event-driven architecture?",
+      "answer": "Systems reacting to events, often used in Serverless. \"Consider event-driven Serverless architecture if it fits your scenarios.\""
+    },
+    {
+      "question": "Why is automation important in Cloud Native?",
+      "answer": "It speeds up delivery and reduces errors. \"High degree of automation... deliver software faster and more reliably.\""
+    },
+    {
+      "question": "Can Cloud Native principles be applied on-premises?",
+      "answer": "Yes. \"Cloud Native principles can be successfully applied also on-premises.\""
+    },
+    {
+      "question": "What is vendor lock-in?",
+      "answer": "Dependence on a provider’s proprietary technology. \"Migrating from one provider to another requires significant work.\""
+    },
+    {
+      "question": "What is the main benefit of autoscaling?",
+      "answer": "Balancing performance and cost. \"Autoscaling... required to strike a balance between workload performance and infrastructure size and costs.\""
+    },
+    {
+      "question": "What is the smallest unit of a Serverless application?",
+      "answer": "A function. \"Small functions... triggered by events.\""
+    },
+    {
+      "question": "What is the key difference between HPA and VPA?",
+      "answer": "HPA changes replica count; VPA changes resource sizes. \"HPA... add more pods; VPA... updates resource requests and limits.\""
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "label": "Chapter 9 - Understanding Cloud Native Architectures",
+  "multipleChoice": [
+    {
+      "question": "What is the primary focus of Cloud Native architectures?",
+      "answer": "Building applications with resiliency, scalability, automation, and observability",
+      "options": ["Reducing storage usage", "Building monolithic applications", "Building applications with resiliency, scalability, automation, and observability", "Running only on public cloud"],
+      "correctIndex": 2,
+      "explanation": "The chapter defines Cloud Native as emphasizing resiliency, scalability, automation, and observability."
+    },
+    {
+      "question": "Do Cloud Native applications have to run in the cloud?",
+      "answer": "No, they can also run on-premises",
+      "options": ["Yes, always", "Only hybrid cloud", "No, they can run on-premises", "Only private cloud"],
+      "correctIndex": 2,
+      "explanation": "Cloud Native is an approach, not tied to cloud infrastructure."
+    },
+    {
+      "question": "Which of the following disqualifies an application from being Cloud Native?",
+      "answer": "Requiring manual intervention to start or scale",
+      "options": ["Using containers", "Using microservices", "Requiring manual intervention", "Running on VMs"],
+      "correctIndex": 2,
+      "explanation": "Manual intervention prevents automation and self-healing."
+    },
+    {
+      "question": "What are microservices?",
+      "answer": "Small applications responsible for individual features communicating over the network",
+      "options": ["Large monolithic applications", "Small applications responsible for individual features", "Scripts running on servers", "Database clusters"],
+      "correctIndex": 1,
+      "explanation": "Microservices are small, loosely coupled components."
+    },
+    {
+      "question": "Which is a benefit of microservices?",
+      "answer": "Independent scaling and updates",
+      "options": ["Single deployment unit", "Shared memory space", "Independent scaling and updates", "Requires no networking"],
+      "correctIndex": 2,
+      "explanation": "Microservices allow independent scaling and development."
+    },
+    {
+      "question": "Which of the following is NOT a benefit of Cloud Native?",
+      "answer": "Vendor lock-in",
+      "options": ["Reduced time to market", "Higher reliability", "Vendor lock-in", "Cost efficiency"],
+      "correctIndex": 2,
+      "explanation": "Cloud Native aims to avoid vendor lock-in."
+    },
+    {
+      "question": "What is resiliency?",
+      "answer": "Ability to automatically recover from failures",
+      "options": ["Ability to scale", "Ability to log events", "Ability to automatically recover from failures", "Ability to run on-premises"],
+      "correctIndex": 2,
+      "explanation": "Resiliency is defined as automatic recovery."
+    },
+    {
+      "question": "Which Kubernetes mechanism enables self-healing?",
+      "answer": "Reconciliation loop",
+      "options": ["Ingress controller", "Scheduler", "Reconciliation loop", "Kube-proxy"],
+      "correctIndex": 2,
+      "explanation": "The reconciliation loop restores desired state."
+    },
+    {
+      "question": "What is autoscaling?",
+      "answer": "Automatically adjusting computing resources based on demand",
+      "options": ["Manual scaling", "Adjusting logs", "Automatically adjusting resources", "Restarting pods"],
+      "correctIndex": 2,
+      "explanation": "Autoscaling adds or removes resources automatically."
+    },
+    {
+      "question": "Why is autoscaling important?",
+      "answer": "It balances performance and cost",
+      "options": ["It reduces logs", "It increases storage", "It balances performance and cost", "It removes the need for monitoring"],
+      "correctIndex": 2,
+      "explanation": "Autoscaling prevents waste and ensures performance."
+    },
+    {
+      "question": "What is horizontal scaling?",
+      "answer": "Adding or removing instances",
+      "options": ["Adding CPU to a VM", "Adding RAM to a VM", "Adding or removing instances", "Changing OS settings"],
+      "correctIndex": 2,
+      "explanation": "Horizontal scaling increases the number of instances."
+    },
+
+    {
+      "question": "Which statement best describes a Cloud Native application?",
+      "answer": "It is designed for resiliency, automation, and scalability.",
+      "options": ["It must run only in the cloud", "It is designed for resiliency, automation, and scalability", "It must use VMs", "It cannot run on-premises"],
+      "correctIndex": 1,
+      "explanation": "Cloud Native emphasizes resiliency, scalability, automation, and observability."
+    },
+    {
+      "question": "Which of the following is a key benefit of Cloud Native architectures?",
+      "answer": "Reduced time to market",
+      "options": ["Reduced storage usage", "Reduced time to market", "Guaranteed vendor lock-in", "No need for automation"],
+      "correctIndex": 1,
+      "explanation": "Automation and easy updates accelerate delivery."
+    },
+    {
+      "question": "Which scaling method adds more instances of a service?",
+      "answer": "Horizontal scaling",
+      "options": ["Vertical scaling", "Horizontal scaling", "Cold scaling", "Static scaling"],
+      "correctIndex": 1,
+      "explanation": "Horizontal scaling increases the number of instances."
+    },
+    {
+      "question": "Which Kubernetes autoscaler adjusts resource requests and limits?",
+      "answer": "Vertical Pod Autoscaler (VPA)",
+      "options": ["HPA", "Cluster Autoscaler", "VPA", "Node Autoscaler"],
+      "correctIndex": 2,
+      "explanation": "VPA modifies CPU/memory requests and limits."
+    },
+    {
+      "question": "Which Kubernetes autoscaler adds or removes worker nodes?",
+      "answer": "Cluster Autoscaler",
+      "options": ["HPA", "VPA", "Cluster Autoscaler", "Replica Autoscaler"],
+      "correctIndex": 2,
+      "explanation": "Cluster Autoscaler adjusts node count."
+    },
+    {
+      "question": "What triggers Serverless functions?",
+      "answer": "Events",
+      "options": ["Manual commands", "Scheduled cron jobs only", "Events", "Node restarts"],
+      "correctIndex": 2,
+      "explanation": "Serverless is event-driven."
+    },
+    {
+      "question": "Which of the following is an open source Serverless framework?",
+      "answer": "Knative",
+      "options": ["Terraform", "Knative", "Grafana", "Harbor"],
+      "correctIndex": 1,
+      "explanation": "Knative is a CNCF Serverless project."
+    },
+    {
+      "question": "Which of the following is a limitation of Serverless?",
+      "answer": "Cold start delays",
+      "options": ["Requires Kubernetes", "Cold start delays", "Cannot scale", "No event support"],
+      "correctIndex": 1,
+      "explanation": "Cold starts occur when functions haven't run recently."
+    },
+    {
+      "question": "Which principle is essential for Cloud Native microservice design?",
+      "answer": "Loose coupling",
+      "options": ["Tight coupling", "Loose coupling", "Single large service", "Shared memory"],
+      "correctIndex": 1,
+      "explanation": "Loose coupling improves scalability and resilience."
+    },
+    {
+      "question": "What is the purpose of Chaos Monkey?",
+      "answer": "To randomly terminate resources to test resiliency",
+      "options": ["To scale pods", "To encrypt traffic", "To randomly terminate resources", "To monitor logs"],
+      "correctIndex": 2,
+      "explanation": "Chaos Monkey injects failures to test system robustness."
+    },
+    {
+      "question": "Which of the following must scale together for effective autoscaling?",
+      "answer": "Application and infrastructure",
+      "options": ["Only the application", "Only the infrastructure", "Application and infrastructure", "Only the database"],
+      "correctIndex": 2,
+      "explanation": "Scaling one without the other causes bottlenecks."
+    },
+    {
+      "question": "Which of the following describes Serverless billing?",
+      "answer": "Billed only for actual function execution time",
+      "options": ["Billed hourly", "Billed monthly", "Billed only for execution time", "Billed per VM uptime"],
+      "correctIndex": 2,
+      "explanation": "Serverless charges based on actual usage."
+    },
+    {
+      "question": "What is vertical scaling?",
+      "answer": "Increasing CPU/RAM of an instance",
+      "options": ["Adding more replicas", "Increasing CPU/RAM of an instance", "Adding more nodes", "Adding more pods"],
+      "correctIndex": 1,
+      "explanation": "Vertical scaling increases instance size."
+    },
+    {
+      "question": "Which scaling type is preferred for Cloud Native?",
+      "answer": "Horizontal scaling",
+      "options": ["Vertical scaling", "Horizontal scaling", "Manual scaling", "Static scaling"],
+      "correctIndex": 1,
+      "explanation": "Horizontal scaling is more flexible and scalable."
+    },
+    {
+      "question": "What does the Horizontal Pod Autoscaler (HPA) adjust?",
+      "answer": "Number of pod replicas",
+      "options": ["Node count", "Container image", "Number of pod replicas", "Pod labels"],
+      "correctIndex": 2,
+      "explanation": "HPA increases or decreases pod replicas."
+    },
+    {
+      "question": "What does the Vertical Pod Autoscaler (VPA) adjust?",
+      "answer": "Container resource requests and limits",
+      "options": ["Replica count", "Node count", "Container resource requests and limits", "Pod labels"],
+      "correctIndex": 2,
+      "explanation": "VPA adjusts CPU/memory requests and limits."
+    },
+    {
+      "question": "What does the Cluster Autoscaler adjust?",
+      "answer": "Number of worker nodes",
+      "options": ["Pod replicas", "Container limits", "Number of worker nodes", "Ingress rules"],
+      "correctIndex": 2,
+      "explanation": "Cluster Autoscaler adds/removes nodes."
+    },
+    {
+      "question": "What is Serverless computing?",
+      "answer": "Running code as small functions without managing servers",
+      "options": ["Running VMs", "Running containers manually", "Running code as small functions", "Running monoliths"],
+      "correctIndex": 2,
+      "explanation": "Serverless abstracts server management."
+    },
+    {
+      "question": "What triggers Serverless functions?",
+      "answer": "Events",
+      "options": ["Cron jobs only", "Manual triggers", "Events", "Node restarts"],
+      "correctIndex": 2,
+      "explanation": "Serverless functions are event-driven."
+    },
+    {
+      "question": "How is Serverless billed?",
+      "answer": "Based on actual function execution time",
+      "options": ["Hourly", "Monthly", "Based on execution time", "Based on storage"],
+      "correctIndex": 2,
+      "explanation": "Serverless charges only for execution time."
+    },
+    {
+      "question": "What is a cold start?",
+      "answer": "Delay when a function runs after being idle",
+      "options": ["A failed function", "A scaling event", "Delay after idle period", "A network timeout"],
+      "correctIndex": 2,
+      "explanation": "Cold starts occur when functions haven't run recently."
+    },
+    {
+      "question": "What is an API Gateway in Serverless?",
+      "answer": "A component that exposes endpoints and routes requests to functions",
+      "options": ["A load balancer", "A DNS server", "A component routing requests to functions", "A database"],
+      "correctIndex": 2,
+      "explanation": "API Gateway connects endpoints to functions."
+    },
+    {
+      "question": "Which is an open source Serverless framework?",
+      "answer": "Knative",
+      "options": ["KubeVirt", "Knative", "Terraform", "Prometheus"],
+      "correctIndex": 1,
+      "explanation": "Knative is a CNCF Serverless project."
+    },
+    {
+      "question": "Which is another open source Serverless framework?",
+      "answer": "OpenFaaS",
+      "options": ["Grafana", "OpenFaaS", "Istio", "Harbor"],
+      "correctIndex": 1,
+      "explanation": "OpenFaaS runs functions on Kubernetes."
+    },
+    {
+      "question": "Which is a limitation of Serverless?",
+      "answer": "Little control over runtime configuration",
+      "options": ["No scaling", "High cost", "Little runtime control", "Requires VMs"],
+      "correctIndex": 2,
+      "explanation": "Serverless restricts OS/JVM configuration."
+    },
+    {
+      "question": "Why is Serverless debugging harder?",
+      "answer": "Limited ability to inspect runtime environment",
+      "options": ["No logs", "Limited debugging tools", "No metrics", "No scaling"],
+      "correctIndex": 1,
+      "explanation": "Debugging is limited compared to full servers."
+    },
+    {
+      "question": "What is a major risk of Serverless?",
+      "answer": "Vendor lock-in",
+      "options": ["High cost", "Slow performance", "Vendor lock-in", "No scaling"],
+      "correctIndex": 2,
+      "explanation": "FaaS offerings are not standardized."
+    },
+    {
+      "question": "What is loose coupling?",
+      "answer": "Designing microservices to operate independently",
+      "options": ["Sharing memory", "Sharing databases", "Independent operation", "Running on one node"],
+      "correctIndex": 2,
+      "explanation": "Loose coupling improves flexibility."
+    },
+    {
+      "question": "Why is loose coupling important?",
+      "answer": "It improves scalability and resilience",
+      "options": ["It reduces logs", "It increases storage", "It improves scalability", "It reduces CPU usage"],
+      "correctIndex": 2,
+      "explanation": "Loose coupling enables independent scaling."
+    },
+    {
+      "question": "What is Chaos Monkey?",
+      "answer": "A tool that randomly terminates VMs/containers",
+      "options": ["A scheduler", "A logging tool", "A chaos testing tool", "A monitoring agent"],
+      "correctIndex": 2,
+      "explanation": "Chaos Monkey tests resiliency by injecting failures."
+    },
+    {
+      "question": "Why introduce random failures?",
+      "answer": "To identify weak points in the system",
+      "options": ["To reduce cost", "To test resiliency", "To reduce logs", "To scale nodes"],
+      "correctIndex": 1,
+      "explanation": "Chaos testing reveals weaknesses."
+    },
+    {
+      "question": "Why run multiple replicas of an application?",
+      "answer": "To ensure availability during failures",
+      "options": ["To reduce CPU usage", "To reduce logs", "To ensure availability", "To reduce storage"],
+      "correctIndex": 2,
+      "explanation": "Multiple replicas improve resiliency."
+    },
+    {
+      "question": "Why spread replicas across zones?",
+      "answer": "To survive zone-level failures",
+      "options": ["To reduce cost", "To reduce latency", "To survive zone failures", "To reduce logs"],
+      "correctIndex": 2,
+      "explanation": "Spreading replicas improves availability."
+    },
+    {
+      "question": "Why configure resource requests and limits?",
+      "answer": "To help Kubernetes schedule optimally",
+      "options": ["To reduce YAML size", "To reduce logs", "To help scheduling", "To reduce CPU usage"],
+      "correctIndex": 2,
+      "explanation": "Requests/limits guide scheduling decisions."
+    },
+    {
+      "question": "What is event-driven architecture?",
+      "answer": "Systems reacting to events, often used in Serverless",
+      "options": ["Systems reacting to logs", "Systems reacting to CPU usage", "Systems reacting to events", "Systems reacting to storage"],
+      "correctIndex": 2,
+      "explanation": "Serverless is event-driven."
+    },
+    {
+      "question": "Why is automation important in Cloud Native?",
+      "answer": "It speeds up delivery and reduces errors",
+      "options": ["It increases logs", "It reduces CPU usage", "It speeds up delivery", "It reduces storage"],
+      "correctIndex": 2,
+      "explanation": "Automation improves reliability and speed."
+    },
+    {
+      "question": "Can Cloud Native principles be applied outside the cloud?",
+      "answer": "Yes, including on-premises",
+      "options": ["No", "Only in cloud", "Yes, on-premises too", "Only hybrid cloud"],
+      "correctIndex": 2,
+      "explanation": "Cloud Native is an approach, not a location."
+    },
+    {
+      "question": "What is the smallest unit of a Serverless application?",
+      "answer": "A function",
+      "options": ["A pod", "A container", "A function", "A VM"],
+      "correctIndex": 2,
+      "explanation": "Serverless is function-based."
+    },
+    {
+      "question": "What is the key difference between HPA and VPA?",
+      "answer": "HPA changes replica count; VPA changes resource sizes",
+      "options": ["HPA changes nodes", "VPA changes replicas", "HPA changes replicas; VPA changes resources", "Both change replicas"],
+      "correctIndex": 2,
+      "explanation": "HPA scales out; VPA scales up."
+    }
+  ]
+}

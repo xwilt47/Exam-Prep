@@ -1,0 +1,355 @@
+{
+  "label": "Chapter 7 - Application Placement and Debugging with Kubernetes",
+  "multipleChoice": [
+    {
+      "question": "What is the role of the Kubernetes scheduler?",
+      "answer": "Assign Pods to nodes for the kubelet to run them.",
+      "options": ["Run containers", "Assign Pods to nodes", "Store cluster data", "Manage networking"],
+      "correctIndex": 1,
+      "explanation": "\"Scheduling is the process of assigning Pods to Kubernetes nodes for the kubelet to run them.\""
+    },
+    {
+      "question": "Which component performs scheduling in Kubernetes?",
+      "answer": "kube-scheduler",
+      "options": ["kubelet", "kube-proxy", "kube-scheduler", "controller-manager"],
+      "correctIndex": 2,
+      "explanation": "The scheduler decides which node a Pod will run on."
+    },
+    {
+      "question": "What are the two stages of Kubernetes scheduling?",
+      "answer": "Filtering and scoring",
+      "options": ["Scoring and ranking", "Filtering and scoring", "Binding and running", "Sorting and selecting"],
+      "correctIndex": 1,
+      "explanation": "The scheduler first filters nodes, then scores them."
+    },
+    {
+      "question": "What happens during the filtering stage?",
+      "answer": "Nodes that meet Pod requirements are selected.",
+      "options": ["Nodes are ranked", "Pods are created", "Nodes are filtered by labels", "Nodes meeting requirements are selected"],
+      "correctIndex": 3,
+      "explanation": "Filtering determines feasible nodes."
+    },
+    {
+      "question": "What happens during the scoring stage?",
+      "answer": "Nodes are ranked and the highest score is chosen.",
+      "options": ["Nodes are labeled", "Pods are restarted", "Nodes are ranked", "Pods are deleted"],
+      "correctIndex": 2,
+      "explanation": "Scoring ranks nodes to pick the best one."
+    },
+    {
+      "question": "What does nodeSelector do?",
+      "answer": "Schedules Pods only on nodes with matching labels.",
+      "options": ["Assigns Pods randomly", "Labels Pods", "Schedules Pods on matching nodes", "Creates new nodes"],
+      "correctIndex": 2,
+      "explanation": "nodeSelector restricts Pods to labeled nodes."
+    },
+    {
+      "question": "What happens if no node matches a Pod’s nodeSelector?",
+      "answer": "The Pod remains Pending.",
+      "options": ["Pod is deleted", "Pod runs anyway", "Pod remains Pending", "Node is relabeled"],
+      "correctIndex": 2,
+      "explanation": "Pods stay Pending when no suitable node exists."
+    },
+    {
+      "question": "How do you label a node?",
+      "answer": "kubectl label node <node> key=value",
+      "options": ["kubectl tag node", "kubectl annotate node", "kubectl label node", "kubectl set node"],
+      "correctIndex": 2,
+      "explanation": "Labeling nodes enables scheduling rules."
+    },
+    {
+      "question": "What does nodeName do?",
+      "answer": "Forces a Pod to run on a specific node.",
+      "options": ["Labels a node", "Forces Pod to run on a node", "Creates a node", "Deletes a node"],
+      "correctIndex": 1,
+      "explanation": "nodeName bypasses scheduling logic."
+    },
+    {
+      "question": "What is nodeAffinity?",
+      "answer": "Rules that attract Pods to specific nodes.",
+      "options": ["Rules for Pod networking", "Rules for Pod storage", "Rules for node selection", "Rules for Pod deletion"],
+      "correctIndex": 2,
+      "explanation": "nodeAffinity is more flexible than nodeSelector."
+    },
+    {
+      "question": "What is podAffinity?",
+      "answer": "Rules that schedule Pods near other Pods.",
+      "options": ["Rules for Pod deletion", "Rules for Pod networking", "Rules for Pod grouping", "Rules for Pod proximity"],
+      "correctIndex": 3,
+      "explanation": "podAffinity places Pods close to others."
+    },
+    {
+      "question": "What is nodeAntiAffinity?",
+      "answer": "Rules preventing Pods from running on certain nodes.",
+      "options": ["Rules for Pod grouping", "Rules preventing scheduling on nodes", "Rules for Pod deletion", "Rules for Pod scaling"],
+      "correctIndex": 1,
+      "explanation": "nodeAntiAffinity avoids certain nodes."
+    },
+    {
+      "question": "What is podAntiAffinity?",
+      "answer": "Rules preventing Pods from running near certain Pods.",
+      "options": ["Rules for Pod scaling", "Rules for Pod deletion", "Rules preventing Pod proximity", "Rules for Pod networking"],
+      "correctIndex": 2,
+      "explanation": "podAntiAffinity spreads Pods apart."
+    },
+    {
+      "question": "What is requiredDuringSchedulingIgnoredDuringExecution?",
+      "answer": "A hard affinity rule.",
+      "options": ["Soft rule", "Hard rule", "Node label", "Pod label"],
+      "correctIndex": 1,
+      "explanation": "Hard rules must be satisfied for scheduling."
+    },
+    {
+      "question": "What is preferredDuringSchedulingIgnoredDuringExecution?",
+      "answer": "A soft affinity rule.",
+      "options": ["Hard rule", "Soft rule", "Node label", "Pod label"],
+      "correctIndex": 1,
+      "explanation": "Soft rules influence but do not block scheduling."
+    },
+    {
+      "question": "What does IgnoredDuringExecution mean?",
+      "answer": "Pods continue running even if labels change.",
+      "options": ["Pods restart", "Pods move nodes", "Pods continue running", "Pods are deleted"],
+      "correctIndex": 2,
+      "explanation": "Label changes do not evict Pods."
+    },
+    {
+      "question": "What are topology spread constraints used for?",
+      "answer": "To distribute Pods across failure domains.",
+      "options": ["To delete Pods", "To scale Pods", "To spread Pods across zones", "To label Pods"],
+      "correctIndex": 2,
+      "explanation": "They improve availability across AZs."
+    },
+    {
+      "question": "What is an Availability Zone (AZ)?",
+      "answer": "A discrete data center with redundant power and networking.",
+      "options": ["A Pod", "A node", "A data center", "A cluster"],
+      "correctIndex": 2,
+      "explanation": "AZs isolate failures."
+    },
+    {
+      "question": "Can multiple scheduling rules be combined?",
+      "answer": "Yes, and all must be satisfied.",
+      "options": ["No", "Only two", "Yes", "Only affinity rules"],
+      "correctIndex": 2,
+      "explanation": "Multiple rules can be combined."
+    },
+    {
+      "question": "What are resource requests?",
+      "answer": "The minimum resources a container needs.",
+      "options": ["Max resources", "Min resources", "Node resources", "Pod labels"],
+      "correctIndex": 1,
+      "explanation": "Requests reserve resources on nodes."
+    },
+    {
+      "question": "What are resource limits?",
+      "answer": "The maximum resources a container can consume.",
+      "options": ["Min resources", "Max resources", "Node limits", "Pod limits"],
+      "correctIndex": 1,
+      "explanation": "Limits prevent resource overuse."
+    },
+    {
+      "question": "What happens if a container exceeds its memory limit?",
+      "answer": "It is killed with OOMKilled.",
+      "options": ["Throttled", "Restarted", "OOMKilled", "Ignored"],
+      "correctIndex": 2,
+      "explanation": "Memory overuse triggers OOM kill."
+    },
+    {
+      "question": "What happens if a container exceeds its CPU limit?",
+      "answer": "It is throttled.",
+      "options": ["Killed", "Restarted", "Throttled", "Deleted"],
+      "correctIndex": 2,
+      "explanation": "CPU overuse results in throttling."
+    },
+    {
+      "question": "What does 500m CPU mean?",
+      "answer": "Half a CPU core.",
+      "options": ["500 cores", "Half a core", "5 cores", "0.05 cores"],
+      "correctIndex": 1,
+      "explanation": "m stands for milliCPU."
+    },
+    {
+      "question": "What happens if a limit is set but no request?",
+      "answer": "The limit is copied as the request.",
+      "options": ["Request is zero", "Pod fails", "Limit becomes request", "Node restarts"],
+      "correctIndex": 2,
+      "explanation": "Kubernetes defaults request to limit."
+    },
+    {
+      "question": "What is CrashLoopBackOff?",
+      "answer": "A state where a container repeatedly crashes.",
+      "options": ["Pod pending", "Pod running", "Container crash loop", "Node failure"],
+      "correctIndex": 2,
+      "explanation": "CrashLoopBackOff indicates repeated failures."
+    },
+    {
+      "question": "What command retrieves Pod logs?",
+      "answer": "kubectl logs",
+      "options": ["kubectl get logs", "kubectl logs", "kubectl show logs", "kubectl describe logs"],
+      "correctIndex": 1,
+      "explanation": "kubectl logs fetches container logs."
+    },
+    {
+      "question": "How do you get logs from a previous container instance?",
+      "answer": "kubectl logs --previous",
+      "options": ["kubectl logs old", "kubectl logs -p", "kubectl logs --previous", "kubectl logs last"],
+      "correctIndex": 2,
+      "explanation": "The --previous flag retrieves prior logs."
+    },
+    {
+      "question": "Where should applications write logs?",
+      "answer": "stdout and stderr",
+      "options": ["/var/log", "stdout/stderr", "ConfigMap", "Secret"],
+      "correctIndex": 1,
+      "explanation": "Kubernetes expects logs on stdout/stderr."
+    },
+    {
+      "question": "What is a logging sidecar?",
+      "answer": "A helper container that collects logs.",
+      "options": ["A Pod", "A node", "A helper container", "A scheduler"],
+      "correctIndex": 2,
+      "explanation": "Sidecars forward logs."
+    },
+    {
+      "question": "What is cluster-level logging?",
+      "answer": "Centralized log storage independent of Pods.",
+      "options": ["Local logs", "Pod logs", "Centralized logging", "Node logs"],
+      "correctIndex": 2,
+      "explanation": "Cluster-level logging persists logs."
+    },
+    {
+      "question": "What is a node logging agent?",
+      "answer": "A DaemonSet that collects logs from each node.",
+      "options": ["A Pod", "A Deployment", "A DaemonSet", "A Job"],
+      "correctIndex": 2,
+      "explanation": "Logging agents run on every node."
+    },
+    {
+      "question": "What command retrieves Kubernetes events?",
+      "answer": "kubectl get events",
+      "options": ["kubectl events", "kubectl logs events", "kubectl get events", "kubectl show events"],
+      "correctIndex": 2,
+      "explanation": "Events show recent cluster activity."
+    },
+    {
+      "question": "What are Kubernetes events?",
+      "answer": "Records documenting changes in resource state.",
+      "options": ["Logs", "Metrics", "State change records", "Pod specs"],
+      "correctIndex": 2,
+      "explanation": "Events track state changes."
+    },
+    {
+      "question": "How long are events kept by default?",
+      "answer": "One hour",
+      "options": ["10 minutes", "1 hour", "24 hours", "1 week"],
+      "correctIndex": 1,
+      "explanation": "Events expire after one hour."
+    },
+    {
+      "question": "What is kubectl port-forward used for?",
+      "answer": "Forwarding local ports to a Pod.",
+      "options": ["Copy files", "Run commands", "Forward ports", "Restart Pods"],
+      "correctIndex": 2,
+      "explanation": "Port forwarding helps debugging."
+    },
+    {
+      "question": "What is kubectl exec used for?",
+      "answer": "Running commands inside a container.",
+      "options": ["Copy files", "Run commands", "Delete Pods", "Scale Pods"],
+      "correctIndex": 1,
+      "explanation": "kubectl exec opens a shell or runs commands."
+    },
+    {
+      "question": "How do you open an interactive shell inside a container?",
+      "answer": "kubectl exec -it <pod> -- bash",
+      "options": ["kubectl shell", "kubectl run bash", "kubectl exec -it", "kubectl attach bash"],
+      "correctIndex": 2,
+      "explanation": "exec -it opens an interactive shell."
+    },
+    {
+      "question": "What is kubectl cp used for?",
+      "answer": "Copying files between local machine and containers.",
+      "options": ["Copy logs", "Copy nodes", "Copy files", "Copy Pods"],
+      "correctIndex": 2,
+      "explanation": "kubectl cp works like scp."
+    },
+    {
+      "question": "What does Pending status indicate?",
+      "answer": "Pod cannot be scheduled.",
+      "options": ["Pod running", "Pod failed", "Pod unscheduled", "Pod deleted"],
+      "correctIndex": 2,
+      "explanation": "Pending means no suitable node."
+    },
+    {
+      "question": "What does ContainerCreating mean?",
+      "answer": "Kubernetes is pulling the image and starting the container.",
+      "options": ["Pod failed", "Pod running", "Container starting", "Node restarting"],
+      "correctIndex": 2,
+      "explanation": "ContainerCreating is an initialization state."
+    },
+    {
+      "question": "What does OOMKilled mean?",
+      "answer": "Container exceeded memory limit.",
+      "options": ["CPU throttled", "Node failed", "Memory exceeded", "Pod deleted"],
+      "correctIndex": 2,
+      "explanation": "OOMKilled indicates memory overuse."
+    },
+    {
+      "question": "What does CrashLoopBackOff indicate?",
+      "answer": "Container repeatedly crashes after restart attempts.",
+      "options": ["Pod pending", "Node failure", "Repeated crashes", "Pod scaling"],
+      "correctIndex": 2,
+      "explanation": "CrashLoopBackOff is a repeated crash state."
+    },
+    {
+      "question": "What is kubectl describe used for?",
+      "answer": "Viewing detailed information and events for a resource.",
+      "options": ["Delete resources", "Scale resources", "Describe resources", "Copy resources"],
+      "correctIndex": 2,
+      "explanation": "describe shows detailed resource info."
+    },
+    {
+      "question": "What is the best practice for resource configuration?",
+      "answer": "Always set both requests and limits.",
+      "options": ["Set only limits", "Set only requests", "Set both", "Set none"],
+      "correctIndex": 2,
+      "explanation": "Requests and limits ensure stability."
+    },
+    {
+      "question": "What is the scheduler’s infinite loop responsible for?",
+      "answer": "Watching for unscheduled Pods and assigning nodes.",
+      "options": ["Restarting nodes", "Deleting Pods", "Assigning Pods", "Scaling Pods"],
+      "correctIndex": 2,
+      "explanation": "Scheduler continuously assigns Pods."
+    },
+    {
+      "question": "What does a Pod in Pending state usually indicate?",
+      "answer": "The scheduler cannot find a suitable node that meets the Pod’s requirements.",
+      "options": ["The Pod image is corrupted", "The scheduler cannot find a suitable node", "The Pod has crashed", "The node is rebooting"],
+      "correctIndex": 1,
+      "explanation": "The chapter shows a Pending Pod when no node matches the nodeSelector or affinity rules."
+    },
+    {
+      "question": "Which scheduling rule type allows a Pod to be scheduled even if the rule is not satisfied?",
+      "answer": "preferredDuringSchedulingIgnoredDuringExecution",
+      "options": ["requiredDuringSchedulingIgnoredDuringExecution", "preferredDuringSchedulingIgnoredDuringExecution", "nodeName", "topologySpreadRequired"],
+      "correctIndex": 1,
+      "explanation": "Preferred rules are soft requirements; Pods can still be scheduled if not met."
+    },
+    {
+      "question": "What is the purpose of topology spread constraints?",
+      "answer": "To distribute Pods evenly across failure domains such as zones or nodes.",
+      "options": ["To force Pods onto a single node", "To delete Pods in unhealthy zones", "To distribute Pods across failure domains", "To increase Pod CPU limits"],
+      "correctIndex": 2,
+      "explanation": "The chapter states topology spread constraints help spread Pods across zones or nodes."
+    },
+    {
+      "question": "Which command is used to inspect detailed scheduling and event information for a Pod?",
+      "answer": "kubectl describe pod <pod-name>",
+      "options": ["kubectl logs <pod-name>", "kubectl get pods", "kubectl describe pod <pod-name>", "kubectl exec <pod-name>"],
+      "correctIndex": 2,
+      "explanation": "kubectl describe shows detailed Pod info including scheduling failures and events."
+    }
+  ]
+}
